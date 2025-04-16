@@ -187,3 +187,4 @@ C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\scopedcss\bundle\BaseBallA
 C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBall.A14AF4E3.Up2Date
 C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.genruntimeconfig.cache
 C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\ref\BaseBallApp.API.dll
+C:\local\BaseBallApp\BaseBallApp.API\bin\Debug\net8.0\BaseBallApp.API.staticwebassets.runtime.json

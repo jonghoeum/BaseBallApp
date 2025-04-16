@@ -16,7 +16,7 @@ namespace BaseBallApp.API.Controllers
 		}
 
 		[HttpGet]
-		public async Task<ActionResult<IEnumerable<TrophyClass>>> Get()
+		public async Task<ActionResult<IEnumerable<TrophyClass>>> GetTrophiesAsync()
 		{
 
 			using var transaction = await _db.Database.BeginTransactionAsync();
@@ -38,35 +38,35 @@ namespace BaseBallApp.API.Controllers
 			}
 
 		}
-        [HttpPost("upload")]
-        public async Task<IActionResult> UploadFile(IFormFile file)
-        {
-            if (file == null || file.Length == 0)
-                return BadRequest("파일이 없습니다.");
+		[HttpPost("upload")]
+		public async Task<IActionResult> UploadFile(IFormFile file)
+		{
+			if (file == null || file.Length == 0)
+				return BadRequest("파일이 없습니다.");
 
-            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
-            Directory.CreateDirectory(uploadsFolder);
+			var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+			Directory.CreateDirectory(uploadsFolder);
 
-            var uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";
-            var fullFilePath = Path.Combine(uploadsFolder, uniqueFileName);
+			var uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";
+			var fullFilePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-            using (var stream = new FileStream(fullFilePath, FileMode.Create))
-            {
-                await file.CopyToAsync(stream);
-            }
+			using (var stream = new FileStream(fullFilePath, FileMode.Create))
+			{
+				await file.CopyToAsync(stream);
+			}
 
-            var relativePath = $"uploads/{uniqueFileName}"; // 클라이언트에 전달할 경로
-            return Ok(relativePath);
-        }
+			var relativePath = $"uploads/{uniqueFileName}"; // 클라이언트에 전달할 경로
+			return Ok(relativePath);
+		}
 
-        [HttpPost("insert")]
+		[HttpPost("insert")]
 		public async Task<IActionResult> InsertTrophy([FromForm] TrophyClass request)
 		{
 			using var transaction = await _db.Database.BeginTransactionAsync();
 
 			try
 			{
-				var sql = "INSERT INTO dbo.Trophy (TITLE, CONTENT, FILE, FILENAME) VALUES (@P0, @P1, @P2, @P3)";
+				var sql = "INSERT INTO dbo.Trophy (TITLE, CONTENT, [FILE], FILENAME) VALUES (@P0, @P1, @P2, @P3)";
 				var result = await _db.Database.ExecuteSqlRawAsync(sql, request.TITLE, request.CONTENT, request.FILE,request.FILENAME);
 
 				await transaction.CommitAsync();
