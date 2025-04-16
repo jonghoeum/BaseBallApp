@@ -105,6 +105,14 @@
 
 			</div>
 		</div>
+		<div>
+			<input @bind="trophys.TITLE" placeholder="제목" />
+			<input @bind="trophys.CONTENT" placeholder="내용" />
+			<FileUploader UploadUrl="api/trophy/upload"
+						  OnUploadSuccess="HandleFileUploaded" />
+
+			<button @onclick="RegisterTrophy">등록</button>
+		</div>
 	</div>
 </section>
 </article>
@@ -132,7 +140,7 @@
 @code{
 	//private IEnumerable<TrophyClass> Tdata = Enumerable.Empty<TrophyClass>();
 	private List<TrophyClass> trophies;
-	private TrophyClass Tro = new();
+	private TrophyClass trophys = new();
 	protected override async Task OnInitializedAsync()
 	{
 		trophies = await _DataService.GetTrophiesAsync();
