@@ -18,7 +18,13 @@ namespace BaseBallApp.API.Controllers
 		[HttpGet]
 		public async Task<ActionResult<IEnumerable<TrophyClass>>> Get()
 		{
-			return await _db.Trophies.ToListAsync();
+			//return await _db.Trophies.ToListAsync();
+			var query = "SELECT * FROM dbo.Trophy";  // SQL 쿼리 작성
+			var trophies = await _db.Trophies
+										  .FromSqlRaw(query)
+										  .ToListAsync();
+			return Ok(trophies);
+
 		}
 
 	}
