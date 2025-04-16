@@ -4,7 +4,7 @@
 @using BaseBallApp.Shared.Models
 @inject NavigationManager NavManager
 @inject IJSRuntime js
-@inject DataService _DataService;
+@inject TrophyService _DataService;
 @* <div class="title_area" style="height: 782px;">
     <h3></h3>
 </div> *@
@@ -132,6 +132,7 @@
 @code{
 	//private IEnumerable<TrophyClass> Tdata = Enumerable.Empty<TrophyClass>();
 	private List<TrophyClass> trophies;
+	private TrophyClass Tro = new();
 	protected override async Task OnInitializedAsync()
 	{
 		trophies = await _DataService.GetTrophiesAsync();

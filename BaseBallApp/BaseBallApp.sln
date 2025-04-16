@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseBallApp", "BaseBallApp.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseBallApp.API", "..\BaseBallApp.API\BaseBallApp.API.csproj", "{BF82D3EE-258C-45B5-B980-63EC74556AD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseBallApp.Shared", "..\BaseBallApp.Shared\BaseBallApp.Shared.csproj", "{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseBallApp.Shared", "..\BaseBallApp.Shared\BaseBallApp.Shared.csproj", "{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
