@@ -1,0 +1,176 @@
+﻿@page "/history"
+@inject NavigationManager NavManager
+<div class="title_area" style="height: 782px;">
+    <h3></h3>
+</div>
+<section id="eaglesCon" class="content_block">
+
+    <!-- tab menu -->
+    <div>
+       @*  <script>
+            $(function () {
+                //메뉴 제어
+                var menuCd = "PCMNHI";
+                console.log("My name is %s and.", menuCd);
+                if (menuCd != '') {
+                    $("#" + menuCd).addClass("active");
+                }
+            });
+        </script> *@
+
+        <div class="tab_menu">
+            <ul>
+                @* <li class="active" id="PCMNHI"><a href="history" @onclick="@(e => PageMove("history"))"><span></span>HISTORY</a></li> *@
+                <li class="active" id="PCMNHI"><a href="history" ><span></span>HISTORY</a></li>
+                <li class="" id="PCMNEP"><a href=""><span></span>사료실</a></li>
+                <li class="" id="PCMNCS"><a href=""><span></span>엠블럼/유니폼</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- //tab menu -->
+
+    <h4 class="eagles_title"><span class="txt_hanwha">메티스</span>의<br> 추억과 영광의<br> 순간들을 함께하세요!</h4>
+
+    <div class="eagles_content">
+
+        <!-- left tab menu -->
+        <div>
+            
+            @* <script>
+                $(function () {
+                    //메뉴 제어
+                    var menuCd = "MNHI01";
+                    //console.log("My name is %s and.", menuCd);
+                    if (menuCd != '') {
+                        var menuCdLeft = menuCd + '_' + 'LEFT';
+                        console.log("My name is %s and.", menuCdLeft);
+                        $("#" + menuCdLeft).addClass("active");
+                        //console.log("Active Function After");
+                    }
+                });
+            </script> *@
+
+            <div class="left_tab">
+                <a href="javascript:void(0);" class="openBtn">2019-2025</a>
+                <ul class="anchor">
+                    <li class="active" id="MNHI01_LEFT"><a href="history#history_19-25">2019-2025</a></li>
+                    @* <li class="active" id="MNHI01_LEFT"><a href="#history_81-89">1981-1989</a></li>
+                    <li class="" id="MNHI02_LEFT"><a href="#history_90-99">1990-1999</a></li>
+                    <li class="" id="MNHI03_LEFT"><a href="#history_00-09">2000-2009</a></li>
+                    <li class="" id="MNHI04_LEFT"><a href="#history_10-21">2010-2024</a></li>
+                    <li class="" id="MNHI05_LEFT"><a href="/MN/HI/MNHI05.do#eaglesCon">LEGEND</a></li> *@
+                </ul>
+            </div>
+
+
+
+
+
+        </div>
+        <!-- left tab menu -->
+
+        <div class="right_conts">
+            <div class="his_wrap">
+                <ol id="history_19-25">
+                    <li class="tit_area">
+                        <strong>2019</strong>
+                        <div class="his_group">
+                            <em>대한야구소프트볼협회와 실업야구출범 업무협약</em>
+                            @* <span>KBO 이사회에서 한화그룹의 창단신청 승인이 결정되었고, 대국민 공모를 통한<br> 구단 이름은 ‘빙그레 이글스’로 결정되었다.</span>
+                            <img src="/images/pages/eagles/img_history_step01_0100.jpg" class="pc_only" alt="">
+                            <img src="/images/pages/eagles/img_history_step01_0100m.jpg" class="mobile_only" alt=""> *@
+                        </div>
+                    </li>
+                    <li class="point">
+                        <strong>2019</strong>
+                        <div class="his_group point">
+                            <b>09</b>
+                            <span>2019년 <i>메티스</i>야구단 모집공고</span>
+                            @* <em>팀 명칭 공모 결과 “빙그레이글스”로 결정</em>
+                            <img src="/images/pages/eagles/img_history_step01_0101.jpg" class="pc_only" alt="">
+                            <img src="/images/pages/eagles/img_history_step01_0101m.jpg" class="mobile_only" alt=""> *@
+                        </div>
+                    </li>
+                    <li>
+                        <strong>2019</strong>
+                        <div class="his_group">
+                            <b>11</b>
+                            <em>메티스 야구단 1차 공식 입단테스트(천안야구장)</em>
+                            @* <span>대전구장 12,000석의 만원 관중 앞에서 MBC청룡을 상대로 치른 역사적인 첫 경기 시작</span> *@
+                            @* <img src="/images/pages/eagles/img_history_step01_0102.jpg" class="pc_only" alt="">
+                            <img src="/images/pages/eagles/img_history_step01_0102m.jpg" class="mobile_only" alt=""> *@
+                        </div>
+                    </li>
+                    <li>
+                        <strong>2020</strong>
+                        <div class="his_group">
+                            <b>04</b>
+                            <em>(주)메티스 이사회 창단 승인</em>
+                            @* <img src="/images/pages/eagles/img_history_step01_0103.jpg" class="pc_only" alt="">
+                            <img src="/images/pages/eagles/img_history_step01_0103m.jpg" class="mobile_only" alt=""> *@
+                        </div>
+                    </li>
+                    <li>
+                        <strong>2020</strong>
+                        <div class="his_group">
+                            <b>04</b>
+                            <em>메티스 야구단 창단 운영계획서 검토/승인 (대한야구소프트볼협회)</em>
+                            @* <img src="/images/pages/eagles/img_history_step01_0103.jpg" class="pc_only" alt="">
+                            <img src="/images/pages/eagles/img_history_step01_0103m.jpg" class="mobile_only" alt=""> *@
+                        </div>
+                    </li>
+                    <li>
+                        <strong>2020</strong>
+                        <div class="his_group">
+                            <b>04</b>
+                            <em>메티스 야구단 창단식</em>
+                            @* <img src="/images/pages/eagles/img_history_step01_0103.jpg" class="pc_only" alt="">
+                            <img src="/images/pages/eagles/img_history_step01_0103m.jpg" class="mobile_only" alt=""> *@
+                        </div>
+                    </li>
+                    <li>
+                        <strong>2020</strong>
+                        <div class="his_group">
+                            <b>07</b>
+                            @{
+                                string spText = "<준우승>";
+                            }
+                            <em>2020년 천안시야구소프트볼협회장배 실업야구대회 출전 @spText</em>
+                            @* <img src="/images/pages/eagles/img_history_step01_0103.jpg" class="pc_only" alt="">
+                            <img src="/images/pages/eagles/img_history_step01_0103m.jpg" class="mobile_only" alt=""> *@
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div><!-- //.right_conts -->
+    </div>
+</section>
+
+<script>
+    // modify location
+    $('.left_tab a').each(function () {
+        //console.log("aaaaa");
+        $(this).attr("href", function (index, old) {
+            //return old.replace('/MN/HI/MNHI01.do', '');
+        });
+    });
+
+    $(window).scroll(function () {
+        $('.his_wrap ol .his_group img.pc_only').each(function () {
+            var wTop = $(window).scrollTop();
+            _thsTop = $(this).offset().top - window.innerHeight;
+
+            if (wTop > _thsTop) {
+                $(this).addClass('active')
+            }
+        });
+    });
+</script>
+
+@code{
+    private async Task PageMove(string page)
+    {
+        NavManager.NavigateTo(page);
+    }
+}

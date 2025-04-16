@@ -1,0 +1,51 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+
+<div id="wrap">
+<TopMenu/>
+    <article id="container" class="content px-4 main eagles">
+    @* <article id="container" class="@cls"> *@
+        @Body
+    </article>
+<Footer />
+</div>
+
+@* <div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div> *@
+
+@code{
+    // private string currentUrl;
+    // private string currentPage;
+    // private string cls = "";
+    protected override void OnInitialized()
+    {
+        // currentUrl = Navigation.Uri;
+        // var uri = new Uri(Navigation.Uri);
+        // var segments = uri.Segments;
+        // //currentPage = segments.LastOrDefault()?.TrimEnd('/') ?? "홈";
+        // currentPage = segments.LastOrDefault()?.TrimEnd('/');
+
+        // switch(currentPage)
+        // {
+        //     case "trophy":
+        //         cls = "shop";
+        //         break;
+        //     default :
+        //         cls = "content px-4 main eagles";
+        //         break;
+        // }
+    }
+}

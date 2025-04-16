@@ -1,0 +1,6 @@
+@BaseBallApp.API_HostAddress = http://localhost:5110
+
+GET {{BaseBallApp.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

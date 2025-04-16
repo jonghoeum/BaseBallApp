@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>METIS 실업야구단</title>
+    <base href="/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/page.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="BaseBallApp.styles.css" rel="stylesheet" />
+    <!--추가-->
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/jquery-1.12.4.js"></script>
+    <!--<script src="js/side.js"></script>-->
+    
+</head>
+
+<body>
+    <div id="app">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script>
+        var Language = "ko";
+        window.ToggleLanguage = (flag) => {
+            Language = flag;
+        };
+
+        
+    </script>
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+
+</html>

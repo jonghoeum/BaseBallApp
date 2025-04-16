@@ -1,0 +1,173 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\local\\BaseBallApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\obj\\Debug\\net8.0\\compressed\\1eh721p2ar.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BaseBallApp.styles.css",
+      "PackagePath": "staticwebassets\\BaseBallApp.styles.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\_favicon.png",
+      "PackagePath": "staticwebassets\\_favicon.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\TopMenu.css",
+      "PackagePath": "staticwebassets\\css\\TopMenu.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\common-chae.css",
+      "PackagePath": "staticwebassets\\css\\common-chae.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\common.css",
+      "PackagePath": "staticwebassets\\css\\common.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\footer.css",
+      "PackagePath": "staticwebassets\\css\\footer.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\media.css",
+      "PackagePath": "staticwebassets\\css\\media.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\media_chae.css",
+      "PackagePath": "staticwebassets\\css\\media_chae.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\media_metis.css",
+      "PackagePath": "staticwebassets\\css\\media_metis.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\media_players.css",
+      "PackagePath": "staticwebassets\\css\\media_players.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\page-chae.css",
+      "PackagePath": "staticwebassets\\css\\page-chae.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\page.css",
+      "PackagePath": "staticwebassets\\css\\page.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\css\\reset.css",
+      "PackagePath": "staticwebassets\\css\\reset.css"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\1.jpg",
+      "PackagePath": "staticwebassets\\image\\1.jpg"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\250.png",
+      "PackagePath": "staticwebassets\\image\\250.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\251.png",
+      "PackagePath": "staticwebassets\\image\\251.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\252.png",
+      "PackagePath": "staticwebassets\\image\\252.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\253.png",
+      "PackagePath": "staticwebassets\\image\\253.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\254.png",
+      "PackagePath": "staticwebassets\\image\\254.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\baseball_logo.png",
+      "PackagePath": "staticwebassets\\image\\baseball_logo.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\h_logo.png",
+      "PackagePath": "staticwebassets\\image\\h_logo.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\m1.jpg",
+      "PackagePath": "staticwebassets\\image\\m1.jpg"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\m2.jpg",
+      "PackagePath": "staticwebassets\\image\\m2.jpg"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\movie_eagles.mp4",
+      "PackagePath": "staticwebassets\\image\\movie_eagles.mp4"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\image\\movie_metis.mp4",
+      "PackagePath": "staticwebassets\\image\\movie_metis.mp4"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\js\\header.js",
+      "PackagePath": "staticwebassets\\js\\header.js"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\js\\jquery-1.12.4.js",
+      "PackagePath": "staticwebassets\\js\\jquery-1.12.4.js"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\js\\side.js",
+      "PackagePath": "staticwebassets\\js\\side.js"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BaseBallApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BaseBallApp.props",
+      "PackagePath": "build\\BaseBallApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BaseBallApp.props",
+      "PackagePath": "buildMultiTargeting\\BaseBallApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BaseBallApp.props",
+      "PackagePath": "buildTransitive\\BaseBallApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

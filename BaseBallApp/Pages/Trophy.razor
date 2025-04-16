@@ -1,0 +1,152 @@
+﻿@page "/trophy"
+
+@using BaseBallApp.Data;
+
+@inject NavigationManager NavManager
+@inject IJSRuntime js
+@inject DataService _DataService;
+@* <div class="title_area" style="height: 782px;">
+    <h3></h3>
+</div> *@
+<article id="container" class="shop">
+<section class="content_block">
+	<form action="">
+		<fieldset>
+			@* <div class="search_area">
+				<input type="text" name="search" value="" placeholder="Search">
+				<input type="submit" value="검색">
+			</div> *@
+			@* <p class="category_area">
+				<button type="button" class="active">전체</button>
+				<button value="GC1" type="button">유니폼</button>
+				<button value="GC2" type="button">모자</button>
+				<button value="GC3" type="button">의류</button>
+				<button value="GC4" type="button">잡화</button>
+				<button value="GC5" type="button">기념상품</button>
+			</p> *@
+		</fieldset>
+	</form>
+	<div class="prd_list">
+		<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;">등록</button</div>
+		<p class="counting">전체 <span>50</span> </p>
+		<ul>
+			<li class="goods-card">
+				<a href="https://eaglesshop.co.kr/product/25-%EC%9D%B4%EA%B8%80%EC%8A%A4-%EB%B1%83%EC%A7%80-%EC%84%B8%ED%8A%B8/368/category/68/display/1/" target="_blank" data-id="698" class="">
+					<i class="new">NEW</i>
+					<!-- <i th:case="*" class="best">BEST</i> -->
+					<img style="max-height: 80%; max-width: 100%;" src="/image/250.png" alt="17f8771e-a579-4521-bc90-04ad6863a0bd.png">
+					<span>25 이글스 뱃지 세트</span>
+				</a>
+			</li>
+			@* <li class="goods-card">
+				<a href="https://eaglesshop.co.kr/product/25-%EC%9D%B4%EA%B8%80%EC%8A%A4-%EB%B1%83%EC%A7%80-%EC%84%B8%ED%8A%B8/368/category/68/display/1/" target="_blank" data-id="698" class="">
+					<i class="new">NEW</i>
+					<!-- <i th:case="*" class="best">BEST</i> -->
+					<img style="max-height: 80%; max-width: 100%;" src="/image/250.png" alt="17f8771e-a579-4521-bc90-04ad6863a0bd.png">
+					<span>25 이글스 뱃지 세트</span>
+				</a>
+			</li>
+			<li class="goods-card">
+				<a href="https://eaglesshop.co.kr/product/%EC%98%A4%EB%A0%8C%EC%A7%80-%EB%A6%AC%EB%B3%B8-%EB%A8%B8%EB%A6%AC%ED%95%80/363/category/68/display/1/" target="_blank" data-id="697" class="">
+					<i class="new">NEW</i>
+					<!-- <i th:case="*" class="best">BEST</i> -->
+						<img style="max-height: 80%; max-width: 100%;" src="/image/251.png" alt="73269b4a-5163-4c94-83f2-ef6337a8e5e6.png">
+					<span>오렌지 리본 머리핀</span>
+				</a>
+			</li>
+			<li class="goods-card">
+				<a href="https://eaglesshop.co.kr/product/%EC%88%98%EB%A6%AC-%EC%A7%91%EA%B2%8C-%EB%A8%B8%EB%A6%AC%ED%95%80-2%EC%9E%85/373/category/68/display/1/" target="_blank" data-id="696">
+					<i class="new">NEW</i>
+					<!-- <i th:case="*" class="best">BEST</i> -->
+						<img style="max-height: 80%; max-width: 100%;" src="/image/252.png" alt="724f8afa-8cbb-4ca5-9be0-705941acdd8d.png">
+					<span>수리 집게 머리핀 2입</span>
+				</a>
+			</li>
+			<li class="goods-card">
+				<a href="https://eaglesshop.co.kr/product/%EC%88%98%EB%A6%AC-%EC%84%B8%EC%8C%8D%EB%91%A5%EC%9D%B4-%EB%A8%B8%EB%A6%AC%ED%95%80-2%EC%9E%85/371/category/65/display/1/" target="_blank" data-id="695">
+					<i class="new">NEW</i>
+					<!-- <i th:case="*" class="best">BEST</i> -->
+						<img style="max-height: 80%; max-width: 100%;" src="/image/253.png" alt="b48265d7-9de0-47c0-882c-013fc3dd7c36.png">
+					<span>수리 세쌍둥이 머리핀 2입</span>
+				</a>
+			</li>
+			<li class="goods-card">
+				<a href="https://eaglesshop.co.kr/product/%EB%AF%B8%EB%8B%88-%EB%AA%A8%EC%9E%90-%ED%82%A4%EB%A7%81/364/category/67/display/1/" target="_blank" data-id="694">
+					<i class="new">NEW</i>
+					<!-- <i th:case="*" class="best">BEST</i> -->
+						<img style="max-height: 80%; max-width: 100%;" src="/image/254.png" alt="86e796df-b595-4f4e-9aac-4df3fb9dfb07.png">
+					<span>미니 모자 키링</span>
+				</a>
+			</li> *@
+		</ul>
+
+		<div>
+			<div class="paging_area">
+
+				<div class="paging">
+
+					<!-- <button type="button" th:onclick="|searchTable(0, '${page_length}')|" class="btn_page start" th:disabled="${btn_select == 0}"><span class="blind">맨처음</span></button>  -->
+					<button type="button" onclick="searchTable('0', '40')" class="btn_page prev" disabled="disabled"><span class="blind">이전 10</span></button>
+					<div class="go_num">
+						<a style="pointer-events: none;" onclick="searchTable('0', '40')" class="on">1</a>
+					</div>
+					<button type="button" class="btn_page next" onclick="searchTable('40', '40')" disabled="disabled">
+						<span class="blind">다음 10</span>
+					</button>
+					<!--
+					<button type="button"
+						class="btn_page end"
+						th:onclick="|searchTable('${(btn_all_length -1) * page_length}', '${page_length}')|"
+						th:disabled="${btn_select &gt;= (btn_all_length - 1)}">
+						<span class="blind">맨끝</span>
+					</button>  -->
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</section>
+</article>
+<script>
+    // modify location
+    $('.left_tab a').each(function () {
+        //console.log("aaaaa");
+        $(this).attr("href", function (index, old) {
+            //return old.replace('/MN/HI/MNHI01.do', '');
+        });
+    });
+
+    $(window).scroll(function () {
+        $('.his_wrap ol .his_group img.pc_only').each(function () {
+            var wTop = $(window).scrollTop();
+            _thsTop = $(this).offset().top - window.innerHeight;
+
+            if (wTop > _thsTop) {
+                $(this).addClass('active')
+            }
+        });
+    });
+</script>
+
+@code{
+	//private IEnumerable<TrophyClass> Tdata = Enumerable.Empty<TrophyClass>();
+	private List<TrophyClass> trophies;
+	protected override async Task OnInitializedAsync()
+	{
+		trophies = await DataService.GetTrophiesAsync();
+		//Tdata = await _DataService.GetTrophyData();
+	}
+	// protected override async Task OnAfterRenderAsync(bool firstRender)
+	// {
+	// 	if (firstRender)
+	// 	{
+	// 		//await js.InvokeVoidAsync("ContainerChange", "trophy");
+	// 	}
+	// }
+    private async Task PageMove(string page)
+    {
+        NavManager.NavigateTo(page);
+    }
+
+}

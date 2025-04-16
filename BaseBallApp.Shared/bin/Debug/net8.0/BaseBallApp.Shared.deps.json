@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "BaseBallApp.Shared/1.0.0": {
+        "runtime": {
+          "BaseBallApp.Shared.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BaseBallApp.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

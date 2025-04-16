@@ -1,0 +1,130 @@
+﻿@inject IJSRuntime js
+
+@* <link rel="stylesheet" href="css/TopMenu.css"> *@
+@* <header id="header" class="" @onmouseleave="(e => HandleMouseLeave())" @onmouseenter="(e => HandleMouseEnter())" @onmouseover="(e => HandleMouseOver())" > *@
+<header id="header" class="">
+    <!-- 영문 import 분기처리  -->
+    <h1><a href="/">Metis</a></h1>
+    <form id="menuForm" name="menuForm">
+    </form>
+    <div class="menu_wrap menu_kr">
+        <button type="button" class="menuToggle">메뉴열기</button>
+        <div class="menu_effect">
+            <nav id="menu">
+                <ul>
+                    <li>
+                        <a href="history"><span style="width: 0px;"></span><span style="width: 0px;"></span>METIS</a>
+                        <ul style="display: none; height: 70px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                            <li><a href="history" >연혁</a></li>
+                            <li><a href="trophy" >사료실</a></li>
+                            @* <li><a href="history" @onclick="@(e => ContainerChange("history"))">연혁</a></li>
+                            <li><a href="trophy" @onclick="@(e => ContainerChange("trophy"))">사료실</a></li> *@
+                            <li><a href="/MN/HI/MNHI01.do">엠블럼/유니폼</a></li>
+                            <li>
+                                <a class="pc_only" href="/about">사회공헌</a>
+                                <ul>
+                                    <li class="" id="MNCSRW_LEFT"><a href="/MN/CSR/MNCSRWP01.do#eaglesCon">세상에 없던 말</a></li>
+                                    <li class="" id="MNCSRR_LEFT"><a href="/MN/CSR/MNCSRRP01.do#eaglesCon">락앤볼 캠페인</a></li>
+                                    <li class="" id="MNCSRU_LEFT"><a href="/MN/CSR/MNCSRUP01.do#eaglesCon">업사이클링 캠페인</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- <li><a href="javascript:void(0)" onclick="javascript:alert('시즌 준비중입니다.');"><span style="width: 0px;"></span>PLAYERS</a></li> -->
+                    <li>
+                        <a href="/PL/CS/PLCS01.do"><span style="width: 0px;"></span><span style="width: 0px;"></span>PLAYERS</a>
+                        <ul style="height: 70px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px; display: none;">
+                            <li><a href="/PL/CS/PLCS01.do">코칭스탭</a></li>
+                            <li><a href="/PL/PC/PLPC01.do">선수</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/GA/GE/PCFAGE01.do"><span style="width: 0px;"></span><span style="width: 0px;"></span>GAME</a>
+                        <ul style="display: none; height: 70px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                            <li><a href="/GA/GE/PCFAGE01.do">일정·결과</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/FA/CN/PCFACN01.do" class="both"><span style="width: 0px;"></span><span style="width: 0px;"></span>PHOTO</a>
+                    </li>
+                    <li class="pc_only">
+                        <a href="/SH/PCSH01.do"><span style="width: 0px;"></span><span style="width: 0px;"></span>NOTICE</a>
+                        <ul style="display: none; height: 70px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                            <li><a href="/GA/GE/PCFAGE01.do">NOTICE</a></li>
+                            <li><a href="/GA/GE/PCFAGE01.do">NEWS</a></li>
+                        </ul>
+                    </li>
+                    <li class="pc_only">
+                        <a href="/SH/PCSH01.do"><span style="width: 0px;"></span><span style="width: 0px;"></span>선수모집</a>
+                    </li>
+                    <li class="pc_only">
+                        <a href="/SH/PCSH01.do"><span style="width: 0px;"></span><span style="width: 0px;"></span>SUPPORTERS</a>
+                    </li>
+                    <li class="pc_only">
+                        <a href="/SH/PCSH01.do"><span style="width: 0px;"></span><span style="width: 0px;"></span>Q&A</a>
+                    </li>
+                    
+                    
+                    <!-- <li class="pc_only"><a href="http://www.ticketlink.co.kr/sports/baseball/63#reservation" target="_blank" class=""><span style="width: 0px;"></span>TICKET</a></li> -->
+                    <!--
+                    <li class="pc_only"><a href="javascript:fnLoginChk('F');"><span style="width: 0px;"></span>TICKET</a></li>
+                     -->
+                    <!-- <li><a href="javascript:void(0)" onclick="javascript:alert('시즌 준비중입니다.');"><span style="width: 0px;"></span>TICKET</a></li> -->
+                    <li><a href="/ticketInfo.do" class="both"><span style="width: 0px;"></span><span style="width: 0px;"></span>TICKET</a></li>
+                    <!-- <li><a href="javascript:alert('시즌 준비중입니다.');" class="txt_kr">실시간중계보기</a></li>  -->
+                    <!-- <li><a href="https://sporki.com/kbaseball/schedule/todaygame?teamSeq=170&utm_source=hanhwaeagles&utm_medium=affiliate&utm_campaign=kbase_game&utm_content=eagles_banner" class="both txt_kr" target="_blank">실시간중계보기</a></li> -->
+                    <!-- <li><a href="https://web.rethinkmall.com/commerce-context/hanwhaeagles" class="both txt_kr" target="_blank"><em class="HanwhaL">이글스</em>리씽크몰</a></li> -->
+                </ul>
+            </nav>
+            <div class="util_menu">
+                <ul>
+                    <!-- s: LOGOUT -->
+                    <li>
+                        <a id="test" href="/">KO</a>
+                        <a href="/EN/index.do">EN</a>
+                    </li>
+
+                    <!-- s: LOGOUT -->
+                    <li><a href="/LO/PCLO01.do">LOGIN</a></li>
+                    <li><a href="/JO/PCJO01.do">JOIN US</a></li>
+                    <!-- e: LOGOUT -->
+                </ul>
+            </div>
+            @* <div class="sns_menu mobile_only">
+                <ul>
+                    <li><a href="https://www.youtube.com/channel/UCdq4Ji3772xudYRUatdzRrg" class="youtube" target="_blank">youtube 바로가기</a></li>
+                    <li><a href="https://www.facebook.com/hanwhaeagles.news/" class="facebook" target="_blank">facebook 바로가기</a></li>
+                    <li><a href="https://www.instagram.com/hanwhaeagles_soori" class="instagram" target="_blank">instagram 바로가기</a></li>
+                    <li><a href="https://twitter.com/hoodi_thespace" class="twitter" target="_blank">twitter 바로가기</a></li>
+                </ul>
+            </div> *@
+        </div><!-- //.menu_effect -->
+    </div>
+    @code {
+        protected override async Task OnInitializedAsync()
+        {
+            //Console.WriteLine();
+        }
+        private async Task HandleMouseLeave()
+        {
+            //await js.InvokeVoidAsync("CustomAlert", "전화번호가 정상적이지 않습니다.\n 전화번호를 확인해주세요.");
+            await js.InvokeVoidAsync("HeaderOver", "mouseleave");
+        }
+
+        private async Task HandleMouseEnter()
+        {
+            await js.InvokeVoidAsync("HeaderOver", "mouseenter");
+        }
+
+        private async Task HandleMouseOver()
+        {
+            await js.InvokeVoidAsync("HeaderOver", "mouseover");
+        }
+        // private async Task ContainerChange(string page)
+        // {
+        //     await js.InvokeVoidAsync("ContainerChange", page);
+        // }
+    }
+
+</header>

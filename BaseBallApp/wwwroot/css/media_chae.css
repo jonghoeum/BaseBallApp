@@ -1,0 +1,1465 @@
+﻿@charset "utf-8";
+
+/* 고해상도 PC */
+@media screen and (max-width:1500px) {
+    #header .util_menu {
+        padding-right: 20px;
+    }
+}
+
+/* 저해상도 PC */
+@media screen and (max-width:1280px) and (min-width:1025px) {
+}
+
+/* Tablet PC */
+@media screen and (max-width:1024px) {
+}
+
+/* Mobile Device */
+@media screen and (max-width:767px) {
+
+    .pc_show {
+        display: none;
+    }
+
+    .mobile_show {
+        display: initial;
+    }
+
+    /* button */
+    .btn_com {
+        height: 48px !important;
+        line-height: 46px !important;
+    }
+
+    /* 돋보기 icon button */
+    .btn_ico_sch {
+        position: relative;
+        width: 48px;
+        height: 48px;
+    }
+
+    /* checkbox */
+    span.checkbox ~ span.checkbox, span.radio ~ span.radio {
+        margin-left: 28px;
+    }
+
+    /* input/select/textarea */
+    .input_wrap input {
+        height: 46px;
+        line-height: 46px;
+    }
+
+    /* input_email */
+    .input_wrap.input_email input {
+        height: 46px;
+        line-height: 46px;
+    }
+
+    .input_wrap.input_email .txt {
+        height: 46px;
+        line-height: 46px;
+    }
+
+    /* input certify number */
+    .input_wrap.input_certify .timer {
+        font-size: 13px;
+    }
+
+    /* select */
+    .select {
+        height: 48px;
+    }
+
+        .select select {
+            height: 46px;
+        }
+
+    /* list form */
+    .item_row.flex .btn_com.align_recert {
+        width: 50%;
+    }
+
+    .item_row.flex .btn_area.align_recert {
+        width: 50%;
+    }
+
+    .item_row.item_email {
+        -webkit-box-lines: multiple;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+        .item_row.item_email .input_email {
+            width: 100%;
+            margin-bottom: 10px;
+            flex: auto;
+        }
+
+        .item_row.item_email .select {
+            display: block;
+            width: 100%;
+            margin-left: 0;
+            flex: auto;
+        }
+
+    .item_row.item_certify .input_certify {
+        flex: 6;
+    }
+
+    .item_row.item_certify button {
+        flex: 4;
+    }
+
+    /* filter search */
+    .filter {
+        margin-bottom: 20px;
+        -webkit-box-pack: flex-start;
+        -ms-flex-pack: flex-start;
+        justify-content: flex-start;
+    }
+
+        .filter .item_row.flex {
+            -webkit-box-lines: multiple;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+
+        .filter .row_hr, .filter .item_row {
+            width: 100%;
+            margin-top: 0;
+        }
+
+        .filter .input_wrap.datepick {
+            width: 44%;
+        }
+
+        .filter .txt {
+            width: 12%;
+            height: 48px;
+            line-height: 48px;
+        }
+
+        .filter .input_wrap.sch {
+            width: 100%;
+        }
+
+        .filter .input_wrap.datepick ~ .input_wrap.sch {
+            margin: 10px 0 0;
+        }
+
+    /* tab */
+    .jstab .tabinner .tabs li a {
+        height: 46px;
+        line-height: 46px;
+    }
+
+    /* accordion - 전체 동의 약관 */
+    .all_agr_wrap .all label {
+        font-size: 16px;
+    }
+
+    .agree_wrap .head label {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 40px;
+        font-size: 14px;
+    }
+
+    /* layer popup */
+    .layerpop_wrap {
+        min-width: 1px;
+    }
+
+        .layerpop_wrap > .inr {
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+    .layerpop_contents {
+        width: 100%;
+        margin: 24px;
+    }
+
+    .layerpop_wrap .layerpop_conts {
+        width: auto;
+        margin: 0;
+        padding: 50px 20px;
+    }
+
+    .layerpop_close {
+        top: 10px;
+        right: 9px
+    }
+
+        .layerpop_close button {
+            width: 47px;
+            height: 47px;
+        }
+
+            .layerpop_close button::after {
+                width: 27px;
+                height: 27px;
+                margin: -13px 0 0 -13px;
+            }
+
+    .layerpop_wrap .layerpop_header {
+        padding: 0 0 20px;
+    }
+
+        .layerpop_wrap .layerpop_header .tit {
+            font-size: 30px;
+        }
+
+    .layerpop_wrap .layerpop_foot {
+        padding: 30px 17px 0;
+    }
+
+    .layerpop_foot.btn_full {
+        padding: 30px 0 0;
+    }
+
+    .layerpop_wrap .agree_wrap .layerpop_header .tit {
+        font-size: 25px
+    }
+
+    .layerpop_wrap .agree_wrap .view .terms_wrap {
+        height: 165px;
+    }
+
+    /* title */
+    .title_dp2 {
+        font-size: 16px;
+    }
+
+    /* page */
+    #container[class^="utill_"] {
+        padding: 108px 24px 120px;
+        background-color: #000;
+    }
+
+    /* black box */
+    .conts_black_box {
+        width: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+        .conts_black_box .title_dp1, .conts_black_box.error .title_dp1 {
+            font-size: 30px;
+        }
+
+        /* login */
+        .conts_black_box .sns_login .tit {
+            margin-top: 34px;
+        }
+
+            .conts_black_box .sns_login .tit span {
+                padding: 0 20px;
+            }
+
+    /* 회원가입 */
+    #container.utill_join .conts_black_box .top_desc.al_must {
+        margin-bottom: -5px;
+    }
+
+    .join_button_sel a {
+        width: 100%;
+        height: 143px;
+        padding-top: 98px;
+    }
+
+        .join_button_sel a:hover {
+            padding-top: 98px;
+            border: 1px solid #707070;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .join_button_sel a + a {
+            margin-left: 10px;
+        }
+
+        .join_button_sel a::after {
+            top: 32px;
+            width: 52px;
+            height: 52px;
+        }
+
+        .join_button_sel a:hover::after {
+            top: 32px;
+        }
+
+        .join_button_sel a.btn_find_email::after, .join_button_sel a.btn_find_phone::after {
+            left: calc(50% - 32px);
+            width: 65px;
+        }
+
+    .join_type_stats {
+        margin-top: 20px;
+    }
+
+        .join_type_stats p + p {
+            margin-left: 12px;
+            padding-left: 16px;
+        }
+
+    .conts_black_box .title_dp1 + .confirm_guide {
+        margin-top: 50px;
+    }
+
+    .confirm_guide {
+        padding-top: 100px;
+    }
+
+        .confirm_guide strong.strong {
+            margin-top: 8px;
+            font-size: 26px;
+            line-height: 1.38;
+        }
+
+        .confirm_guide .dormant {
+            font-size: 18px;
+        }
+
+    .caution_box .gray_box {
+        padding: 20px;
+    }
+
+    .protector_check_box {
+        margin: 20px 0;
+    }
+
+        .protector_check_box label {
+            display: inline-block;
+            line-height: 22px;
+        }
+
+            .protector_check_box label::before {
+                top: 3px;
+            }
+
+            .protector_check_box label span {
+                display: block;
+                margin-left: -26px;
+                margin-top: 7px;
+            }
+
+        .protector_check_box a {
+            position: relative;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+    /* mypage */
+    .guide_conts .bottom_desc {
+        margin-top: 10px;
+    }
+
+    .guide_conts .box_gray {
+        padding: 30px 19px;
+    }
+
+    .guide_conts .checkbox label {
+        font-size: 14px;
+    }
+
+    /* game */
+    .game_schedule .tab_menu_ty01, .game_schedule .sel_view {
+        display: none;
+    }
+
+    #container.game .title_area {
+        height: 58px;
+        padding-top: 0;
+        background: none !important;
+    }
+
+        #container.game .title_area::after {
+            display: none;
+        }
+
+        #container.game .title_area h3 {
+            opacity: 1;
+        }
+
+    .game_schedule .tab_conts {
+        margin-top: 58px;
+        padding-top: 87px;
+    }
+
+    .game_schedule .select_date {
+        top: 0;
+        padding: 0 64px;
+        white-space: nowrap;
+    }
+
+        .game_schedule .select_date .select {
+            height: 34px;
+        }
+
+            .game_schedule .select_date .select::after {
+                width: 11px;
+                height: 6px;
+                margin-top: -4px;
+            }
+
+            .game_schedule .select_date .select select {
+                height: 34px;
+                padding: 0 22px 0 0;
+                font-size: 26px;
+                line-height: 34px;
+            }
+
+            .game_schedule .select_date .select ~ .select {
+                margin-left: 10px;
+            }
+
+        .game_schedule .select_date .btn_cal {
+            width: 64px;
+            height: 34px;
+        }
+
+            .game_schedule .select_date .btn_cal::after {
+                left: calc(50% - 17px);
+                top: calc(50% - 19px);
+                width: 34px;
+                height: 34px;
+            }
+
+    .game_schedule .schedule_conts.calendar .calendar_show, .game_schedule .schedule_conts.list .list_show {
+        display: none;
+    }
+
+    .game_schedule .category {
+        top: 45px;
+        width: 100%;
+        text-align: center;
+    }
+
+        .game_schedule .category span {
+            display: inline-block;
+            float: none;
+            margin-left: 17px;
+            padding-left: 24px;
+            font-size: 12px;
+            line-height: 22px;
+        }
+
+            .game_schedule .category span.home {
+                margin-left: 0;
+            }
+
+            .game_schedule .category span::after {
+                top: calc(50% - 10px);
+                width: 18px;
+                height: 18px;
+            }
+
+
+    .game_schedule .schedule_conts.list .td_wrap .td_conts .col:nth-of-type(1), .game_schedule.future .schedule_conts.list .td_wrap .td_conts .col:nth-of-type(4),
+    .game_schedule .schedule_conts.list .td_wrap .td_conts .col:nth-of-type(2), .game_schedule.future .schedule_conts.list .td_wrap .td_conts .col:nth-of-type(4),
+    .game_schedule .schedule_conts.list .td_wrap .td_conts .col:nth-of-type(3), .game_schedule.future .schedule_conts.list .td_wrap .td_conts .col:nth-of-type(4),
+    .game_schedule .schedule_conts.list .td_wrap .td_conts .col:nth-of-type(4), .game_schedule.future .schedule_conts.list .td_wrap .td_conts .col:nth-of-type(4),
+    .game_schedule .schedule_conts.list .td_wrap .td_conts .col:nth-of-type(5),
+    .game_schedule .schedule_conts.list .td_wrap .td_conts .col:nth-of-type(6),
+    .game_schedule .schedule_conts .th_wrap.list_show span:nth-of-type(6) {
+        width: auto !important;
+    }
+
+    .game_schedule .schedule_conts .td_wrap .td_conts {
+        border-radius: 8px;
+    }
+
+    /* list 형 */
+    .game_schedule .schedule_conts.list .td_wrap {
+        display: block;
+    }
+
+        .game_schedule .schedule_conts.list .td_wrap .td_conts.prev_blank, .game_schedule .schedule_conts.list .td_wrap .td_conts.blank {
+            display: none;
+        }
+
+        .game_schedule .schedule_conts.list .td_wrap .td_conts .inner {
+            display: block;
+            min-height: 76px;
+            margin-top: 8px;
+            padding: 15px 15px 0;
+            border-radius: 8px;
+            color: #808080;
+            font-family: 'myriad-pro', 'HanwhaGothicT', sans-serif;
+            border: 1px solid #444;
+        }
+
+        .game_schedule .schedule_conts.list .td_wrap .td_conts.now .inner::after {
+            left: -1px;
+            right: -1px;
+            top: -1px;
+            border-radius: 8px;
+        }
+
+        .game_schedule .schedule_conts.list .td_wrap .td_conts .col {
+            display: block;
+            color: #808080;
+            font-size: 12px;
+            text-align: left;
+        }
+
+            .game_schedule .schedule_conts.list .td_wrap .td_conts .col.date {
+                position: absolute;
+                left: 15px;
+                top: 10px;
+            }
+
+            .game_schedule .schedule_conts.list .td_wrap .td_conts .col.time {
+                position: absolute;
+                left: 15px;
+                top: 26px;
+            }
+
+            .game_schedule .schedule_conts.list .td_wrap .td_conts .col.place {
+                position: absolute;
+                left: 15px;
+                top: 44px;
+            }
+
+            .game_schedule .schedule_conts.list .td_wrap .td_conts .col.gm_rs {
+                display: -ms-flexbox;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-lines: multiple;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                height: 59px;
+                padding: 0 36px 13px 92px;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+    .game_schedule.future .schedule_conts.list .td_wrap .td_conts .col.gm_rs {
+        padding: 0 16px 13px 112px;
+    }
+
+    .game_schedule .schedule_conts.list .td_wrap .td_conts .col.gm_rs p {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .game_schedule .schedule_conts.list .td_wrap .td_conts .col.cate {
+        position: absolute;
+        right: 15px;
+        top: 27px;
+    }
+
+    .game_schedule .schedule_conts.list .td_wrap .td_conts .col.ev_txt {
+        padding-left: 0;
+    }
+
+        .game_schedule .schedule_conts.list .td_wrap .td_conts .col.ev_txt p {
+            height: 36px;
+            border-top: 1px solid #444;
+            line-height: 35px;
+        }
+
+        .game_schedule .schedule_conts.list .td_wrap .td_conts .col.ev_txt .tit {
+            margin-right: 4px;
+        }
+
+    .game_schedule .schedule_conts.list .td_wrap .td_conts .lst {
+        display: none;
+    }
+
+    .game_schedule .schedule_conts .sections {
+        margin: 40px 0;
+    }
+
+    .game_schedule .schedule_down {
+        position: static;
+        height: auto;
+        margin-top: 40px;
+    }
+
+    [data-locale="en"] .game_schedule .schedule_down {
+        height: 52px;
+    }
+
+    .game_schedule .schedule_down strong {
+        font-size: 12px;
+    }
+
+    .game_schedule .schedule_down p {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+    .game_schedule .schedule_down span.bul_mark {
+        display: block;
+        margin-top: 2px;
+    }
+
+    .game_schedule .schedule_down .btn_area {
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        left: 0;
+    }
+
+        .game_schedule .schedule_down .btn_area a {
+            display: inline-block;
+        }
+
+    #container .game_schedule .schedule_down .btn_area {
+        display: flex;
+    }
+
+        #container .game_schedule .schedule_down .btn_area a {
+            flex: 1;
+            height: 46px;
+            font-size: 16px;
+            letter-spacing: -0.05em;
+            line-height: 46px;
+            padding: 0 !important;
+        }
+
+            #container .game_schedule .schedule_down .btn_area a:before {
+                width: 18px;
+                height: 18px;
+                vertical-align: -4px;
+            }
+
+
+    /* game-view */
+    .game_schedule.view .tab_conts {
+        margin-top: 58px;
+        padding-top: 44px;
+    }
+
+    .game_schedule.view .select_date {
+        padding: 0 48px;
+    }
+
+        .game_schedule.view .select_date .btn_cal {
+            width: 48px;
+        }
+
+            .game_schedule.view .select_date .btn_cal::after {
+                width: 28px;
+                height: 28px;
+                margin: 0;
+                top: calc(50% - 14px);
+                left: calc(50% - 14px);
+            }
+
+        .game_schedule.view .select_date .now_date .date {
+            font-size: 20px;
+            line-height: 34px;
+            vertical-align: middle;
+        }
+
+        .game_schedule.view .select_date .now_date .day {
+            font-size: 16px;
+            line-height: 34px;
+            vertical-align: middle;
+        }
+
+    .game_schedule.view .schedule_head .club.left {
+        -webkit-box-pack: flex-start;
+        -ms-flex-pack: flex-start;
+        justify-content: flex-start;
+        -webkit-box-lines: multiple;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    .game_schedule.view .schedule_head .club.right {
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: flex-end;
+        -ms-flex-pack: flex-end;
+        justify-content: flex-end;
+        -webkit-box-lines: multiple;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    .game_schedule.view .schedule_head .club .club_logo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .game_schedule.view .schedule_head .club.left .club_logo {
+        margin-right: 7px;
+    }
+
+    .game_schedule.view .schedule_head .club.right .club_logo {
+        margin-left: 7px;
+    }
+
+    .game_schedule.view .schedule_head .club .score {
+        top: 8px;
+        width: auto;
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .game_schedule.view .schedule_head .club .pitcher span {
+        font-size: 12px;
+        line-height: 22px;
+    }
+
+    .game_schedule.view .schedule_head .club.left .pitcher span {
+        float: none;
+        width: auto;
+    }
+
+    .game_schedule.view .schedule_head .club.right .pitcher span {
+        float: right;
+        padding-left: 0;
+        width: auto;
+    }
+
+    .game_schedule.view .schedule_head .now_rs {
+        width: 26%;
+        text-align: center;
+    }
+
+        .game_schedule.view .schedule_head .now_rs .time {
+            font-size: 17px;
+        }
+
+        .game_schedule.view .schedule_head .now_rs .place {
+            font-size: 15px;
+        }
+
+        .game_schedule.view .schedule_head .now_rs .stats {
+            display: block;
+            width: 70px;
+            height: 24px;
+            margin-top: 7px;
+            border-radius: 13px;
+            font-size: 12px;
+            line-height: 22px;
+        }
+
+    .game_schedule.view .tbl.scroll {
+        overflow-y: hidden;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 20px;
+    }
+
+    .game_schedule.view .his_wrap .tit {
+        margin-bottom: 14px;
+        font-size: 14px;
+    }
+
+    .game_schedule.view .his_wrap .tbl table th, .game_schedule.view .his_wrap .tbl table td {
+        padding-top: 12px;
+        padding-bottom: 10px;
+        font-size: 13px;
+    }
+
+    .game_schedule.view .his_wrap .tbl table tbody th {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .game_schedule.view .his_wrap .tbl table tbody th, .game_schedule.view .his_wrap .tbl table tbody td {
+        min-height: 30px;
+        font-size: 13px;
+        line-height: 22px;
+    }
+
+    .game_schedule.view .his_wrap.team .tbl table colgroup col.wd:nth-of-type(1) {
+        width: 62px;
+    }
+
+    .game_schedule.view .his_wrap.team .tbl table colgroup col.wd, .game_schedule.view .his_wrap.team .tbl table colgroup col {
+        width: 26px;
+    }
+
+    .game_schedule.view .his_wrap.hitter .tbl table colgroup col.wd:nth-of-type(1) {
+        width: 90px;
+    }
+
+    .game_schedule.view .his_wrap.hitter .tbl table colgroup col.wd, .game_schedule.view .his_wrap.hitter .tbl table colgroup col {
+        width: 48px;
+    }
+
+    .game_schedule.view .his_wrap.pitcher .tbl table colgroup col.wd:nth-of-type(1) {
+        width: 90px;
+    }
+
+    .game_schedule.view .his_wrap.pitcher .tbl table colgroup col.wd, .game_schedule.view .his_wrap.pitcher .tbl table colgroup col, .game_schedule.view .his_wrap.pitcher .tbl table colgroup col.wd:nth-of-type(2) {
+        width: 48px;
+    }
+
+    /* 작성하기 */
+    .notice_write .list_form {
+        padding: 10px 0 40px;
+    }
+
+    .notice_write .row_hr {
+        -webkit-box-lines: multiple;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+        .notice_write .row_hr > label, .content_block .row_hr > .label {
+            width: 100%;
+            padding: 2px 0 8px 0;
+        }
+
+    /* fan */
+    #container.fan .fan_title {
+        display: none;
+    }
+
+    /* 게시판 list */
+    .list_notice .th_wrap {
+        display: none;
+    }
+
+    .list_notice li .link {
+        -webkit-box-lines: multiple;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    .list_notice ul {
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #333;
+    }
+
+    .list_notice li .col {
+        position: relative;
+        padding-right: 11px;
+        margin-right: 10px;
+        font-family: 'myriad-pro','HanwhaGothicT',sans-serif;
+        font-size: 13px;
+        text-align: left;
+    }
+
+        .list_notice li .col::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 1px;
+            height: 10px;
+            margin-top: -5px;
+            background-color: #333;
+        }
+
+        .list_notice li .col.tit, .list_notice li .col:last-child {
+            padding: 0;
+            margin-right: 0;
+            text-align: left;
+        }
+
+            .list_notice li .col.tit::after, .list_notice li .col:last-child::after {
+                display: none;
+            }
+
+    #container.fan .fan_news .list_notice .col:nth-of-type(1) {
+        display: none;
+    }
+
+    #container.fan .fan_news .list_notice .col:nth-of-type(2) {
+        width: 100%;
+    }
+
+    #container.fan .fan_news .list_notice .col:nth-of-type(3) {
+        width: auto;
+    }
+
+    #container.fan .fan_news .list_notice .col:nth-of-type(4) {
+        width: auto;
+    }
+
+    .paging_area {
+        margin: 20px -10px 0;
+    }
+
+        .paging_area .paging {
+            padding: 0 88px;
+        }
+
+        .paging_area .paging_r {
+            position: static;
+            margin: 35px 10px;
+        }
+
+            .paging_area .paging_r .btn_com {
+                width: 100%;
+            }
+
+    /* 게시판 view */
+    .notice_view {
+    }
+
+        .notice_view .view_hd {
+        }
+
+            .notice_view .view_hd .tit {
+                font-family: 'HanwhaGothicT', sans-serif;
+                font-size: 24px;
+                line-height: 1.33;
+            }
+
+            .notice_view .view_hd .write {
+                margin-top: 7px;
+            }
+
+                .notice_view .view_hd .write .left {
+                    float: left;
+                    width: 100%;
+                }
+
+                .notice_view .view_hd .write .right {
+                    float: left;
+                    width: 100%;
+                    padding: 8px 0 0;
+                }
+
+                .notice_view .view_hd .write p {
+                    margin-left: 24px;
+                    padding-left: 25px;
+                    line-height: 38px;
+                }
+
+                    .notice_view .view_hd .write p::after {
+                        content: '';
+                        position: absolute;
+                        left: 1px;
+                        top: 50%;
+                        width: 1px;
+                        height: 10px;
+                        margin-top: -5px;
+                        background-color: #333;
+                    }
+
+                    .notice_view .view_hd .write p:first-child {
+                        margin-left: 0;
+                        padding-left: 0;
+                        border-left: 0;
+                    }
+
+                        .notice_view .view_hd .write p:first-child::after {
+                            display: none;
+                        }
+
+                    .notice_view .view_hd .write p span.tt {
+                        color: #808080;
+                        padding-right: 16px;
+                    }
+
+                    .notice_view .view_hd .write p span.txt {
+                        color: #b3b3b3;
+                    }
+
+                .notice_view .view_hd .write .right .sns {
+                    position: relative;
+                    right: auto;
+                    top: 0;
+                    width: 113px;
+                }
+
+        .notice_view .view_detail {
+            margin-top: 24px;
+            padding: 40px 0 76px;
+            line-height: 1.64;
+        }
+            /* .notice_view .view_detail img{width:100% !important;max-width:100%;height:auto !important;} */
+            .notice_view .view_detail img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+
+    /* .notice_view .view_detail .img_download_icon img{margin: 0px; padding: 0px; font-family: 돋움; font-size: 11pt; color:#f37321;} */
+
+
+    .page_fast_move .date, .page_fast_move .hit {
+        display: none;
+    }
+
+    .page_fast_move .text {
+        width: 28%;
+        padding-left: 16px;
+    }
+
+    .page_fast_move .tit {
+        width: 72%;
+    }
+
+    /* eagles */
+    #container.eagles .eagles_title {
+        display: none;
+    }
+
+    #container.eagles .left_tab {
+        position: relative;
+        width: 100%;
+    }
+
+    .eagles_content {
+        position: relative;
+        padding-left: 0;
+        margin-top: 0;
+    }
+
+    #container.eagles .align_wrap {
+        -webkit-box-lines: multiple;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+        #container.eagles .align_wrap .col + .col {
+            margin-left: 0;
+        }
+
+    .eagles_intro .symbol_list img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+
+    /* 구단소개 */
+    .eagles_intro .right_conts {
+        margin-top: 50px;
+    }
+
+    .eagles_intro .eagles_logo {
+        width: 251px;
+        height: 167px;
+        margin: 0 auto 70px;
+    }
+
+    .eagles_intro .strong {
+        font-size: 24px;
+        line-height: 1.33;
+    }
+
+    /* 그룹사소개 */
+    .group_intro {
+        margin-top: -3pxpx;
+    }
+
+        .group_intro dl {
+            width: 100%;
+        }
+
+        .group_intro dt {
+            margin-right: 0;
+            padding: 36px 0 24px;
+        }
+
+        .group_intro dd {
+            margin-right: 0;
+            padding-top: 14px;
+        }
+
+        .group_intro li {
+            width: 100%;
+        }
+
+            .group_intro li a {
+                width: 100%;
+            }
+
+    /* 이글스파크 */
+    #container.eagles .eagles_park .right_conts {
+        margin-top: 50px;
+    }
+
+    .eagles_park .amenity_wrap .tit {
+        font-size: 16px;
+        line-height: 1.38;
+    }
+
+    .eagles_park .amenity_wrap .detail_park ~ .tit {
+        margin: 77px 0 -5px;
+    }
+
+    .eagles_park .amenity_wrap .image {
+        margin: 30px 0 54px;
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+
+        .eagles_park .amenity_wrap .image img {
+            display: inline;
+            max-width: 100%;
+            height: auto;
+        }
+
+    .eagles_park .amenity_wrap .detail_park dl {
+        float: none;
+        width: 100% !important;
+        margin: 35px 0 0;
+    }
+
+    .eagles_park .amenity_wrap .detail_park dt {
+        height: 39px;
+    }
+
+    .eagles_park .amenity_wrap .detail_park dd {
+        padding-top: 10px;
+    }
+
+        .eagles_park .amenity_wrap .detail_park dd::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+    .eagles_park .box_eagles_loc {
+        display: block;
+        position: relative;
+        margin-top: 38px;
+        padding: 18px 10px 26px 30px;
+    }
+
+        .eagles_park .box_eagles_loc .right {
+            position: static;
+            width: 100%;
+            margin-top: 26px;
+        }
+
+            .eagles_park .box_eagles_loc .right a.naver {
+                margin-left: -10px;
+            }
+
+    [data-locale="en"] .eagles_park .box_eagles_loc .right a.naver {
+        background-image: url('/images/pages/eagles/img_location_naver_en@2x.png');
+    }
+
+    .eagles_park .gallery strong.tit {
+        display: block;
+        margin-top: 45px;
+        font-size: 16px;
+        line-height: 1.38;
+    }
+
+        .eagles_park .gallery strong.tit.mt0 {
+            margin-top: 0;
+        }
+
+    .eagles_park .gallery .image {
+        margin-top: 20px;
+    }
+
+        .eagles_park .gallery .image img {
+            width: 100%;
+        }
+
+        .eagles_park .gallery .image + .image {
+            margin-top: 20px;
+        }
+
+    .eagles_park .gallery .align_wrap {
+        display: block;
+    }
+
+        .eagles_park .gallery .align_wrap .col {
+            width: 100%;
+        }
+
+            .eagles_park .gallery .align_wrap .col + .col {
+                margin-left: 0;
+            }
+
+
+    /* datepicker */
+    .ui-datepicker {
+        position: fixed !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        bottom: 0 !important;
+        width: 100%;
+        margin-top: 0;
+        padding: 30px 7px 25px;
+        border-radius: 16px 16px 0 0;
+        background-color: #262626;
+        border: 1px solid #000 !important;
+    }
+
+        .ui-datepicker .ui-datepicker-prev-hover span.ui-icon, .ui-datepicker .ui-datepicker-next-hover span.ui-icon {
+            opacity: 1;
+        }
+
+        .ui-datepicker .ui-state-default.ui-state-hover {
+            background: transparent;
+            border-radius: 0;
+        }
+
+    /* 기타 */
+    #container.center .center_title {
+        display: none;
+    }
+
+    #container.center .law_wrap strong.strong {
+        margin-bottom: 30px;
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    #container.center .law_wrap .fc_orange {
+        font-size: 14px;
+    }
+
+    /* 광고문의 */
+    #container.center .content_block.advertising .center_title {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 24px;
+        line-height: 34px;
+    }
+
+    #container.center .content_block.advertising p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .terms_content .terms_info p {
+        line-height: 28px;
+    }
+
+    .terms_content .terms_info p {
+        margin-top: 26px;
+    }
+
+        .terms_content .terms_info p:first-child {
+            margin-bottom: 0;
+        }
+
+    .terms_content .terms_inner h5:first-child {
+        margin-top: 30px;
+    }
+
+    .terms_content .terms_attach, .terms_content.clause .terms_attach {
+        width: 100%;
+        margin-top: 30px;
+        padding: 0 21px 18px;
+    }
+
+        .terms_content.clause .terms_attach li + li {
+            margin-top: 10px;
+        }
+
+    /* 기타 > 고객문의 */
+    #container.center .center_qna .center_title {
+        display: block;
+        margin-bottom: 48px;
+        color: #808080;
+        font-family: 'HanwhaGothicT',sans-serif;
+        font-size: 18px;
+        line-height: 28px;
+        text-align: center;
+    }
+
+        #container.center .center_qna .center_title .link_wrap {
+            margin-top: 18px;
+        }
+
+        #container.center .center_qna .center_title .txt_link {
+            color: #fff;
+            font-size: 16px;
+            line-height: 28px;
+        }
+
+    .center_qna .filter {
+        margin: 0 0 28px;
+    }
+
+    .center_qna .qna_wrap {
+        margin: 0 -24px;
+    }
+
+    .center_qna .qna_tab {
+        display: block;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+
+        .center_qna .qna_tab::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .center_qna .qna_tab .radio {
+            display: inline-block;
+            width: auto;
+            margin-left: 17px;
+            padding-left: 20px;
+        }
+
+            .center_qna .qna_tab .radio:first-child {
+                margin-left: 0;
+                padding-left: 25px;
+            }
+
+            .center_qna .qna_tab .radio label {
+                display: inline-block;
+            }
+
+    .center_qna .qna_list .btn_acc_head {
+        padding: 20px 60px 20px 52px;
+    }
+
+        .center_qna .qna_list .btn_acc_head .qu {
+            position: absolute;
+            left: 24px;
+            top: 20px;
+            font-size: 16px;
+        }
+
+    .center_qna .jsacc .head .btn_acc_head::after {
+        right: 24px;
+    }
+
+    .center_qna .qna_list .view {
+        padding-left: 24px;
+    }
+
+        .center_qna .qna_list .view .an {
+            width: 28px;
+        }
+
+        .center_qna .qna_list .view .answer_conts {
+            width: calc(100% - 52px);
+            padding-right: 0;
+        }
+
+    /* 기타 > 1:1문의 */
+    .center_inq .filter .item_row.flex .select.col {
+        width: 48%;
+    }
+
+    .center_inq .filter .item_row.flex .col + .input_wrap.sch {
+        margin: 10px 0 0 0;
+    }
+
+    .center_inq .list_notice li {
+        position: relative;
+        padding: 20px 48px 0 0;
+    }
+
+    .center_inq .list_notice .col:nth-of-type(1) {
+        display: none;
+    }
+
+    .center_inq .list_notice .col:nth-of-type(2) {
+        position: absolute;
+        left: 0;
+        bottom: 23px;
+        width: 106px;
+    }
+
+    .center_inq .list_notice .col.tit {
+        display: block;
+        width: 100%;
+        margin: -26px 0 3px;
+        padding-left: 0;
+    }
+
+    .center_inq .list_notice .col:nth-of-type(4) {
+        width: auto;
+        margin-left: 122px;
+    }
+
+        .center_inq .list_notice .col:nth-of-type(4)::after {
+            display: none;
+        }
+
+    .center_inq .list_notice .col:nth-of-type(5) {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: auto;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .center_inq .notice_view .view_hd .write p.state {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+        .center_inq .notice_view .view_hd .write p.state::after {
+            display: none;
+        }
+
+    .center_inq .notice_view .view_detail {
+        padding: 22px 0 22px;
+    }
+
+        .center_inq .notice_view .view_detail.answer {
+            padding: 60px 0 22px 29px;
+        }
+
+            .center_inq .notice_view .view_detail.answer::after {
+                left: 0;
+                top: 20px;
+            }
+
+    .center_inq .notice_view .flag_answer {
+        top: 24px;
+        left: 29px;
+    }
+
+    .center_inq.write .notice_write .input_wrap.w270, .center_inq.write .notice_write .select.w270 {
+        width: 100%;
+    }
+
+    #container.center .center_inq.write .center_title {
+        display: block;
+        margin: 25px 0 20px;
+        color: #808080;
+        font-family: 'HanwhaGothicT',sans-serif;
+        font-size: 18px;
+        line-height: 28px;
+        text-align: center;
+    }
+
+    #container.center .center_inq.write .paginate {
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+    }
+
+        #container.center .center_inq.write .paginate .btn_com {
+            display: -ms-flexbox;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+        }
+
+            #container.center .center_inq.write .paginate .btn_com + .btn_com {
+                margin-left: 10px;
+            }
+
+            #container.center .center_inq.write .paginate .btn_com:nth-of-type(1) {
+                min-width: 1px;
+                flex: 3;
+            }
+
+            #container.center .center_inq.write .paginate .btn_com:nth-of-type(2) {
+                min-width: 1px;
+                flex: 7;
+            }
+
+    .page_fast_move li .col:not(.col:nth-of-type(1), .col:nth-of-type(2)) {
+        display: none;
+    }
+}
