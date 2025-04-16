@@ -1,7 +1,7 @@
 ﻿@page "/trophy"
 
 @using BaseBallApp.Data;
-
+@using BaseBallApp.Shared.Models
 @inject NavigationManager NavManager
 @inject IJSRuntime js
 @inject DataService _DataService;
@@ -134,7 +134,7 @@
 	private List<TrophyClass> trophies;
 	protected override async Task OnInitializedAsync()
 	{
-		trophies = await DataService.GetTrophiesAsync();
+		trophies = await _DataService.GetTrophiesAsync();
 		//Tdata = await _DataService.GetTrophyData();
 	}
 	// protected override async Task OnAfterRenderAsync(bool firstRender)

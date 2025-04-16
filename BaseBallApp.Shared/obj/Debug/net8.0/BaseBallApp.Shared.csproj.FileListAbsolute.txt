@@ -9,3 +9,15 @@ C:\local\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.dll
 C:\local\BaseBallApp.Shared\obj\Debug\net8.0\refint\BaseBallApp.Shared.dll
 C:\local\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.pdb
 C:\local\BaseBallApp.Shared\obj\Debug\net8.0\ref\BaseBallApp.Shared.dll
+C:\local\BaseBallApp\BaseBallApp.Shared\bin\Debug\net8.0\BaseBallApp.Shared.deps.json
+C:\local\BaseBallApp\BaseBallApp.Shared\bin\Debug\net8.0\BaseBallApp.Shared.dll
+C:\local\BaseBallApp\BaseBallApp.Shared\bin\Debug\net8.0\BaseBallApp.Shared.pdb
+C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.AssemblyInfoInputs.cache
+C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.AssemblyInfo.cs
+C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.csproj.CoreCompileInputs.cache
+C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.sourcelink.json
+C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.dll
+C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\refint\BaseBallApp.Shared.dll
+C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.pdb
+C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\ref\BaseBallApp.Shared.dll

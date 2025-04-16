@@ -92,3 +92,14 @@ C:\local\BaseBallApp.API\bin\Debug\net8.0\System.Text.Json.dll
 C:\local\BaseBallApp.API\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\local\BaseBallApp.API\bin\Debug\net8.0\BaseBallApp.Shared.dll
 C:\local\BaseBallApp.API\bin\Debug\net8.0\BaseBallApp.Shared.pdb
+C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.csproj.AssemblyReference.cache
+C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.AssemblyInfoInputs.cache
+C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.AssemblyInfo.cs
+C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.csproj.CoreCompileInputs.cache
+C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.MvcApplicationPartsAssemblyInfo.cs
+C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.MvcApplicationPartsAssemblyInfo.cache
+C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.sourcelink.json
+C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.dll
+C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\refint\BaseBallApp.API.dll
+C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.pdb

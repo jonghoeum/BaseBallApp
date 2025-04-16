@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
+using BaseBallApp.Shared.Models;
 namespace BaseBallApp.API.Data
 {
 	public class AppDbContext : DbContext

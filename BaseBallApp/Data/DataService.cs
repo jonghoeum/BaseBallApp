@@ -1,4 +1,5 @@
 ﻿using BaseBallApp.Pages;
+using BaseBallApp.Shared.Models;
 using Dapper;
 using System.Data;
 using System.Data.SqlClient;

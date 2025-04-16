@@ -1,4 +1,5 @@
 ﻿using BaseBallApp.API.Data;
+using BaseBallApp.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace BaseBallApp.API.Controllers
