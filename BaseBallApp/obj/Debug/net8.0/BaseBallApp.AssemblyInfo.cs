@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BaseBallApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94f1fc9c63648e5226975256fc86af0ec6613a99")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+523b744f48be52ae95dd873cac471760681da81e")]
 [assembly: System.Reflection.AssemblyProductAttribute("BaseBallApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BaseBallApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

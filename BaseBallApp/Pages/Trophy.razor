@@ -6,6 +6,7 @@
 @inject NavigationManager NavManager
 @inject IJSRuntime js
 @inject TrophyService _DataService
+@inject AlertService AlertService
 @inject HttpClient Http
 
 @* <div class="title_area" style="height: 782px;">
@@ -111,57 +112,40 @@
 
 			</div>
 		</div>
-		<div>
+		@* <div>
 			<input @bind="trophys.TITLE" placeholder="제목" />
 			<input @bind="trophys.CONTENT" placeholder="내용" />
 			<FileUploader OnFileSelected="HandleFileSelected" />
 
 			<button @onclick="RegisterTrophy">등록</button>
-		</div>
+		</div> *@
 	</div>
 	
 </section>
 </article>
 @if (isModalVisible)
 {
-	<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-		<div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 text-center">
-			<h2 class="text-xl font-semibold text-blue-700 mb-2">트로피 등록</h2>
-			<p class="text-sm text-gray-600 mb-6">
-				트로피 등록을 위해 아래 내용을 입력해주세요.
-			</p>
-
-			<div class="space-y-4">
-				<div>
-					<label class="block text-sm font-medium text-left text-gray-700 mb-1">제목</label>
-					<input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" @bind="trophys.TITLE" />
+	<div class="modal show d-block" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">트로피 등록</h5>
+					<button type="button" class="btn-close" @onclick="() => isModalVisible = false"></button>
 				</div>
-
-				<div>
-					<label class="block text-sm font-medium text-left text-gray-700 mb-1">내용</label>
-					<textarea class="w-full border border-gray-300 rounded-md px-3 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400" @bind="trophys.CONTENT"></textarea>
+				<div class="modal-body">
+					<input @bind="trophys.TITLE" placeholder="제목" class="form-control mb-2" />
+					<input @bind="trophys.CONTENT" placeholder="내용" class="form-control mb-2" />
+					<FileUploader OnFileSelected="HandleFileSelected" />
 				</div>
-
-				<div>
-					<label class="block text-sm font-medium text-left text-gray-700 mb-1">이미지 업로드</label>
-					<InputFile OnFileSelected="HandleFileSelected" />
+				<div class="modal-footer">
+					<button class="btn btn-secondary" @onclick="() => isModalVisible = false">닫기</button>
+					<button class="btn btn-primary" @onclick="RegisterTrophy">등록</button>
 				</div>
-			</div>
-
-			<div class="flex justify-center gap-4 mt-6">
-				<button @onclick="RegisterTrophy"
-						class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition duration-200">
-					등록
-				</button>
-				<button @onclick="() => isModalVisible = false"
-						class="bg-gray-300 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-400 transition duration-200">
-					닫기
-				</button>
 			</div>
 		</div>
 	</div>
+	<div class="modal-backdrop fade show"></div>
 }
-
 <script>
     // modify location
     $('.left_tab a').each(function () {
@@ -207,7 +191,7 @@
 	{
 		if (selectedFile != null)
 		{
-		// 파일 업로드 처리
+			// 파일 업로드 처리
 			path = await UploadFileAsync(selectedFile);
 			if (string.IsNullOrEmpty(path))
 			{
@@ -217,13 +201,23 @@
 			trophys.FILENAME = selectedFile.Name; // 원본 파일명
 			trophys.FILE = path;
 			//trophy.FilePath = filePath;
-            //trophy.OriginalFileName = selectedFile.Name; // 원본 파일명
-        }
-    }
+			//trophy.OriginalFileName = selectedFile.Name; // 원본 파일명
+		}
+	}
 
 	private async Task RegisterTrophy()
-    {
-        var success = await _DataService.InsertTrophyAsync(trophys);
+	{
+		if (string.IsNullOrEmpty(trophys.TITLE))
+		{
+			AlertService.ShowAlert("제목을 입력하세요.", "warning", true);
+			return;
+		}
+		if (string.IsNullOrEmpty(trophys.CONTENT))
+		{
+			AlertService.ShowAlert("내용을 입력하세요.", "warning", true);
+			return;
+		}
+		var success = await _DataService.InsertTrophyAsync(trophys);
 
         if (success)
         {
