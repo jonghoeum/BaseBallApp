@@ -37,11 +37,12 @@
 			{
 				@foreach(var trp in trophies)
 				{
+					var imageUrl = _DataService.GetImageUrl(trp.FILE);
 					<li class="goods-card">
 						<a href="javascript:void(0);" class="">
 							<i class="new">NEW</i>
 							<!-- <i th:case="*" class="best">BEST</i> -->
-							<img style="max-height: 80%; max-width: 100%;" src="@trp.FILE" alt="17f8771e-a579-4521-bc90-04ad6863a0bd.png">
+							<img style="max-height: 80%; max-width: 100%;" src="@imageUrl" alt="17f8771e-a579-4521-bc90-04ad6863a0bd.png">
 							<span>@trp.TITLE</span>
 						</a>
 					</li>
