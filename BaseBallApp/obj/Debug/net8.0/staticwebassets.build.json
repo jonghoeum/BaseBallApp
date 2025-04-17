@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "G4uUUS/VGgFD1pzUJUYdLY7N691vdDL1lBleun8hcPE=",
+  "Hash": "tQAoBW0NvvACT8YJIi66/Xrj7h1O7hSrBXQZ6ELn4qo=",
   "Source": "BaseBallApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -8052,6 +8052,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\bootstrap\\bootstrap.min5.3.css",
+      "SourceId": "BaseBallApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/bootstrap/bootstrap.min5.3.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min5.3.css"
     },
     {
       "Identity": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\common.css",

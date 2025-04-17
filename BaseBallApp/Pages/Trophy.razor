@@ -30,7 +30,7 @@
 		</fieldset>
 	</form>
 	<div class="prd_list">
-		<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;"  @onclick="ShowModal">등록</button></div>
+			<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;" @onclick="() => isModalVisible = true">등록</button></div>
 		<p class="counting">전체 <span>50</span> </p>
 		<ul>
 			@if (trophies.Count() > 0)
@@ -52,14 +52,6 @@
 			{
 						
 			}
-			 <li class="goods-card">
-				<a href="https://eaglesshop.co.kr/product/25-%EC%9D%B4%EA%B8%80%EC%8A%A4-%EB%B1%83%EC%A7%80-%EC%84%B8%ED%8A%B8/368/category/68/display/1/" target="_blank" data-id="698" class="">
-					<i class="new">NEW</i>
-					<!-- <i th:case="*" class="best">BEST</i> -->
-					<img style="max-height: 80%; max-width: 100%;" src="/image/250.png" alt="17f8771e-a579-4521-bc90-04ad6863a0bd.png">
-					<span>25 이글스 뱃지 세트</span>
-				</a>
-			</li>
 			@*<li class="goods-card">
 				<a href="https://eaglesshop.co.kr/product/%EC%98%A4%EB%A0%8C%EC%A7%80-%EB%A6%AC%EB%B3%B8-%EB%A8%B8%EB%A6%AC%ED%95%80/363/category/68/display/1/" target="_blank" data-id="697" class="">
 					<i class="new">NEW</i>
@@ -130,31 +122,46 @@
 	
 </section>
 </article>
-@if (showModal)
+@if (isModalVisible)
 {
-	<div class="custom-modal-overlay" @onclick="CloseModal">
-		<div class="custom-modal" @onclick:stopPropagation>
-			<div class="modal-header">
-				<h3>트로피 등록</h3>
-				<button class="close-btn" @onclick="CloseModal">×</button>
-			</div>
-			<div class="modal-body">
-				<label>제목</label>
-				<input type="text" @bind="trophys.TITLE" class="form-control" />
+	<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+		<div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 text-center">
+			<h2 class="text-xl font-semibold text-blue-700 mb-2">트로피 등록</h2>
+			<p class="text-sm text-gray-600 mb-6">
+				트로피 등록을 위해 아래 내용을 입력해주세요.
+			</p>
 
-				<label>내용</label>
-				<textarea @bind="trophys.CONTENT" class="form-control" rows="3"></textarea>
+			<div class="space-y-4">
+				<div>
+					<label class="block text-sm font-medium text-left text-gray-700 mb-1">제목</label>
+					<input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" @bind="trophys.TITLE" />
+				</div>
 
-				<label>파일 업로드</label>
-				<FileUploader OnFileSelected="HandleFileSelected" />
+				<div>
+					<label class="block text-sm font-medium text-left text-gray-700 mb-1">내용</label>
+					<textarea class="w-full border border-gray-300 rounded-md px-3 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400" @bind="trophys.CONTENT"></textarea>
+				</div>
+
+				<div>
+					<label class="block text-sm font-medium text-left text-gray-700 mb-1">이미지 업로드</label>
+					<InputFile OnFileSelected="HandleFileSelected" />
+				</div>
 			</div>
-			<div class="modal-footer">
-				<button class="btn-cancel" @onclick="CloseModal">닫기</button>
-				<button class="btn-submit" @onclick="RegisterTrophy">등록</button>
+
+			<div class="flex justify-center gap-4 mt-6">
+				<button @onclick="RegisterTrophy"
+						class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition duration-200">
+					등록
+				</button>
+				<button @onclick="() => isModalVisible = false"
+						class="bg-gray-300 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-400 transition duration-200">
+					닫기
+				</button>
 			</div>
 		</div>
 	</div>
 }
+
 <script>
     // modify location
     $('.left_tab a').each(function () {
@@ -183,7 +190,7 @@
 	private string path = "";
 	private string responseMessage;
 	private string apiBase = "";
-	private bool showModal = false;
+	private bool isModalVisible = false;
 	private int total = 0;
 
 	protected override async Task OnInitializedAsync()
@@ -195,16 +202,6 @@
 			total = trophies.Count();
 		}
 		//Tdata = await _DataService.GetTrophyData();
-	}
-	private void ShowModal()
-	{
-		trophys = new TrophyClass(); // 새로 작성
-		path = "";
-		showModal = true;
-	}
-	private void CloseModal()
-	{
-		showModal = false;
 	}
 	private async Task HandleFileSelected(IBrowserFile selectedFile)
 	{

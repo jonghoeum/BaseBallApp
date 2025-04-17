@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\bootstrap\\bootstrap.min5.3.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min5.3.css"
+    },
+    {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\common-chae.css",
       "PackagePath": "staticwebassets\\css\\common-chae.css"
     },
