@@ -55,12 +55,12 @@ namespace BaseBallApp.API.Controllers
 				await file.CopyToAsync(stream);
 			}
 
-			var relativePath = $"uploads/{uniqueFileName}"; // 클라이언트에 전달할 경로
+			var relativePath = $"/uploads/{uniqueFileName}"; // 클라이언트에 전달할 경로
 			return Ok(relativePath);
 		}
 
 		[HttpPost("insert")]
-		public async Task<IActionResult> InsertTrophy([FromForm] TrophyClass request)
+		public async Task<IActionResult> InsertTrophy([FromBody] TrophyClass request)
 		{
 			using var transaction = await _db.Database.BeginTransactionAsync();
 

@@ -7,6 +7,7 @@
 @inject IJSRuntime js
 @inject TrophyService _DataService
 @inject HttpClient Http
+@inject IConfiguration Configuration
 @* <div class="title_area" style="height: 782px;">
     <h3></h3>
 </div> *@
@@ -32,14 +33,24 @@
 		<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;">등록</button</div>
 		<p class="counting">전체 <span>50</span> </p>
 		<ul>
-			<li class="goods-card">
-				<a href="https://eaglesshop.co.kr/product/25-%EC%9D%B4%EA%B8%80%EC%8A%A4-%EB%B1%83%EC%A7%80-%EC%84%B8%ED%8A%B8/368/category/68/display/1/" target="_blank" data-id="698" class="">
-					<i class="new">NEW</i>
-					<!-- <i th:case="*" class="best">BEST</i> -->
-					<img style="max-height: 80%; max-width: 100%;" src="/image/250.png" alt="17f8771e-a579-4521-bc90-04ad6863a0bd.png">
-					<span>25 이글스 뱃지 세트</span>
-				</a>
-			</li>
+			@if (trophies != null)
+			{
+				@foreach(var trp in trophies)
+				{
+					<li class="goods-card">
+						<a href="javascript:void(0);" class="">
+							<i class="new">NEW</i>
+							<!-- <i th:case="*" class="best">BEST</i> -->
+							<img style="max-height: 80%; max-width: 100%;" src="@trp.FILE" alt="17f8771e-a579-4521-bc90-04ad6863a0bd.png">
+							<span>@trp.TITLE</span>
+						</a>
+					</li>
+					}
+				}
+			else
+			{
+						
+			}
 			@* <li class="goods-card">
 				<a href="https://eaglesshop.co.kr/product/25-%EC%9D%B4%EA%B8%80%EC%8A%A4-%EB%B1%83%EC%A7%80-%EC%84%B8%ED%8A%B8/368/category/68/display/1/" target="_blank" data-id="698" class="">
 					<i class="new">NEW</i>
@@ -144,20 +155,14 @@
 	private TrophyClass trophys = new();
 	private string path = "";
 	private string responseMessage;
-
+	private string apiBase = "";
 
 	protected override async Task OnInitializedAsync()
 	{
+		apiBase = Configuration["ApiBase"]; 
 		trophies = await _DataService.GetTrophiesAsync();
 		//Tdata = await _DataService.GetTrophyData();
 	}
-	// protected override async Task OnAfterRenderAsync(bool firstRender)
-	// {
-	// 	if (firstRender)
-	// 	{
-	// 		//await js.InvokeVoidAsync("ContainerChange", "trophy");
-	// 	}
-	// }
 	private async Task HandleFileSelected(IBrowserFile selectedFile)
 	{
 		if (selectedFile != null)
@@ -178,17 +183,19 @@
 
 	private async Task RegisterTrophy()
     {
-        var response = await Http.PostAsJsonAsync("api/trophy/insert", trophys);
+        var success = await _DataService.InsertTrophyAsync(trophys);
 
-        if (response.IsSuccessStatusCode)
+        if (success)
         {
             responseMessage = "트로피 등록 성공!";
+            trophies = await _DataService.GetTrophiesAsync(); // 목록 갱신
         }
         else
         {
             responseMessage = "등록 실패.";
         }
     }
+
 	private async Task<string> UploadFileAsync(IBrowserFile file)
     {
         var content = new MultipartFormDataContent();

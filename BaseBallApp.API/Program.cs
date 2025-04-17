@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using BaseBallApp.API.Data;
-
+using Microsoft.Extensions.FileProviders;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -32,7 +32,14 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
+app.UseStaticFiles(); // 기본 wwwroot 설정
 
+app.UseStaticFiles(new StaticFileOptions
+{
+	FileProvider = new PhysicalFileProvider(
+		Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads")),
+	RequestPath = "/uploads"
+});
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
