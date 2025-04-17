@@ -3,29 +3,29 @@
   "WorkspaceRootPath": "C:\\local\\BaseBallApp\\BaseBallApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\controllers\\trophycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\trophy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\trophy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\data\\trophyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:data\\trophyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\service\\apioptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:service\\apioptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\controllers\\trophycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\data\\trophyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:data\\trophyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\trophyclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -45,37 +45,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "ApiOptions.cs",
+              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Service\\ApiOptions.cs",
+              "RelativeDocumentMoniker": "Service\\ApiOptions.cs",
+              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Service\\ApiOptions.cs",
+              "RelativeToolTip": "Service\\ApiOptions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T02:07:27.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAgAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-17T01:16:54.225Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-17T01:14:42.628Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.API\\Program.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.API\\Program.cs",
@@ -88,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.API\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "..\\BaseBallApp.API\\Properties\\launchSettings.json",
@@ -101,13 +101,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "TrophyService.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Data\\TrophyService.cs",
               "RelativeDocumentMoniker": "Data\\TrophyService.cs",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Data\\TrophyService.cs",
               "RelativeToolTip": "Data\\TrophyService.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAIwCgAAAACAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAwBYAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-16T23:45:34.258Z",
               "EditorCaption": ""
@@ -122,17 +122,18 @@
               "RelativeToolTip": "Shared\\FileUploader.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-16T07:19:34.618Z"
+              "WhenOpened": "2025-04-16T07:19:34.618Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Trophy.razor",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Trophy.razor",
               "RelativeDocumentMoniker": "Pages\\Trophy.razor",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Trophy.razor",
               "RelativeToolTip": "Pages\\Trophy.razor",
-              "ViewState": "AQIAAJYAAAAAAAAAAAAkwKEAAAACAAAA",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAUwKAAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-16T02:42:56.44Z",
               "EditorCaption": ""
@@ -152,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "TrophyController.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.API\\Controllers\\TrophyController.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.API\\Controllers\\TrophyController.cs",

@@ -7,7 +7,7 @@
 @inject IJSRuntime js
 @inject TrophyService _DataService
 @inject HttpClient Http
-@inject IConfiguration Configuration
+
 @* <div class="title_area" style="height: 782px;">
     <h3></h3>
 </div> *@
@@ -159,7 +159,7 @@
 
 	protected override async Task OnInitializedAsync()
 	{
-		apiBase = Configuration["ApiBase"]; 
+		//apiBase = Configuration["ApiBase"]; 
 		trophies = await _DataService.GetTrophiesAsync();
 		//Tdata = await _DataService.GetTrophyData();
 	}

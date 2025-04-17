@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kigmUBoy6hgLasKGBDrz+JXQVfJKD4eYHgrwP0x30A0=",
+  "Hash": "G4uUUS/VGgFD1pzUJUYdLY7N691vdDL1lBleun8hcPE=",
   "Source": "BaseBallApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -7976,6 +7976,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\_favicon.png"
+    },
+    {
+      "Identity": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\appsettings.json",
+      "SourceId": "BaseBallApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "appsettings.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "settings",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\appsettings.json"
     },
     {
       "Identity": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\app.css",

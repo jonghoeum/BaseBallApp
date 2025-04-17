@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\_favicon.png"
     },
     {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\appsettings.json",
+      "PackagePath": "staticwebassets\\appsettings.json"
+    },
+    {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\TopMenu.css",
       "PackagePath": "staticwebassets\\css\\TopMenu.css"
     },

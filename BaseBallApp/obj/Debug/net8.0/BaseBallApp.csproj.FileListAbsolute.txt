@@ -1468,7 +1468,6 @@ C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\wwwroot\_framework\System.Secu
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\wwwroot\_framework\System.IO.Compression.FileSystem.wasm.gz
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\wwwroot\_framework\System.Resources.ResourceManager.wasm.gz
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\appsettings.Development.json
-C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\appsettings.json
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\BaseBallApp.staticwebassets.runtime.json
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\BaseBallApp.dll
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\BaseBallApp.pdb
