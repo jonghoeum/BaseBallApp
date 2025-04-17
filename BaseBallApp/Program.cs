@@ -21,6 +21,7 @@ builder.Services.AddScoped(sp => new HttpClient
 {
 	BaseAddress = new Uri(apiBaseAddress)
 });
+
 //builder.Services.AddScoped(sp => new HttpClient
 //{
 //	BaseAddress = new Uri("https://localhost:7067/") // BaseBallApp.API 실행 주소

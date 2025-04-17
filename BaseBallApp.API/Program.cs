@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using BaseBallApp.API.Data;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Http.Features; // API 쪽 Program.cs에 추가
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,6 +22,10 @@ builder.Services.AddCors(options =>
 			  .AllowAnyMethod()
 			  .AllowAnyHeader();
 	});
+});
+builder.Services.Configure<FormOptions>(options =>
+{
+	options.MultipartBodyLengthLimit = 10 * 1024 * 1024; // 10MB
 });
 
 var app = builder.Build();

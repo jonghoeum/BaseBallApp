@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BaseBallApp.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+335b5bbae7fc2d4d5e57f3d75bbd8762b33d3450")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+def9728394d8e68ec859b78a5ae138e434ccc567")]
 [assembly: System.Reflection.AssemblyProductAttribute("BaseBallApp.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BaseBallApp.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

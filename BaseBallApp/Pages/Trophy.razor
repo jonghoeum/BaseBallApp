@@ -30,10 +30,10 @@
 		</fieldset>
 	</form>
 	<div class="prd_list">
-		<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;">등록</button</div>
+		<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;"  @onclick="ShowModal">등록</button></div>
 		<p class="counting">전체 <span>50</span> </p>
 		<ul>
-			@if (trophies != null)
+			@if (trophies.Count() > 0)
 			{
 				@foreach(var trp in trophies)
 				{
@@ -46,13 +46,13 @@
 							<span>@trp.TITLE</span>
 						</a>
 					</li>
-					}
 				}
+			}
 			else
 			{
 						
 			}
-			@* <li class="goods-card">
+			 <li class="goods-card">
 				<a href="https://eaglesshop.co.kr/product/25-%EC%9D%B4%EA%B8%80%EC%8A%A4-%EB%B1%83%EC%A7%80-%EC%84%B8%ED%8A%B8/368/category/68/display/1/" target="_blank" data-id="698" class="">
 					<i class="new">NEW</i>
 					<!-- <i th:case="*" class="best">BEST</i> -->
@@ -60,7 +60,7 @@
 					<span>25 이글스 뱃지 세트</span>
 				</a>
 			</li>
-			<li class="goods-card">
+			@*<li class="goods-card">
 				<a href="https://eaglesshop.co.kr/product/%EC%98%A4%EB%A0%8C%EC%A7%80-%EB%A6%AC%EB%B3%B8-%EB%A8%B8%EB%A6%AC%ED%95%80/363/category/68/display/1/" target="_blank" data-id="697" class="">
 					<i class="new">NEW</i>
 					<!-- <i th:case="*" class="best">BEST</i> -->
@@ -127,8 +127,34 @@
 			<button @onclick="RegisterTrophy">등록</button>
 		</div>
 	</div>
+	
 </section>
 </article>
+@if (showModal)
+{
+	<div class="custom-modal-overlay" @onclick="CloseModal">
+		<div class="custom-modal" @onclick:stopPropagation>
+			<div class="modal-header">
+				<h3>트로피 등록</h3>
+				<button class="close-btn" @onclick="CloseModal">×</button>
+			</div>
+			<div class="modal-body">
+				<label>제목</label>
+				<input type="text" @bind="trophys.TITLE" class="form-control" />
+
+				<label>내용</label>
+				<textarea @bind="trophys.CONTENT" class="form-control" rows="3"></textarea>
+
+				<label>파일 업로드</label>
+				<FileUploader OnFileSelected="HandleFileSelected" />
+			</div>
+			<div class="modal-footer">
+				<button class="btn-cancel" @onclick="CloseModal">닫기</button>
+				<button class="btn-submit" @onclick="RegisterTrophy">등록</button>
+			</div>
+		</div>
+	</div>
+}
 <script>
     // modify location
     $('.left_tab a').each(function () {
@@ -152,17 +178,33 @@
 
 @code{
 	//private IEnumerable<TrophyClass> Tdata = Enumerable.Empty<TrophyClass>();
-	private List<TrophyClass> trophies;
+	private List<TrophyClass> trophies = new List<TrophyClass>();
 	private TrophyClass trophys = new();
 	private string path = "";
 	private string responseMessage;
 	private string apiBase = "";
+	private bool showModal = false;
+	private int total = 0;
 
 	protected override async Task OnInitializedAsync()
 	{
 		//apiBase = Configuration["ApiBase"]; 
 		trophies = await _DataService.GetTrophiesAsync();
+		if(trophies.Count() > 0)
+		{
+			total = trophies.Count();
+		}
 		//Tdata = await _DataService.GetTrophyData();
+	}
+	private void ShowModal()
+	{
+		trophys = new TrophyClass(); // 새로 작성
+		path = "";
+		showModal = true;
+	}
+	private void CloseModal()
+	{
+		showModal = false;
 	}
 	private async Task HandleFileSelected(IBrowserFile selectedFile)
 	{
@@ -198,21 +240,23 @@
     }
 
 	private async Task<string> UploadFileAsync(IBrowserFile file)
+{
+    var content = new MultipartFormDataContent();
+
+    // 10MB까지 허용
+    var stream = file.OpenReadStream(10 * 1024 * 1024); // ✅ 10MB 허용
+    var fileContent = new StreamContent(stream);
+    fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
+    content.Add(fileContent, "File", file.Name);
+
+    var response = await Http.PostAsync("api/trophy/upload", content);
+    if (response.IsSuccessStatusCode)
     {
-        var content = new MultipartFormDataContent();
-        var stream = file.OpenReadStream();
-        var fileContent = new StreamContent(stream);
-        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
-        content.Add(fileContent, "File", file.Name);
-
-        var response = await Http.PostAsync("api/trophy/upload", content);
-        if (response.IsSuccessStatusCode)
-        {
-            return await response.Content.ReadAsStringAsync();  // 서버에서 반환된 파일 경로
-        }
-
-        return null;
+        return await response.Content.ReadAsStringAsync();  // 서버에서 반환된 파일 경로
     }
+
+    return null;
+}
     private async Task PageMove(string page)
     {
         NavManager.NavigateTo(page);

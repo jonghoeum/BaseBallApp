@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iFyxmk6jv27qWSf6UMZGQ0BbGuR8RxhvQ1ZYDPxWIjM=",
+  "Hash": "bacbk173BQIe6X3+6OL8/galijYn2lcMECKeQU9HGOU=",
   "Source": "BaseBallApp.API",
   "BasePath": "_content/BaseBallApp.API",
   "Mode": "Default",
@@ -34,25 +34,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\535f657c-d887-4a30-aa09-ff2d0e81c06d_매입자동기표_아산.png"
-    },
-    {
-      "Identity": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\uploads\\f32f9a92-b21d-4176-bf9d-ee487df43c43_매입자동기표_아산.png",
-      "SourceId": "BaseBallApp.API",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\",
-      "BasePath": "_content/BaseBallApp.API",
-      "RelativePath": "uploads/f32f9a92-b21d-4176-bf9d-ee487df43c43_매입자동기표_아산.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\f32f9a92-b21d-4176-bf9d-ee487df43c43_매입자동기표_아산.png"
     }
   ]
 }
