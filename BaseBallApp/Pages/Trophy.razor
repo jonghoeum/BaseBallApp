@@ -6,7 +6,6 @@
 @inject NavigationManager NavManager
 @inject IJSRuntime js
 @inject TrophyService _DataService
-@inject AlertService AlertService
 @inject HttpClient Http
 
 @* <div class="title_area" style="height: 782px;">
@@ -32,7 +31,7 @@
 	</form>
 	<div class="prd_list">
 			<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;" @onclick="() => isModalVisible = true">등록</button></div>
-		<p class="counting">전체 <span>50</span> </p>
+		<p class="counting">전체 <span>@total</span> </p>
 		<ul>
 			@if (trophies.Count() > 0)
 			{
@@ -41,7 +40,7 @@
 					var imageUrl = _DataService.GetImageUrl(trp.FILE);
 					<li class="goods-card">
 						<a href="javascript:void(0);" class="">
-							<i class="new">NEW</i>
+							@* <i class="new">NEW</i> *@
 							<!-- <i th:case="*" class="best">BEST</i> -->
 							<img style="max-height: 80%; max-width: 100%;" src="@imageUrl" alt="17f8771e-a579-4521-bc90-04ad6863a0bd.png">
 							<span>@trp.TITLE</span>
@@ -128,19 +127,28 @@
 	<div class="modal show d-block" tabindex="-1">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">트로피 등록</h5>
-					<button type="button" class="btn-close" @onclick="() => isModalVisible = false"></button>
-				</div>
-				<div class="modal-body">
-					<input @bind="trophys.TITLE" placeholder="제목" class="form-control mb-2" />
-					<input @bind="trophys.CONTENT" placeholder="내용" class="form-control mb-2" />
-					<FileUploader OnFileSelected="HandleFileSelected" />
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" @onclick="() => isModalVisible = false">닫기</button>
-					<button class="btn btn-primary" @onclick="RegisterTrophy">등록</button>
-				</div>
+				<EditForm Model="trophys" OnValidSubmit="RegisterTrophy">
+					<DataAnnotationsValidator />
+					<div class="modal-header">
+						<h5 class="modal-title">트로피 등록</h5>
+						<button type="button" class="btn-close" @onclick="() => isModalVisible = false"></button>
+					</div>
+
+					<div class="modal-body">
+						<InputText @bind-Value="trophys.TITLE" class="form-control mb-2" placeholder="제목" />
+						<ValidationMessage For="@(() => trophys.TITLE)" />
+
+						<InputText @bind-Value="trophys.CONTENT" class="form-control mb-2" placeholder="내용" />
+						<ValidationMessage For="@(() => trophys.CONTENT)" />
+
+						<FileUploader OnFileSelected="HandleFileSelected" />
+					</div>
+
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button" @onclick="() => isModalVisible = false">닫기</button>
+						<button class="btn btn-primary" type="submit">등록</button>
+					</div>
+				</EditForm>
 			</div>
 		</div>
 	</div>
@@ -172,7 +180,7 @@
 	private List<TrophyClass> trophies = new List<TrophyClass>();
 	private TrophyClass trophys = new();
 	private string path = "";
-	private string responseMessage;
+	private string responseMessage = "";
 	private string apiBase = "";
 	private bool isModalVisible = false;
 	private int total = 0;
@@ -207,16 +215,6 @@
 
 	private async Task RegisterTrophy()
 	{
-		if (string.IsNullOrEmpty(trophys.TITLE))
-		{
-			AlertService.ShowAlert("제목을 입력하세요.", "warning", true);
-			return;
-		}
-		if (string.IsNullOrEmpty(trophys.CONTENT))
-		{
-			AlertService.ShowAlert("내용을 입력하세요.", "warning", true);
-			return;
-		}
 		var success = await _DataService.InsertTrophyAsync(trophys);
 
         if (success)

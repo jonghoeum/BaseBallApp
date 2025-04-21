@@ -29,5 +29,4 @@ builder.Services.AddScoped(sp => new HttpClient
 
 //builder.Services.AddSingleton<DataService>();
 builder.Services.AddScoped<TrophyService>();
-builder.Services.AddScoped<AlertService>();
 await builder.Build().RunAsync();
