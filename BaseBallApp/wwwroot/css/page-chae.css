@@ -2249,7 +2249,7 @@
         }
 
 #container.eagles .image img {
-    width: 100%;
+    width: 30%;
 }
 
 /* 구단소개 */
@@ -2304,7 +2304,7 @@
 }
 
     .eagles_intro .image img {
-        width: 100%;
+        width: 30%;
     }
 
 .eagles_intro .ci_wrap .image + .list_bul {
@@ -2383,7 +2383,8 @@
     .eagles_intro .ci_list li {
         position: relative;
         height: 0;
-        padding-bottom: 196px;
+        /*padding-bottom: 196px;*/
+        padding-bottom: 450px;
         display: -ms-flexbox;
         display: -webkit-box;
         display: -webkit-flex;

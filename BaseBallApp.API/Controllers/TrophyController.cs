@@ -1,4 +1,5 @@
-﻿using BaseBallApp.API.Data;
+﻿using Azure.Core;
+using BaseBallApp.API.Data;
 using BaseBallApp.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,7 @@ namespace BaseBallApp.API.Controllers
 			try
 			{
 				var query = "SELECT * FROM dbo.Trophy";
-				var trophies = await _db.Trophies
+				var trophies = await _db.Trophy
 										.FromSqlRaw(query)
 										.ToListAsync();
 
@@ -79,5 +80,42 @@ namespace BaseBallApp.API.Controllers
 			}
 		}
 
+		// PUT api/trophy/{id}
+		[HttpPut("{id}")]
+		public async Task<IActionResult> UpdateTrophy(int id, [FromBody] TrophyClass dto)
+		{
+			var trophy = await _db.Trophy.FindAsync(id);
+			if (trophy == null) return NotFound();
+
+			trophy.TITLE = dto.TITLE;
+			trophy.CONTENT = dto.CONTENT;
+			trophy.FILE = dto.FILE;
+			trophy.FILENAME = dto.FILENAME;
+
+			using var transaction = await _db.Database.BeginTransactionAsync();
+			try
+			{
+				var sql = "UPDATE dbo.TROPHY SET  TITLE = @P0, CONTENT = @P1, [FILE] = @P2, FILENAME = @P3 WHERE IDX = @P4";
+				var result = await _db.Database.ExecuteSqlRawAsync(sql, trophy.TITLE, trophy.CONTENT, trophy.FILE, trophy.FILENAME, trophy.IDX);
+				await transaction.CommitAsync();
+				return Ok($"{result}개의 행이 수정되었습니다.");
+			}
+			catch (Exception ex)
+			{
+				await transaction.RollbackAsync();
+				return StatusCode(500, $"Update 실패: {ex.Message}");
+			}
+		}
+
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> DeleteTrophy(int id)
+		{
+			var trophy = await _db.Trophy.FindAsync(id);
+			if (trophy == null) return NotFound(new { success = false, message = "데이터를 찾을 수 없습니다." });
+
+			_db.Trophy.Remove(trophy);
+			await _db.SaveChangesAsync();
+			return Ok(new { success = true, message = "삭제가 완료되었습니다." });
+		}
 	}
 }

@@ -7,30 +7,117 @@
 @inject IJSRuntime js
 @inject TrophyService _DataService
 @inject HttpClient Http
+<style>
+	.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+}
 
+.custom-modal {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+.custom-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.custom-modal-close:hover {
+    color: #333;
+}
+
+.custom-modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 1rem;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+.custom-modal-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.custom-modal-body h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.custom-modal-body .description {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.invite-btn {
+    background-color: #0f7c90;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.invite-btn:hover {
+    background-color: #0d6a78;
+}
+
+
+@@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+</style>
 @* <div class="title_area" style="height: 782px;">
     <h3></h3>
 </div> *@
 <article id="container" class="shop">
 <section class="content_block">
-	<form action="">
-		<fieldset>
-			@* <div class="search_area">
-				<input type="text" name="search" value="" placeholder="Search">
-				<input type="submit" value="검색">
-			</div> *@
-			@* <p class="category_area">
-				<button type="button" class="active">전체</button>
-				<button value="GC1" type="button">유니폼</button>
-				<button value="GC2" type="button">모자</button>
-				<button value="GC3" type="button">의류</button>
-				<button value="GC4" type="button">잡화</button>
-				<button value="GC5" type="button">기념상품</button>
-			</p> *@
-		</fieldset>
-	</form>
+		<div>
+			<div class="tab_menu">
+				<ul>
+					<li class="" id="PCMNHI"><a href="history"><span></span>HISTORY</a></li>
+					<li class="active" id="PCMNEP"><a href="trophy"><span></span>사료실</a></li>
+					<li class="" id="PCMNCS"><a href="uniform"><span></span>엠블럼/유니폼</a></li>
+				</ul>
+			</div>
+
+		</div>
+
 	<div class="prd_list">
-			<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;" @onclick="() => isModalVisible = true">등록</button></div>
+			<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;" @onclick="e => InitModal()">등록</button></div>
 		<p class="counting">전체 <span>@total</span> </p>
 		<ul>
 			@if (trophies.Count() > 0)
@@ -39,8 +126,9 @@
 				{
 					var imageUrl = _DataService.GetImageUrl(trp.FILE);
 					<li class="goods-card">
-						<a href="javascript:void(0);" class="">
-							@* <i class="new">NEW</i> *@
+							<a href="javascript:void(0);" class="" @onclick="e => ViewModal(trp)">
+							<i class="new" @onclick="e => ModifyModal(trp)">수정</i>
+							<i class="new2" @onclick="e => DeleteTrophy(trp)">삭제</i>
 							<!-- <i th:case="*" class="best">BEST</i> -->
 							<img style="max-height: 80%; max-width: 100%;" src="@imageUrl" alt="17f8771e-a579-4521-bc90-04ad6863a0bd.png">
 							<span>@trp.TITLE</span>
@@ -52,7 +140,7 @@
 			{
 						
 			}
-			@*<li class="goods-card">
+		@*<li class="goods-card">
 				<a href="https://eaglesshop.co.kr/product/%EC%98%A4%EB%A0%8C%EC%A7%80-%EB%A6%AC%EB%B3%B8-%EB%A8%B8%EB%A6%AC%ED%95%80/363/category/68/display/1/" target="_blank" data-id="697" class="">
 					<i class="new">NEW</i>
 					<!-- <i th:case="*" class="best">BEST</i> -->
@@ -88,9 +176,7 @@
 
 		<div>
 			<div class="paging_area">
-
 				<div class="paging">
-
 					<!-- <button type="button" th:onclick="|searchTable(0, '${page_length}')|" class="btn_page start" th:disabled="${btn_select == 0}"><span class="blind">맨처음</span></button>  -->
 					<button type="button" onclick="searchTable('0', '40')" class="btn_page prev" disabled="disabled"><span class="blind">이전 10</span></button>
 					<div class="go_num">
@@ -105,17 +191,15 @@
 						th:onclick="|searchTable('${(btn_all_length -1) * page_length}', '${page_length}')|"
 						th:disabled="${btn_select &gt;= (btn_all_length - 1)}">
 						<span class="blind">맨끝</span>
-					</button>  -->
+					</button>  
+					-->
 				</div>
-
-
 			</div>
 		</div>
 		@* <div>
 			<input @bind="trophys.TITLE" placeholder="제목" />
 			<input @bind="trophys.CONTENT" placeholder="내용" />
 			<FileUploader OnFileSelected="HandleFileSelected" />
-
 			<button @onclick="RegisterTrophy">등록</button>
 		</div> *@
 	</div>
@@ -140,12 +224,12 @@
 
 						<InputText @bind-Value="trophys.CONTENT" class="form-control mb-2" placeholder="내용" />
 						<ValidationMessage For="@(() => trophys.CONTENT)" />
-
+						<img src="@PreviewUrl" style="max-width:100%;" />
 						<FileUploader OnFileSelected="HandleFileSelected" />
 					</div>
 
 					<div class="modal-footer">
-						<button class="btn btn-secondary" type="button" @onclick="() => isModalVisible = false">닫기</button>
+						<button class="btn btn-secondary" type="button" @onclick="e => CloseModal()">닫기</button>
 						<button class="btn btn-primary" type="submit">등록</button>
 					</div>
 				</EditForm>
@@ -154,7 +238,100 @@
 	</div>
 	<div class="modal-backdrop fade show"></div>
 }
-<script>
+
+@if (isModalVisible2)
+{
+	<div class="modal show d-block" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<EditForm Model="EditTrophys" OnValidSubmit="ModifyTrophy">
+					<DataAnnotationsValidator />
+					<div class="modal-header">
+						<h5 class="modal-title">트로피 수정</h5>
+						<button type="button" class="btn-close" @onclick="e => CloseModal()"></button>
+					</div>
+
+					<div class="modal-body">
+						<InputText @bind-Value="EditTrophys.TITLE" class="form-control mb-2" placeholder="제목" />
+						<ValidationMessage For="@(() => EditTrophys.TITLE)" />
+
+						<InputText @bind-Value="EditTrophys.CONTENT" class="form-control mb-2" placeholder="내용" />
+						<ValidationMessage For="@(() => EditTrophys.CONTENT)" />
+						<img src="@PreviewUrl" style="max-width:100%;" />
+						<FileUploader OnFileSelected="HandleFileSelected" />
+					</div>
+
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button" @onclick="e => CloseModal()">닫기</button>
+						<button class="btn btn-primary" type="submit">수정</button>
+					</div>
+				</EditForm>
+			</div>
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
+
+@* @if (showModal)
+{
+	<div class="modal-overlay" @onclick="CloseModal">
+		<div class="modal-content" @onclick:stopPropagation>
+			<button class="modal-close" @onclick="CloseModal">×</button>
+
+			<div class="modal-body">
+				@{
+					var imageUrl = _DataService.GetImageUrl(trophys.FILE);
+				}
+				<img src="/image//logo.png" alt="Trophy Image" />
+				<h3 style="color:black;">@trophys.TITLE</h3>
+				<p style="color:black;"><strong>@trophys.CONTENT</strong> </p>
+			</div>
+		</div>
+	</div>
+} *@
+@* @if (showModal)
+{
+    <div class="custom-modal-overlay" @onclick="CloseModal">
+        <div class="custom-modal" @onclick:stopPropagation>
+            <button class="custom-modal-close" @onclick="CloseModal">×</button>
+			@{
+				var imageUrl = _DataService.GetImageUrl(trophys.FILE);
+			}
+            <div class="custom-modal-header">
+                <img src="@imageUrl" alt="Trophy Image" class="modal-image" />
+            </div>
+
+            <div class="custom-modal-body">
+                <h2>@trophys.TITLE</h2>
+                <p class="description">@trophys.CONTENT</p>
+
+                <button class="invite-btn" @onclick="CloseModal">확인</button>
+            </div>
+        </div>
+    </div>
+} *@
+@if (showModal)
+{
+	var imageUrl = _DataService.GetImageUrl(trophys.FILE);
+	<div class="custom-modal-overlay" @onclick="CloseModal">
+		<div class="custom-modal" @onclick:stopPropagation>
+			<button class="custom-modal-close" @onclick="CloseModal">×</button>
+			
+			<div class="custom-modal-header">
+				<img src="@imageUrl" alt="Trophy Image" class="modal-image" />
+			</div>
+
+			<div class="custom-modal-body">
+				<h2>@trophys.TITLE</h2>
+				<p class="description">@trophys.CONTENT</p>
+
+				<button class="invite-btn" @onclick="CloseModal">닫기</button>
+			</div>
+		</div>
+	</div>
+}
+
+@* <script>
     // modify location
     $('.left_tab a').each(function () {
         //console.log("aaaaa");
@@ -173,17 +350,22 @@
             }
         });
     });
-</script>
+</script> *@
 
 @code{
 	//private IEnumerable<TrophyClass> Tdata = Enumerable.Empty<TrophyClass>();
 	private List<TrophyClass> trophies = new List<TrophyClass>();
 	private TrophyClass trophys = new();
+	private TrophyClass EditTrophys = new();
 	private string path = "";
 	private string responseMessage = "";
 	private string apiBase = "";
 	private bool isModalVisible = false;
+	private bool isModalVisible2 = false;
+	private bool showModal = false;
 	private int total = 0;
+	private string PreviewUrl = "";
+	private int mode = 0; //0: 등록, 1:수정
 
 	protected override async Task OnInitializedAsync()
 	{
@@ -199,6 +381,12 @@
 	{
 		if (selectedFile != null)
 		{
+			if (!selectedFile.ContentType.StartsWith("image/"))
+			{
+				await js.InvokeVoidAsync("alert", "이미지 파일만 업로드 가능합니다.");
+				PreviewUrl = "";
+				return;
+			}
 			// 파일 업로드 처리
 			path = await UploadFileAsync(selectedFile);
 			if (string.IsNullOrEmpty(path))
@@ -206,8 +394,23 @@
 				responseMessage = "파일 업로드 실패.";
 				return;
 			}
-			trophys.FILENAME = selectedFile.Name; // 원본 파일명
-			trophys.FILE = path;
+			//등록, 수정모드에 따라 변수값을 담음
+			if(mode == 0)
+			{
+				trophys.FILENAME = selectedFile.Name; // 원본 파일명
+				trophys.FILE = path;
+			}
+			else
+			{
+				EditTrophys.FILENAME = selectedFile.Name; // 원본 파일명
+				EditTrophys.FILE = path;
+			}
+
+			using var stream = selectedFile.OpenReadStream(maxAllowedSize: 1024 * 1024 * 5); // 최대 5MB
+			var buffer = new byte[selectedFile.Size];
+			await stream.ReadAsync(buffer);
+			var base64 = Convert.ToBase64String(buffer);
+			PreviewUrl = $"data:{selectedFile.ContentType};base64,{base64}";
 			//trophy.FilePath = filePath;
 			//trophy.OriginalFileName = selectedFile.Name; // 원본 파일명
 		}
@@ -217,38 +420,137 @@
 	{
 		var success = await _DataService.InsertTrophyAsync(trophys);
 
-        if (success)
-        {
-            responseMessage = "트로피 등록 성공!";
-            trophies = await _DataService.GetTrophiesAsync(); // 목록 갱신
-        }
-        else
-        {
-            responseMessage = "등록 실패.";
-        }
-    }
+		if (success)
+		{
+			responseMessage = "트로피 등록 성공!";
+			trophies = await _DataService.GetTrophiesAsync(); // 목록 갱신
+			isModalVisible = false;
+			await js.InvokeVoidAsync("alert", "정상적으로 등록되었습니다.");
+			return;
+		}
+		else
+		{
+			responseMessage = "등록 실패.";
+			await js.InvokeVoidAsync("alert", "등록시 문제가 발생하였습니다. 관리자에게 문의해주세요");
+			return;
+		}
+	}
 
 	private async Task<string> UploadFileAsync(IBrowserFile file)
-{
-    var content = new MultipartFormDataContent();
+	{
+		var content = new MultipartFormDataContent();
 
-    // 10MB까지 허용
-    var stream = file.OpenReadStream(10 * 1024 * 1024); // ✅ 10MB 허용
-    var fileContent = new StreamContent(stream);
-    fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
-    content.Add(fileContent, "File", file.Name);
+		// 10MB까지 허용
+		var stream = file.OpenReadStream(10 * 1024 * 1024); // ✅ 10MB 허용
+		var fileContent = new StreamContent(stream);
+		fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
+		content.Add(fileContent, "File", file.Name);
 
-    var response = await Http.PostAsync("api/trophy/upload", content);
-    if (response.IsSuccessStatusCode)
-    {
-        return await response.Content.ReadAsStringAsync();  // 서버에서 반환된 파일 경로
-    }
+		var response = await Http.PostAsync("api/trophy/upload", content);
+		if (response.IsSuccessStatusCode)
+		{
+			return await response.Content.ReadAsStringAsync();  // 서버에서 반환된 파일 경로
+		}
 
-    return null;
-}
-    private async Task PageMove(string page)
-    {
-        NavManager.NavigateTo(page);
-    }
+		return null;
+	}
+	private async Task PageMove(string page)
+	{
+		NavManager.NavigateTo(page);
+	}
 
+	private void CloseModal()
+	{
+		mode = 0;
+		isModalVisible = false;
+		isModalVisible2 = false;
+		showModal = false;
+		trophys = new();
+		EditTrophys = new();
+		PreviewUrl = "";
+	}
+	private async Task ModifyModal(TrophyClass trp)
+	{
+		mode = 1;
+		//EditTrophys = trp;
+		EditTrophys = new TrophyClass
+		{
+			IDX = trp.IDX,
+			TITLE = trp.TITLE,
+			CONTENT = trp.CONTENT,
+			FILE = trp.FILE,
+			FILENAME = trp.FILENAME,
+			USE = trp.USE,
+			REG_DATE = trp.REG_DATE
+		};
+		isModalVisible2 = true;
+
+		PreviewUrl = _DataService.GetImageUrl(EditTrophys.FILE);
+	}
+
+	private async Task DeleteTrophy(TrophyClass trp)
+	{
+		var confirm = await js.InvokeAsync<bool>("confirm", "정말 삭제하시겠습니까?");
+		if (confirm)
+		{
+			var success = await _DataService.DeleteAsync(trp);
+
+			if (success)
+			{
+				trophies = await _DataService.GetTrophiesAsync();
+				await js.InvokeVoidAsync("alert", "정상적으로 처리되었습니다.");
+				return;
+			}
+			else
+			{
+				await js.InvokeVoidAsync("alert", "시스템 문제가 발생하였습니다. 관리자에게 문의해주세요");
+				return;
+			}
+		}
+	}
+
+	private async Task ModifyTrophy()
+	{
+		//var success = await _DataService.InsertTrophyAsync(trophys);
+		var success = await _DataService.UpdateTrophyAsync(EditTrophys);
+
+		if (success)
+		{
+			responseMessage = "트로피 등록 성공!";
+			trophies = await _DataService.GetTrophiesAsync(); // 목록 갱신
+			isModalVisible2 = false;
+			await js.InvokeVoidAsync("alert", "정상적으로 처리되었습니다.");
+			return;
+		}
+		else
+		{
+			responseMessage = "등록 실패.";
+			await js.InvokeVoidAsync("alert", "등록시 문제가 발생하였습니다. 관리자에게 문의해주세요");
+			return;
+		}
+	}
+
+	private void InitModal()
+	{
+		isModalVisible = true;
+		mode = 0;
+		trophys = new();
+		EditTrophys = new();
+		PreviewUrl = "";
+	}
+
+	private async Task ViewModal(TrophyClass trophy)
+	{
+		showModal = true;
+		trophys = new TrophyClass
+		{
+			IDX = trophy.IDX,
+			TITLE = trophy.TITLE,
+			CONTENT = trophy.CONTENT,
+			FILE = trophy.FILE,
+			FILENAME = trophy.FILENAME,
+			USE = trophy.USE,
+			REG_DATE = trophy.REG_DATE
+		};
+	}
 }

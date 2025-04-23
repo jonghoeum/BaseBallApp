@@ -125,6 +125,10 @@
       "PackagePath": "staticwebassets\\image\\h_logo.png"
     },
     {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\logo.png",
+      "PackagePath": "staticwebassets\\image\\logo.png"
+    },
+    {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\m1.jpg",
       "PackagePath": "staticwebassets\\image\\m1.jpg"
     },
@@ -139,6 +143,14 @@
     {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\movie_metis.mp4",
       "PackagePath": "staticwebassets\\image\\movie_metis.mp4"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\uniform_away.png",
+      "PackagePath": "staticwebassets\\image\\uniform_away.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\uniform_home.png",
+      "PackagePath": "staticwebassets\\image\\uniform_home.png"
     },
     {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\index.html",
