@@ -1,0 +1,356 @@
+﻿@page "/player"
+@using BaseBallApp.Data;
+@using BaseBallApp.Shared;
+@using BaseBallApp.Shared.Models;
+
+@inject IJSRuntime js
+@inject HttpClient Http
+@inject PlayerService _DataService
+
+<article id="container" class="eagles">
+	<div class="title_area" style="height: 782px;">
+		<h3>PLAYER</h3>
+	</div>
+	
+	<section class="content_block">
+		<div>
+			<div class="tab_menu">
+				<ul>
+					<li class="" id="PCPLCS"><a href="staff"><span></span>코칭스탭</a></li>
+					<li class="active" id="PCPLPC"><a href="player"><span></span>선수</a></li>
+					@* <li class="" id="PCPLCC"><a href="/PL/CC/PLCC01.do"><span></span>포수</a></li>
+					<li class="" id="PCPLIF"><a href="/PL/IF/PLIF01.do"><span></span>내야수</a></li>
+					<li class="" id="PCPLOF"><a href="/PL/OF/PLOF01.do"><span></span>외야수</a></li>
+					<li class="" id="PCPLAP"><a href="/PL/AP/PLAP01.do"><span></span>군입대 선수</a></li>
+					<li class="" id="PCPLCH"><a href="/PL/CH/PLCH01.do"><span></span>응원단</a></li>
+					<li class="" id="PCPLST"><a href="/PL/ST/PLST01.do"><span></span>STAFF</a></li> *@
+				</ul>
+			</div>
+		</div>
+		<div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+			<button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
+		</div>
+
+		<div class="content_detail">
+			<div class="player_group">
+				<div class="player_list">
+					<ul>
+						@if(playersList.Count > 0)
+						{
+							foreach(var py in playersList)
+							{
+								var imageUrl = _DataService.GetImageUrl(py.FILE);
+								<li>
+									<p class="thumb">
+										<img src="@imageUrl" alt="@py.NAME" class="blurImg">
+									</p>R
+									<p class="btn_area">
+										<span>
+											<a href="javascript:void(0);" @onclick="e => ModifyModal(py)"><span></span>수정</a><br />
+											<a href="javascript:void(0);" @onclick="e => DeletePlayer(py)"><span></span>삭제</a><br />
+											프로필<br />
+											@(py.BIRTH?.ToString("yyyy-MM-dd"))<br />
+											@py.POSITION / @(py.STATURE + " cm"), @(py.WEIGHT + " kg")<br />
+											@* <i class="new" >수정</i> *@
+										</span>
+									</p>
+									<p class="info">
+										<span>@py.NO</span>
+										<strong>@py.NAME</strong>
+										@* <em>RYU HYUN JIN</em> *@
+									</p>
+								</li>
+							}
+						}
+						else
+						{
+							//데이터 없음
+						}
+						@* <li>
+							<p class="thumb">
+								<img src="/download/attach.do?id=19006" alt="투수_01_문동주.png" class="blurImg">
+							</p>R
+							<p class="btn_area">
+								<a href="/PL/PC/PLPC02.do?&amp;id=588&amp;pcode=52701"><span></span>프로필</a>
+							</p>
+							<p class="info">
+								<span>1</span>
+								<strong>문동주</strong>
+								<em>MOON DONGJU</em>
+							</p>
+						</li> *@
+					</ul>
+				</div><!-- //.player_list -->
+
+			</div><!-- //.player_group -->
+		</div><!-- //.content_detail -->
+	</section>
+</article>
+
+@if (isModalVisible)
+{
+	<div class="modal show d-block" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<EditForm Model="player" OnValidSubmit="RegisterPlayers">
+					<DataAnnotationsValidator />
+					<div class="modal-header" style="color:black;">
+						<h5 class="modal-title">등록</h5>
+						<button type="button" class="btn-close" @onclick="e => CloseModal()"></button>
+					</div>
+
+					<div class="modal-body">
+						<InputText @bind-Value="player.NO" class="form-control mb-2" placeholder="번호" />
+						<ValidationMessage For="@(() => player.NO)" />
+
+						<InputText @bind-Value="player.NAME" class="form-control mb-2" placeholder="이름" />
+						<ValidationMessage For="@(() => player.NAME)" />
+
+						<InputDate @bind-Value="player.BIRTH" class="form-control mb-2" placeholder="생년월일" />
+						<ValidationMessage For="@(() => player.BIRTH)" />
+
+						<InputText @bind-Value="player.POSITION" class="form-control mb-2" placeholder="유형" />
+						<ValidationMessage For="@(() => player.POSITION)" />
+
+						<InputText @bind-Value="player.STATURE" class="form-control mb-2" placeholder="키" />
+						<ValidationMessage For="@(() => player.STATURE)" />
+
+						<InputText @bind-Value="player.WEIGHT" class="form-control mb-2" placeholder="몸무게" />
+						<ValidationMessage For="@(() => player.WEIGHT)" />
+
+						<img src="@PreviewUrl" style="max-width:100%;" />
+						<FileUploader OnFileSelected="HandleFileSelected" />
+					</div>
+
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button" @onclick="e => CloseModal()">닫기</button>
+						<button class="btn btn-primary" type="submit">등록</button>
+					</div>
+				</EditForm>
+			</div>
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
+
+@if (isModalVisible2)
+{
+	<div class="modal show d-block" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<EditForm Model="player" OnValidSubmit="ModifyPlayers">
+					<DataAnnotationsValidator />
+					<div class="modal-header" style="color:black;">
+						<h5 class="modal-title">수정</h5>
+						<button type="button" class="btn-close" @onclick="e => CloseModal()"></button>
+					</div>
+
+					<div class="modal-body">
+						<InputText @bind-Value="EditPlayer.NO" class="form-control mb-2" placeholder="번호" />
+						<ValidationMessage For="@(() => EditPlayer.NO)" />
+
+						<InputText @bind-Value="EditPlayer.NAME" class="form-control mb-2" placeholder="이름" />
+						<ValidationMessage For="@(() => EditPlayer.NAME)" />
+
+						<InputDate @bind-Value="EditPlayer.BIRTH" class="form-control mb-2" placeholder="생년월일" />
+						<ValidationMessage For="@(() => EditPlayer.BIRTH)" />
+
+						<InputText @bind-Value="EditPlayer.POSITION" class="form-control mb-2" placeholder="유형" />
+						<ValidationMessage For="@(() => EditPlayer.POSITION)" />
+
+						<InputText @bind-Value="EditPlayer.STATURE" class="form-control mb-2" placeholder="키" />
+						<ValidationMessage For="@(() => EditPlayer.STATURE)" />
+
+						<InputText @bind-Value="EditPlayer.WEIGHT" class="form-control mb-2" placeholder="몸무게" />
+						<ValidationMessage For="@(() => EditPlayer.WEIGHT)" />
+
+						<img src="@PreviewUrl" style="max-width:100%;" />
+						<FileUploader OnFileSelected="HandleFileSelected" />
+					</div>
+
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button" @onclick="e => CloseModal()">닫기</button>
+						<button class="btn btn-primary" type="submit">등록</button>
+					</div>
+				</EditForm>
+			</div>
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
+
+
+@code {
+	private bool isModalVisible = false;
+	private bool isModalVisible2 = false;
+
+	private List<PlayersClass> playersList = new List<PlayersClass>();
+	private PlayersClass player = new();
+	private PlayersClass EditPlayer = new();
+	private string PreviewUrl = "";
+	private string path = "";
+	private string responseMessage = "";
+	private int mode = 0; //0 등록 1수정
+	protected override async Task OnInitializedAsync()
+	{
+		playersList = await _DataService.GetPlayersAsync();
+	}
+	private async Task RegisterPlayers() //등록
+	{
+		var success = await _DataService.InsertPlayerAsync(player);
+
+		if (success)
+		{
+			responseMessage = "트로피 등록 성공!";
+			playersList = await _DataService.GetPlayersAsync(); // 목록 갱신
+			isModalVisible = false;
+			player = new();
+			PreviewUrl = "";
+			await js.InvokeVoidAsync("alert", "정상적으로 등록되었습니다.");
+			return;
+		}
+		else
+		{
+			responseMessage = "등록 실패.";
+			await js.InvokeVoidAsync("alert", "등록시 문제가 발생하였습니다. 관리자에게 문의해주세요");
+			return;
+		}
+
+	}
+
+	private async Task HandleFileSelected(IBrowserFile selectedFile)
+	{
+		if (selectedFile != null)
+		{
+			if (!selectedFile.ContentType.StartsWith("image/"))
+			{
+				await js.InvokeVoidAsync("alert", "이미지 파일만 업로드 가능합니다.");
+				PreviewUrl = "";
+				return;
+			}
+			// 파일 업로드 처리
+			path = await UploadFileAsync(selectedFile);
+			if (string.IsNullOrEmpty(path))
+			{
+				responseMessage = "파일 업로드 실패.";
+				return;
+			}
+
+			// player.FILENAME = selectedFile.Name;
+			// player.FILE = path;
+			//등록, 수정모드에 따라 변수값을 담음
+			if (mode == 0)
+			{
+				player.FILENAME = selectedFile.Name; // 원본 파일명
+				player.FILE = path;
+			}
+			else
+			{
+				EditPlayer.FILENAME = selectedFile.Name; // 원본 파일명
+				EditPlayer.FILE = path;
+			}
+
+			using var stream = selectedFile.OpenReadStream(maxAllowedSize: 1024 * 1024 * 5); // 최대 5MB
+			var buffer = new byte[selectedFile.Size];
+			await stream.ReadAsync(buffer);
+			var base64 = Convert.ToBase64String(buffer);
+			PreviewUrl = $"data:{selectedFile.ContentType};base64,{base64}";
+
+		}
+	}
+
+	private async Task<string> UploadFileAsync(IBrowserFile file)
+	{
+		var content = new MultipartFormDataContent();
+
+		// 10MB까지 허용
+		var stream = file.OpenReadStream(10 * 1024 * 1024); // ✅ 10MB 허용
+		var fileContent = new StreamContent(stream);
+		fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
+		content.Add(fileContent, "File", file.Name);
+
+		var response = await Http.PostAsync("api/trophy/upload", content);
+		if (response.IsSuccessStatusCode)
+		{
+			return await response.Content.ReadAsStringAsync();  // 서버에서 반환된 파일 경로
+		}
+
+		return null;
+	}
+
+	private void CloseModal()
+	{
+		isModalVisible = false;
+		isModalVisible2 = false;
+		player = new();
+		EditPlayer = new();
+		PreviewUrl = "";
+	}
+	private async Task ModifyModal(PlayersClass player)
+	{
+		mode = 1;
+		EditPlayer = new PlayersClass()
+		{
+			IDX = player.IDX,
+			NO = player.NO,
+			NAME = player.NAME,
+			BIRTH = player.BIRTH,
+			POSITION = player.POSITION,
+			STATURE = player.STATURE,
+			WEIGHT = player.WEIGHT,
+			OTHER1 = player.OTHER1,
+			OTHER2 = player.OTHER2,
+			OTHER3 = player.OTHER3,
+			OTHER4 = player.OTHER4,
+			OTHER5 = player.OTHER5,
+			REG_DATE = player.REG_DATE,
+			FILE = player.FILE,
+			FILENAME = player.FILENAME
+		};
+		isModalVisible2 = true;
+
+		PreviewUrl = _DataService.GetImageUrl(EditPlayer.FILE);
+	}
+
+	private async Task ModifyPlayers()
+	{
+
+		var success = await _DataService.UpdatePlayerAsync(EditPlayer);
+
+		if (success)
+		{
+			responseMessage = "트로피 등록 성공!";
+			playersList = await _DataService.GetPlayersAsync(); // 목록 갱신
+			isModalVisible2 = false;
+			await js.InvokeVoidAsync("alert", "정상적으로 처리되었습니다.");
+			return;
+		}
+		else
+		{
+			responseMessage = "등록 실패.";
+			await js.InvokeVoidAsync("alert", "등록시 문제가 발생하였습니다. 관리자에게 문의해주세요");
+			return;
+		}
+	}
+
+	private async Task DeletePlayer(PlayersClass py)
+	{
+		var confirm = await js.InvokeAsync<bool>("confirm", "정말 삭제하시겠습니까?");
+		if (confirm)
+		{
+			var success = await _DataService.DeleteAsync(py);
+
+			if (success)
+			{
+				playersList = await _DataService.GetPlayersAsync(); // 목록 갱신
+				await js.InvokeVoidAsync("alert", "정상적으로 처리되었습니다.");
+				return;
+			}
+			else
+			{
+				await js.InvokeVoidAsync("alert", "시스템 문제가 발생하였습니다. 관리자에게 문의해주세요");
+				return;
+			}
+		}
+	}
+}

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\local\\BaseBallApp\\BaseBallApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\layout\\topmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:layout\\topmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\game.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\game.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\layout\\topmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:layout\\topmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\players.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -97,19 +97,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Game.razor",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Game.razor",
               "RelativeDocumentMoniker": "Pages\\Game.razor",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Game.razor",
               "RelativeToolTip": "Pages\\Game.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "ViewState": "AQIAAD4IAAAAAAAAAADwv0UIAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-30T05:47:02.104Z"
+              "WhenOpened": "2025-04-30T06:03:58.572Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -270,13 +271,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TopMenu.razor",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Layout\\TopMenu.razor",
               "RelativeDocumentMoniker": "Layout\\TopMenu.razor",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Layout\\TopMenu.razor",
               "RelativeToolTip": "Layout\\TopMenu.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAACCAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACEAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-17T08:22:57.782Z",
               "EditorCaption": ""
