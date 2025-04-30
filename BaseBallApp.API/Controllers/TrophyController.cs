@@ -86,7 +86,7 @@ namespace BaseBallApp.API.Controllers
 		{
 			var trophy = await _db.Trophy.FindAsync(id);
 			if (trophy == null) return NotFound();
-
+			
 			trophy.TITLE = dto.TITLE;
 			trophy.CONTENT = dto.CONTENT;
 			trophy.FILE = dto.FILE;

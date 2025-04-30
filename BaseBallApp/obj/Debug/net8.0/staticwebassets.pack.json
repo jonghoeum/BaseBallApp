@@ -153,6 +153,26 @@
       "PackagePath": "staticwebassets\\image\\uniform_home.png"
     },
     {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\감독_임학수.jpg",
+      "PackagePath": "staticwebassets\\image\\감독_임학수.jpg"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\감독_임학수.png",
+      "PackagePath": "staticwebassets\\image\\감독_임학수.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\감독_임학수_.jpg",
+      "PackagePath": "staticwebassets\\image\\감독_임학수_.jpg"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\투수_99_류현진.png",
+      "PackagePath": "staticwebassets\\image\\투수_99_류현진.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\트레이닝_TR_김재민.png",
+      "PackagePath": "staticwebassets\\image\\트레이닝_TR_김재민.png"
+    },
+    {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

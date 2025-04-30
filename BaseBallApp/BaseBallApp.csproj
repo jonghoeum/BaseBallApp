@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Step.razor" />
+    <Content Remove="Pages\Game.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,18 +25,6 @@
     <Content Update="Pages\History.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Step.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\Step.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Pages\Step.razor" />
   </ItemGroup>
 
 </Project>

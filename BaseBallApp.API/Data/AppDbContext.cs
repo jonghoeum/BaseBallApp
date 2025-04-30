@@ -7,5 +7,7 @@ namespace BaseBallApp.API.Data
 		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
 		public DbSet<TrophyClass> Trophy { get; set; }
+
+		public DbSet<PlayersClass> Players { get; set; }
 	}
 }

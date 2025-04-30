@@ -115,7 +115,7 @@
                 padding: 0 1px;
                 border: 2px solid transparent;
                 color: rgb(255,255,255, .5);
-                font-family: 'HanwhaGothicEL', sans-serif;
+                font-family:   sans-serif;
                 font-size: 18px;
                 line-height: 80px;
             }
@@ -188,7 +188,7 @@
     }
 
     #container .content_block .basic_table th {
-        font-family: 'HanwhaGothicEL',sans-serif;
+        font-family:  sans-serif;
         color: rgba(255,255,255,.7);
         font-weight: normal;
         border-left: 1px solid rgba(255,255,255,.2);
@@ -214,7 +214,7 @@
     }
 
     #container .content_block .player_group h4 {
-        font-family: 'HanwhaGothicEL', sans-serif;
+        font-family:   sans-serif;
         font-size: 24px;
         line-height: 46px;
         letter-spacing: -0.6px;
@@ -296,10 +296,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            font-family: 'HanwhaGothicEL', sans-serif;
+            font-family: sans-serif;
             font-size: 16px;
             text-align: center;
-            padding-top: 246px;
+            /*padding-top: 246px;*/
+            padding-top: 146px;
             opacity: 0;
         }
 
@@ -352,9 +353,11 @@
 }
 
 #container .content_block .player_list li .info strong {
-    font-family: 'HanwhaGothicEL', sans-serif;
-    font-size: 30px;
-    line-height: 45px;
+    font-family: sans-serif;
+    /*font-size: 30px;
+    line-height: 45px;*/
+    font-size: 70px;
+    line-height: 90px;
 }
 
 #container .content_block .player_list li .info em {
@@ -390,7 +393,8 @@
         position: relative;
         float: left;
         width: 570px;
-        height: 720px;
+        /*height: 720px;*/
+        height: 721px;
         background: url('/images/pages/player/bg_thumb_view.png') no-repeat 50% 44px;
     }
 
@@ -429,7 +433,7 @@
         }
 
         #container .content_block .player_view .info_detail .info strong {
-            font-family: 'HanwhaGothicEL', sans-serif;
+            font-family:   sans-serif;
             font-size: 30px;
             line-height: 45px;
         }
@@ -496,12 +500,13 @@
             }
 
             #container .content_block .player_view .info_detail .info_box .position span {
-                font-family: 'HanwhaGothicEL', sans-serif;
+                font-family:   sans-serif;
             }
 
         #container .content_block .player_view .info_detail .info_box > ul {
-            font-family: 'HanwhaGothicEL', sans-serif;
-            font-size: 22px;
+            /*font-family:   sans-serif;*/
+            font-family: sans-serif;
+            font-size: 20px;
             line-height: 50px;
             margin-top: 30px;
         }
@@ -705,7 +710,7 @@
             }
 
             #container .content_block .player_list_scroll .swiper-slide .info strong {
-                font-family: 'HanwhaGothicEL', sans-serif;
+                font-family:   sans-serif;
                 font-size: 20px;
                 line-height: 30px;
                 padding-top: 5px;
@@ -983,7 +988,7 @@
 
     #container.eagles .tab_cont dl dt a {
         display: inline-block;
-        font-family: 'HanwhaGothicEL', sans-serif;
+        font-family:   sans-serif;
         font-size: 16px;
         padding: 10px;
         opacity: 0.5;
@@ -1098,7 +1103,7 @@
             }
 
             #container.eagles .tab_cont dl dd ul li strong {
-                font-family: 'HanwhaGothicEL', sans-serif;
+                font-family:   sans-serif;
                 font-size: 20px;
                 color: rgba(255,255,255,0.4);
                 margin-top: 5px;
@@ -2232,7 +2237,7 @@
         }
 
             #container.center .content_block.advertising .center_title span.white {
-                font-family: 'HanwhaGothicEL',sans-serif;
+                font-family:  sans-serif;
             }
 
     #container.center .content_block.advertising p {
