@@ -121,6 +121,14 @@
       "PackagePath": "staticwebassets\\image\\baseball_logo.png"
     },
     {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\btn_next.png",
+      "PackagePath": "staticwebassets\\image\\btn_next.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\btn_prev.png",
+      "PackagePath": "staticwebassets\\image\\btn_prev.png"
+    },
+    {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\image\\h_logo.png",
       "PackagePath": "staticwebassets\\image\\h_logo.png"
     },

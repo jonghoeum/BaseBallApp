@@ -30,4 +30,6 @@ builder.Services.AddScoped(sp => new HttpClient
 //builder.Services.AddSingleton<DataService>();
 builder.Services.AddScoped<TrophyService>();
 builder.Services.AddScoped<PlayerService>();
+builder.Services.AddScoped<GameService>();
+
 await builder.Build().RunAsync();

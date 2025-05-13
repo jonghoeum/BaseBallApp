@@ -1041,6 +1041,13 @@ C:\local\BaseBallApp\obj\Debug\net8.0\webcil\Dapper.wasm
 C:\local\BaseBallApp\obj\Debug\net8.0\webcil\System.Data.SqlClient.wasm
 C:\local\BaseBallApp\obj\Debug\net8.0\compressed\kx40t2z6co.gz
 C:\local\BaseBallApp\obj\Debug\net8.0\compressed\44x7wg37no.gz
+C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.csproj.AssemblyReference.cache
+C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.AssemblyInfoInputs.cache
+C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.AssemblyInfo.cs
+C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.csproj.CoreCompileInputs.cache
+C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.MvcApplicationPartsAssemblyInfo.cache
+C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.sourcelink.json
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\wwwroot\_framework\BaseBallApp.pdb
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\wwwroot\_framework\BaseBallApp.Shared.pdb
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\wwwroot\_framework\BaseBallApp.Shared.wasm
@@ -1665,13 +1672,6 @@ C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\icudt_EFIGS.dat
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\icudt_no_CJK.dat
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\BaseBallApp.Shared.dll
 C:\local\BaseBallApp\BaseBallApp\bin\Debug\net8.0\BaseBallApp.Shared.pdb
-C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.csproj.AssemblyReference.cache
-C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.AssemblyInfoInputs.cache
-C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.AssemblyInfo.cs
-C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.csproj.CoreCompileInputs.cache
-C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.MvcApplicationPartsAssemblyInfo.cache
-C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\BaseBallApp.sourcelink.json
 C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\webcil\Dapper.wasm
 C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Authorization.wasm
 C:\local\BaseBallApp\BaseBallApp\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.wasm

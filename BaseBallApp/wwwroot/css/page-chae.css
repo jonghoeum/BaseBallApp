@@ -628,11 +628,11 @@
         }
 
         .game_schedule .select_date .btn_cal.prev::after {
-            background-image: url('/images/pages/game/btn_prev.png');
+            background-image: url('../image/btn_prev.png');
         }
 
         .game_schedule .select_date .btn_cal.next::after {
-            background-image: url('/images/pages/game/btn_next.png');
+            background-image: url('../image/btn_next.png');
         }
 
 .game_schedule .schedule_conts.calendar .calendar_show, .game_schedule .schedule_conts.list .list_show {

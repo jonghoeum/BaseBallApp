@@ -9,5 +9,7 @@ namespace BaseBallApp.API.Data
 		public DbSet<TrophyClass> Trophy { get; set; }
 
 		public DbSet<PlayersClass> Players { get; set; }
+		public DbSet<GameClass> Games { get; set; }
+		public DbSet<GameScoreClass> GameScores { get; set; }
 	}
 }

@@ -1,10 +1,8 @@
 ﻿@page "/game"
-
 <article id="container" class="game">
     <div class="title_area" style="height: 782px;">
         <h3>GAME</h3>
     </div>
-
     <section class="content_block game_schedule eagles">
         <div class="tab_menu">
             <ul>
@@ -12,14 +10,11 @@
                 <li><a href="/GA/GF/PCFAGF01.do"><span></span>퓨처스 경기일정</a></li>
             </ul>
         </div>
-
         <div class="tab_conts">
-
             <div class="sel_view">
                 <button type="button" class="btn_calendar active"><span class="blind">달력형</span></button>
                 <button type="button" class="btn_list"><span class="blind">리스트형</span></button>
             </div>
-
             <!-- 경기 일정 -->
             <div class="schedule_wrap">
                 <!-- 날짜 선택 -->
@@ -27,242 +22,47 @@
                     <button id="move_prev_month" type="button" class="btn_cal prev"><span class="blind">이전달</span></button>
                     <span class="select">
                         <select id="move_year" title="년도">
-
-
-
-
                             <option>2026</option>
-
-
-
-
-
                             <option selected="">2025</option>
-
-
-
-
-
-
-
                             <option>2024</option>
-
-
-
-
-
-
                             <option>2023</option>
-
-
-
-
-
-
                             <option>2022</option>
-
-
-
-
-
-
                             <option>2021</option>
-
-
-
-
-
-
                             <option>2020</option>
-
-
-
-
-
-
                             <option>2019</option>
-
-
-
-
-
-
                             <option>2018</option>
-
-
-
-
-
-
                             <option>2017</option>
-
-
-
-
-
-
                             <option>2016</option>
-
-
-
-
-
-
                             <option>2015</option>
-
-
-
-
-
-
                             <option>2014</option>
-
-
-
-
-
-
                             <option>2013</option>
-
-
-
-
-
-
                             <option>2012</option>
-
-
-
-
-
-
                             <option>2011</option>
-
-
-
-
-
-
                             <option>2010</option>
-
-
-
-
-
-
                             <option>2009</option>
-
-
-
-
-
-
                             <option>2008</option>
-
-
-
-
-
-
                             <option>2007</option>
-
-
-
                         </select>
                     </span>
                     <span class="select">
                         <select id="move_month" title="월">
-
-
-
-
                             <option>12</option>
-
-
-
-
-
-
                             <option>11</option>
-
-
-
-
-
-
                             <option>10</option>
-
-
-
-
-
-
                             <option>9</option>
-
-
-
-
-
-
                             <option>8</option>
-
-
-
-
-
-
                             <option>7</option>
-
-
-
-
-
-
                             <option>6</option>
-
-
-
-
-
-
                             <option>5</option>
-
-
-
-
-
                             <option selected="">4</option>
-
-
-
-
-
-
-
                             <option>3</option>
-
-
-
-
-
-
                             <option>2</option>
-
-
-
-
-
-
                             <option>1</option>
-
-
-
                         </select>
                     </span>
                     <button id="move_next_month" type="button" class="btn_cal next"><span class="blind">다음달</span></button>
                 </div>
                 <!-- //날짜 선택 -->
-
                 <div class="schedule_conts calendar">
                     <!-- 달력형일 경우 .calendar 클래스, 리스트형일 경우 .list 클래스  -->
                     <!-- 범주 -->
@@ -271,7 +71,6 @@
                         <span class="exp">원정경기</span>
                         <span class="now">오늘</span>
                     </div>
-
                     <!-- schedule head -->
                     <div class="th_wrap calendar_show">
                         <span>SUN</span>
@@ -293,26 +92,11 @@
                     <!-- //schedule head -->
                     <!-- schedule date -->
                     <div class="td_wrap">
-
-
-
-                        <!-- //경기 있는 날 (통합)-->
-                        <!-- 달력형에서 지난달 -->
                         <div class="td_conts prev_blank"><div class="inner"><span class="date blind">30</span></div></div>
-                        <!-- //달력형에서 지난달 -->
-                        <!-- //경기 있는 날 (통합)-->
-                        <!-- 달력형에서 지난달 -->
                         <div class="td_conts prev_blank"><div class="inner"><span class="date blind">31</span></div></div>
-                        <!-- //달력형에서 지난달 -->
-                        <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section2">
-                            <!-- <a th:href="@{
-                                /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
-                            }" class="inner"> --> <!-- 다시 검토해 보기 -->
+                        <div class="td_conts ">
                             <div class="inner">
                                 <div class="col date">2025-04-01(화)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">대전(신)</div>
@@ -323,55 +107,29 @@
                                         <span class="club">롯데</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">1<span class="blind">화</span></div>
                                 <div class="lst club_logo">
-
-
-
-
                                     <img src="/images/pages/game/bi_game_lotte.png" alt="롯데">
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
-
                                     <span class="rs">
                                         <span class="win">[취소]</span>
-
                                     </span>
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section2">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-02(수)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">대전(신)</div>
@@ -382,61 +140,34 @@
                                         <span class="club">롯데</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">2<span class="blind">수</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250402LTHH0&amp;double=1&amp;ymd=20250402" class="inner">
                                         <img src="/images/pages/game/bi_game_lotte.png" alt="롯데">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250402LTHH0&amp;double=0&amp;ymd=20250402" class="inner">
                                         <span class="rs">
                                             <span class="win">[패]</span>
-
                                             <strong class="det">2:6</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section2">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-03(목)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">대전(신)</div>
@@ -447,61 +178,31 @@
                                         <span class="club">롯데</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">3<span class="blind">목</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250403LTHH0&amp;double=1&amp;ymd=20250403" class="inner">
                                         <img src="/images/pages/game/bi_game_lotte.png" alt="롯데">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250403LTHH0&amp;double=0&amp;ymd=20250403" class="inner">
                                         <span class="rs">
                                             <span class="win">[패]</span>
-
                                             <strong class="det">2:4</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
                         <div class="td_conts">
-                            <!-- <a th:href="@{
-                                /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
-                            }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-04(금)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">대구</div>
@@ -512,51 +213,25 @@
                                         <span class="club">삼성</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">4<span class="blind">금</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250404HHSS0&amp;double=1&amp;ymd=20250404" class="inner">
                                         <img src="/images/pages/game/bi_game_samsung.png" alt="삼성">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250404HHSS0&amp;double=0&amp;ymd=20250404" class="inner">
                                         <span class="rs">
                                             <span class="win">[패]</span>
-
                                             <strong class="det">0:5</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
-                            <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
                         <div class="td_conts">
@@ -565,8 +240,6 @@
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-05(토)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">14:00</div>
                                 <div class="col place">대구</div>
@@ -577,51 +250,26 @@
                                         <span class="club">삼성</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">5<span class="blind">토</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250405HHSS0&amp;double=1&amp;ymd=20250405" class="inner">
                                         <img src="/images/pages/game/bi_game_samsung.png" alt="삼성">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250405HHSS0&amp;double=0&amp;ymd=20250405" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">7:6</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
                         <div class="td_conts">
@@ -630,8 +278,6 @@
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-06(일)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">14:00</div>
                                 <div class="col place">대구</div>
@@ -642,51 +288,26 @@
                                         <span class="club">삼성</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">6<span class="blind">일</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250406HHSS0&amp;double=1&amp;ymd=20250406" class="inner">
                                         <img src="/images/pages/game/bi_game_samsung.png" alt="삼성">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250406HHSS0&amp;double=0&amp;ymd=20250406" class="inner">
                                         <span class="rs">
                                             <span class="win">[패]</span>
-
                                             <strong class="det">0:10</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 없는 날 -->
@@ -703,8 +324,6 @@
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-08(화)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">잠실</div>
@@ -715,51 +334,26 @@
                                         <span class="club">두산</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">8<span class="blind">화</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250408HHOB0&amp;double=1&amp;ymd=20250408" class="inner">
                                         <img src="/images/pages/game/bi_game_doosan.png" alt="두산">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250408HHOB0&amp;double=0&amp;ymd=20250408" class="inner">
                                         <span class="rs">
                                             <span class="win">[패]</span>
-
                                             <strong class="det">5:6</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
                         <div class="td_conts">
@@ -768,8 +362,6 @@
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-09(수)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">잠실</div>
@@ -780,51 +372,26 @@
                                         <span class="club">두산</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">9<span class="blind">수</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250409HHOB0&amp;double=1&amp;ymd=20250409" class="inner">
                                         <img src="/images/pages/game/bi_game_doosan.png" alt="두산">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250409HHOB0&amp;double=0&amp;ymd=20250409" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">5:4</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
                         <div class="td_conts">
@@ -833,8 +400,6 @@
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-10(목)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">잠실</div>
@@ -845,61 +410,34 @@
                                         <span class="club">두산</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">10<span class="blind">목</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250410HHOB0&amp;double=1&amp;ymd=20250410" class="inner">
                                         <img src="/images/pages/game/bi_game_doosan.png" alt="두산">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250410HHOB0&amp;double=0&amp;ymd=20250410" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">7:2</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section3">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-11(금)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">대전(신)</div>
@@ -910,61 +448,34 @@
                                         <span class="club">키움</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">11<span class="blind">금</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250411WOHH0&amp;double=1&amp;ymd=20250411" class="inner">
                                         <img src="/images/pages/game/bi_game_kiwoom.png" alt="키움">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250411WOHH0&amp;double=0&amp;ymd=20250411" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">12:2</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section4">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-12(토)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">17:00</div>
                                 <div class="col place">대전(신)</div>
@@ -975,61 +486,34 @@
                                         <span class="club">키움</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">12<span class="blind">토</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250412WOHH0&amp;double=1&amp;ymd=20250412" class="inner">
                                         <img src="/images/pages/game/bi_game_kiwoom.png" alt="키움">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250412WOHH0&amp;double=0&amp;ymd=20250412" class="inner">
                                         <span class="rs">
                                             <span class="win">[패]</span>
-
                                             <strong class="det">2:6</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section3">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-13(일)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">14:00</div>
                                 <div class="col place">대전(신)</div>
@@ -1040,51 +524,26 @@
                                         <span class="club">키움</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">13<span class="blind">일</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250413WOHH0&amp;double=1&amp;ymd=20250413" class="inner">
                                         <img src="/images/pages/game/bi_game_kiwoom.png" alt="키움">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250413WOHH0&amp;double=0&amp;ymd=20250413" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">7:1</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 없는 날 -->
@@ -1101,8 +560,6 @@
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-15(화)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">문학</div>
@@ -1113,51 +570,26 @@
                                         <span class="club">SSG</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">15<span class="blind">화</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250415HHSK0&amp;double=1&amp;ymd=20250415" class="inner">
                                         <img src="/images/pages/game/bi_game_ssg.png" alt="SSG">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250415HHSK0&amp;double=0&amp;ymd=20250415" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">2:0</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
                         <div class="td_conts">
@@ -1166,8 +598,6 @@
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-16(수)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">문학</div>
@@ -1178,51 +608,26 @@
                                         <span class="club">SSG</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">16<span class="blind">수</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250416HHSK0&amp;double=1&amp;ymd=20250416" class="inner">
                                         <img src="/images/pages/game/bi_game_ssg.png" alt="SSG">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250416HHSK0&amp;double=0&amp;ymd=20250416" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">10:4</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
                         <div class="td_conts">
@@ -1231,8 +636,6 @@
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-17(목)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">문학</div>
@@ -1243,61 +646,34 @@
                                         <span class="club">SSG</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">17<span class="blind">목</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250417HHSK0&amp;double=1&amp;ymd=20250417" class="inner">
                                         <img src="/images/pages/game/bi_game_ssg.png" alt="SSG">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250417HHSK0&amp;double=0&amp;ymd=20250417" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">4:2</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section3">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-18(금)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">대전(신)</div>
@@ -1308,61 +684,34 @@
                                         <span class="club">NC</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">18<span class="blind">금</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250418NCHH0&amp;double=1&amp;ymd=20250418" class="inner">
                                         <img src="/images/pages/game/bi_game_nc.png" alt="NC">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250418NCHH0&amp;double=0&amp;ymd=20250418" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">12:4</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section3">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-19(토)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">17:00</div>
                                 <div class="col place">대전(신)</div>
@@ -1373,61 +722,34 @@
                                         <span class="club">NC</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">19<span class="blind">토</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250419NCHH0&amp;double=1&amp;ymd=20250419" class="inner">
                                         <img src="/images/pages/game/bi_game_nc.png" alt="NC">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250419NCHH0&amp;double=0&amp;ymd=20250419" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">7:2</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section3">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-20(일)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">14:00</div>
                                 <div class="col place">대전(신)</div>
@@ -1438,51 +760,26 @@
                                         <span class="club">NC</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">20<span class="blind">일</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250420NCHH0&amp;double=1&amp;ymd=20250420" class="inner">
                                         <img src="/images/pages/game/bi_game_nc.png" alt="NC">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250420NCHH0&amp;double=0&amp;ymd=20250420" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">7:1</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 없는 날 -->
@@ -1499,8 +796,6 @@
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-22(화)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">사직</div>
@@ -1511,45 +806,21 @@
                                         <span class="club">롯데</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">22<span class="blind">화</span></div>
                                 <div class="lst club_logo">
-
-
-
-
                                     <img src="/images/pages/game/bi_game_lotte.png" alt="롯데">
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
-
                                     <span class="rs">
                                         <span class="win">[취소]</span>
-
                                     </span>
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
                         <div class="td_conts">
@@ -1558,8 +829,6 @@
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-23(수)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">사직</div>
@@ -1570,51 +839,26 @@
                                         <span class="club">롯데</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">23<span class="blind">수</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250423HHLT0&amp;double=1&amp;ymd=20250423" class="inner">
                                         <img src="/images/pages/game/bi_game_lotte.png" alt="롯데">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250423HHLT0&amp;double=0&amp;ymd=20250423" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">6:4</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
                         <div class="td_conts">
@@ -1623,8 +867,6 @@
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-24(목)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">사직</div>
@@ -1635,61 +877,34 @@
                                         <span class="club">롯데</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">24<span class="blind">목</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250424HHLT0&amp;double=1&amp;ymd=20250424" class="inner">
                                         <img src="/images/pages/game/bi_game_lotte.png" alt="롯데">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250424HHLT0&amp;double=0&amp;ymd=20250424" class="inner">
                                         <span class="rs">
                                             <span class="win">[패]</span>
-
                                             <strong class="det">3:5</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section3">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-25(금)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">대전(신)</div>
@@ -1700,61 +915,34 @@
                                         <span class="club">KT</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">25<span class="blind">금</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250425KTHH0&amp;double=1&amp;ymd=20250425" class="inner">
                                         <img src="/images/pages/game/bi_game_kt.png" alt="KT">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250425KTHH0&amp;double=0&amp;ymd=20250425" class="inner">
                                         <span class="rs">
                                             <span class="win">[패]</span>
-
                                             <strong class="det">1:2</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section3">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-26(토)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">17:00</div>
                                 <div class="col place">대전(신)</div>
@@ -1765,61 +953,34 @@
                                         <span class="club">KT</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">26<span class="blind">토</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250426KTHH0&amp;double=1&amp;ymd=20250426" class="inner">
                                         <img src="/images/pages/game/bi_game_kt.png" alt="KT">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250426KTHH0&amp;double=0&amp;ymd=20250426" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">2:1</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section3">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-27(일)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">14:00</div>
                                 <div class="col place">대전(신)</div>
@@ -1830,51 +991,26 @@
                                         <span class="club">KT</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">27<span class="blind">일</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250427KTHH0&amp;double=1&amp;ymd=20250427" class="inner">
                                         <img src="/images/pages/game/bi_game_kt.png" alt="KT">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250427KTHH0&amp;double=0&amp;ymd=20250427" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">4:3</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 없는 날 -->
@@ -1885,14 +1021,12 @@
                         </div>
                         <!-- //경기 없는 날 -->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section2">
+                        <div class="td_conts ">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-29(화)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">대전(신)</div>
@@ -1903,61 +1037,34 @@
                                         <span class="club">LG</span>
                                     </p>
                                 </div>
-
-
                                 <div class="col cate">정규</div>
-
                                 <!-- 이벤트 -->
-
-
                                 <div class="lst date">29<span class="blind">화</span></div>
                                 <div class="lst club_logo">
-
-
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250429LGHH0&amp;double=1&amp;ymd=20250429" class="inner">
                                         <img src="/images/pages/game/bi_game_lg.png" alt="LG">
                                     </a>
-
-
-
                                 </div>
                                 <div class="lst gm_rs">
-
-
-
-
                                     <!-- 시범경기 외 -->
-
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250429LGHH0&amp;double=0&amp;ymd=20250429" class="inner">
                                         <span class="rs">
                                             <span class="win">[승]</span>
-
                                             <strong class="det">3:2</strong>
-
                                         </span>
                                     </a>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 경기 있는 날, 홈, 오늘 통합 -->
-                        <div class="td_conts section3 now">
+                        <div class="td_conts  now">
                             <!-- <a th:href="@{
                                 /GA/GE/PCFAGE02.do?(iIdx=${game.iIdx}, ymd=${row.getYear() + row.getMonth() + row.getDay()})
                             }" class="inner"> --> <!-- 다시 검토해 보기 -->
                             <div class="inner">
                                 <div class="col date">2025-04-30(수)</div>
-
-
                                 <!-- Case 2 -->
                                 <div class="col time">18:30</div>
                                 <div class="col place">대전(신)</div>
@@ -1981,14 +1088,12 @@
                                     <a href="/GA/GE/PCFAGE02.do?&amp;gmKey=20250430LGHH0&amp;double=0&amp;ymd=20250430" class="inner">
                                         <span class="rs">
                                             <span class="win"></span>
-
                                         </span>
                                     </a>
                                 </div>
                             </div>
                             <!-- </a>  -->
                         </div>
-
                         <!-- //경기 있는 날 (통합)-->
                         <!-- //경기 있는 날 (통합)-->
                         <!-- 달력형에서 지난달 -->
@@ -2004,8 +1109,7 @@
                         <!-- //달력형에서 지난달 -->
                     </div>
                     <!-- //schedule date -->
-
-                    <div class="sections">
+                    @* <div class="sections">
                         <ul>
                             <li class="section1"><span>1구간</span></li>
                             <li class="section2"><span>2구간</span></li>
@@ -2013,13 +1117,11 @@
                             <li class="section4"><span>4구간</span></li>
                             <li class="section5"><span>스페셜</span></li>
                         </ul>
-                    </div>
+                    </div> *@
                 </div>
-
                 <!-- <div class="btn_box">
                     <a class="btn_reservation" href="https://www.hanwhaeagles.co.kr/ticketInfo.do"><img src="/images/pages/ticket/btn_game_reservation.png" alt="예매하기"></a>
                 </div> -->
-
                 <div class="list_bul">
                     <ul>
                         <li class="bul_mark white">해당날짜영역을 클릭하시면 상세기록을 보실 수 있습니다.</li>
@@ -2043,11 +1145,8 @@
                 </div>
                 <br><br>
             </div>
-
         </div><!-- //.tab_conts -->
     </section> <!-- //.content_block -->
 </article>
-
 @code {
-
 }
