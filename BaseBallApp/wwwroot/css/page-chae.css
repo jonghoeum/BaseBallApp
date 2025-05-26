@@ -1009,7 +1009,6 @@
         .game_schedule .schedule_conts.calendar .td_wrap .td_conts:nth-of-type(1)::after, .game_schedule .schedule_conts.calendar .td_wrap .td_conts:nth-of-type(7n+1)::after {
             border-left: 1px solid transparent;
         }
-
         .game_schedule .schedule_conts.calendar .td_wrap .td_conts .inner {
             display: fixed;
             width: 100%;
@@ -1079,12 +1078,20 @@
             padding: 0 10px;
             line-height: 28px;
         }
+        .game_schedule .schedule_conts.calendar .td_wrap .td_conts .lst.gm_modiy{
+            position: absolute;
+            left: 0px;
+            top: 115px;
+            width: 100%;
+            padding: 0 10px;
+            line-height:28px;
+        }
 
-            .game_schedule .schedule_conts.calendar .td_wrap .td_conts .lst.gm_rs .win {
-                font-family: 'HanwhaGothicT', sans-serif;
-                font-size: 16px;
-                vertical-align: top;
-            }
+        .game_schedule .schedule_conts.calendar .td_wrap .td_conts .lst.gm_rs .win {
+            font-family: 'HanwhaGothicT', sans-serif;
+            font-size: 16px;
+            vertical-align: top;
+        }
 
             .game_schedule .schedule_conts.calendar .td_wrap .td_conts .lst.gm_rs .det {
                 font-family: 'myriad-pro', sans-serif;
