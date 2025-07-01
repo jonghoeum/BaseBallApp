@@ -1397,6 +1397,7 @@
                 border-bottom: 1px solid #707070;
                 color: #808080;
                 font-family: 'HanwhaGothicEL', sans-serif;
+                text-align: center;
             }
 
             .game_schedule.view .his_wrap .tbl table tbody th {
@@ -1426,6 +1427,7 @@
 
             .game_schedule.view .his_wrap.team .tbl table thead th {
                 font-family: 'myriad-pro', sans-serif;
+                
             }
 
             .game_schedule.view .his_wrap.team .tbl table colgroup col.wd:nth-of-type(1) {

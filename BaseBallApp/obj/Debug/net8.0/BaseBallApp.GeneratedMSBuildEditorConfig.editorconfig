@@ -26,6 +26,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/local/BaseBallApp/BaseBallApp/Component/FileUploader.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50XEZpbGVVcGxvYWRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/local/BaseBallApp/BaseBallApp/Layout/Footer.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XEZvb3Rlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,16 +42,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/local/BaseBallApp/BaseBallApp/Pages/Cal.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FsLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/local/BaseBallApp/BaseBallApp/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/local/BaseBallApp/BaseBallApp/Pages/Gallery.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FsbGVyeS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/local/BaseBallApp/BaseBallApp/Pages/Game.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Game2.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZTIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/GameView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZVZpZXcucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/local/BaseBallApp/BaseBallApp/Pages/History.razor]

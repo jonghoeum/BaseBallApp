@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+@* @typeparam T *@
+
+<div>
+    <InputFile @ref="fileInput" OnChange="OnFileChanged" />
+    @if (SelectedFile != null)
+    {
+        <p>선택한 파일: @SelectedFile.Name</p>
+    }
+    @if (!string.IsNullOrEmpty(ErrorMessage))
+    {
+        <p class="text-danger">@ErrorMessage</p>
+    }
+</div>
+
+@code {
+    private InputFile fileInput;
+    [Parameter] public EventCallback<IBrowserFile> OnFileSelected { get; set; }
+    [Parameter] public string ErrorMessage { get; set; }
+    public IBrowserFile SelectedFile { get; private set; }
+
+    private async Task OnFileChanged(InputFileChangeEventArgs e)
+    {
+        if (e.FileCount > 0)
+        {
+            SelectedFile = e.File;
+            await OnFileSelected.InvokeAsync(SelectedFile);
+        }
+        else
+        {
+            ErrorMessage = "파일을 선택하세요.";
+        }
+    }
+}

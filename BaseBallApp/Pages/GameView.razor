@@ -1,0 +1,399 @@
+﻿@page "/gameview/{GameId:int}"
+@using System.Globalization;
+@using BaseBallApp.Data;
+@using BaseBallApp.Shared;
+@using BaseBallApp.Shared.Models;
+
+@inject NavigationManager NavManager
+@inject IJSRuntime js
+@inject HttpClient Http
+@inject GameService _GameService
+
+<article id="container" class="egles">
+    <div class="title_area" style="height: 782px;">
+        <h3>GAME</h3>
+    </div>
+    @* 메인시작 *@
+    <section class="content_block game_schedule view">
+        @* <div class="tab_menu">
+            <ul>
+                <li class="active"><a href="/GA/GE/PCFAGE01.do"><span></span>1군 경기일정</a></li>
+                <li><a href="/GA/GF/PCFAGF01.do"><span></span>퓨처스 경기일정</a></li>
+            </ul>
+        </div> *@
+
+        <div class="tab_conts">
+
+            <!-- 날짜 선택 -->
+            <div class="select_date view">
+                @if (gameWithScores?.Game != null)
+                {
+                    string Tdate = gameWithScores.Game.STARTTIME?.ToString("yyyy - MM - dd", new System.Globalization.CultureInfo("ko-KR"));
+                    string Tday = gameWithScores.Game.STARTTIME?.ToString("ddd", new System.Globalization.CultureInfo("ko-KR"));
+                    //
+                
+                @* <button id="move_prev_game" type="button" class="btn_cal prev"><span class="blind">이전 경기</span></button> *@
+                    <strong class="now_date"><span class="date">@Tdate</span><span class="day">(@Tday)</span></strong>
+                @* <button id="move_next_game" type="button" class="btn_cal next"><span class="blind">다음 경기</span></button> *@
+                }
+            </div>
+            <!-- //날짜 선택 -->
+
+            <div class="schedule_view">
+                @if (gameWithScores?.Game != null)
+                {
+                <div class="schedule_head">
+                    <!-- <th:block th:switch="${gameInfo.HOMEAWAYCD}">-->
+                    <!-- 원정경기 -->
+                    @{
+                        string EmHome = _GameService.GetImageUrl("/uploads/blank_symbol.png"); //기본이미지
+                        string EmAway = _GameService.GetImageUrl("/uploads/blank_symbol.png"); //기본이미지
+                        if (!string.IsNullOrEmpty(gameWithScores.Game.HomeTeamFile))
+                            EmHome = _GameService.GetImageUrl(gameWithScores.Game.HomeTeamFile);
+
+                        if (!string.IsNullOrEmpty(gameWithScores.Game.AwayTeamFile))
+                            EmAway = _GameService.GetImageUrl(gameWithScores.Game.AwayTeamFile);
+
+                        var game = gameWithScores.Game;
+                        var scores = gameWithScores.Scores;
+                        //시간 형식문제로 변환.
+                        string Date = "";
+                        string Time = "";
+                        if (!string.IsNullOrEmpty(game.STARTTIME.ToString()))
+                        {
+                            Date = gameWithScores.Game.STARTTIME.ToString();
+                            Time = DateTime.Parse(Date).ToString("HH:mm");
+                        }
+
+                        string resultText = gameWithScores.Game.STATUS switch
+                        {
+                            0 => "경기전",
+                            1 => "경기종료",
+                            2 => "경기종료",
+                            3 => "경기종료",
+                            4 => "경기취소",
+                            _ => "미정"
+                        };
+                        //home / away team구분
+                        var Hometeam = gameWithScores.Scores.FirstOrDefault(x => x.TEAM == gameWithScores.Game.HOMETEAM);
+                        var Awayteam = gameWithScores.Scores.FirstOrDefault(x => x.TEAM == gameWithScores.Game.AWAYTEAM);
+                    }
+                    
+                    <div class="club left">
+                        <span class="club_logo"><img src="@EmHome" alt="HOME"></span>
+                        <strong class="score">@((gameWithScores.Scores.FirstOrDefault(s => s.TEAM == gameWithScores.Game.HOMETEAM)?.RUNS) ?? 0)</strong>
+                        @* <p class="pitcher"><span>교체 정우주</span></p> *@
+                    </div>
+                    <div class="now_rs">
+                        <div class="row">
+                            <span class="time">@Time</span>
+                            <span class="place">@gameWithScores.Game.PLACE</span>
+                        </div>
+                        <div class="stats">@resultText</div>
+                    </div>
+                    <div class="club right">
+                        <strong class="score">@((gameWithScores.Scores.FirstOrDefault(s => s.TEAM == gameWithScores.Game.AWAYTEAM)?.RUNS) ?? 0)</strong>
+                        <span class="club_logo"><img src="@EmAway" alt="AWAY"></span>
+                        @* <p class="pitcher"><span>교체 최지민</span></p> *@
+                    </div>
+                </div>
+                }
+                <div class="club right">
+                    <strong class="score"></strong>
+                    <span class="club_logo"></span>
+                    <p class="pitcher"><span></span></p>
+                </div>
+
+
+            </div>
+
+            <div class="schedule_det">
+                <div class="his_wrap team">
+                    <div class="tbl scroll">
+                        <table>
+                            <caption>team 기록</caption>
+                            <colgroup>
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col class="wd">
+                                <col>
+                            </colgroup>
+                            @if (gameWithScores?.Scores != null && gameWithScores.Scores.Count >= 2)
+                            {
+                                <thead>
+                                    <tr>
+                                        <th scope="col">TEAM</th>
+                                        @for (int i = 1; i <= 12; i++)
+                                        {
+                                            <th>@i</th>
+                                        }
+                                        <th scope="col">R</th>
+                                        <th scope="col">H</th>
+                                        <th scope="col">E</th>
+                                        <th scope="col">B</th>
+                                    </tr>
+                                </thead>
+                                <!-- R 득점 H 안타 E 에러(실책) B 볼넷 -->
+                                <tbody>
+                                    @foreach (var score in gameWithScores.Scores)
+                                    {
+                                        <tr>
+                                            <th scope="row">@score.TEAM</th>
+                                            @foreach (var inningScore in score.InningScores)
+                                            {
+                                                <td>@(inningScore ?? 0)</td>
+                                            }
+                                            <td>@(score.RUNS ?? 0)</td>
+                                            <td>@(score.HITS ?? 0)</td>
+                                            <td>@(score.ERRORS ?? 0)</td>
+                                            <td>@(score.BALLS ?? 0)</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="17">경기 정보가 존재하지 않습니다.</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div><!-- //.his_wrap -->
+            </div>
+        </div>
+    </section>
+</article>
+
+<div class="paginate btn_area center mt50">
+    <a href="javascript:void(0);" class="btn_com" @onclick="() => isModalVisible = true"><span></span>수정</a>
+    <a href="javascript:void(0);" class="btn_com" @onclick="e => ConfirmDelete(GameId.ToString())"><span></span>삭제</a>
+    <a href="/game/@preDate" class="btn_com"><span></span>목록</a>
+</div>
+
+@if (isModalVisible)
+{
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <EditForm Model="gameWithScores" OnValidSubmit="RegisterGames">
+                    <DataAnnotationsValidator />
+                    <div class="modal-header" style="color:black;">
+                        <h5 class="modal-title">등록</h5>
+                        <button type="button" class="btn-close" @onclick="e => CloseModal()"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <h6 style="color:black;margin-bottom:5px;">경기 정보</h6>
+                        <ValidationMessage For="@(() => regGameWithScores.Game.STATUS)" />
+                        <InputText @bind-Value="regGameWithScores.Game.HOMETEAM" class="form-control mb-2" placeholder="홈팀" />
+                        <InputText @bind-Value="regGameWithScores.Game.AWAYTEAM" class="form-control mb-2" placeholder="원정팀" />
+                        <InputText @bind-Value="regGameWithScores.Game.PLACE" class="form-control mb-2" placeholder="경기장소" />
+                        <InputDate @bind-Value="regGameWithScores.Game.STARTTIME" class="form-control mb-2" />
+                        <InputText @bind-Value="regGameWithScores.Game.CATEGORY" class="form-control mb-2" placeholder="카테고리" />
+                        <label for="StateSelect" class="form-label" style="color:black;">제품 선택:</label>
+                        <InputSelect id="StateSelect" @bind-Value="regGameWithScores.Game.STATUS" class="form-select">
+                            <option value="">경기상태</option>
+                            @foreach (var option in regGameWithScores.Game.Options)
+                            {
+                                <option value="@option.Value">@option.Text</option>
+                            }
+                        </InputSelect>
+
+                        <h6 class="mt-4" style="color:black;margin-bottom:5px;">점수 정보</h6>
+                        @if (regGameWithScores?.Scores != null && regGameWithScores.Scores.Count >= 2)
+                        {
+                            <table class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th>팀명</th>
+                                        @for (int i = 1; i <= 9; i++)
+                                        {
+                                            <th>@i</th>
+                                        }
+                                        <th>R</th>
+                                        <th>H</th>
+                                        <th>E</th>
+                                        <th>B</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (regGameWithScores.Scores.Count() > 0)
+                                    {
+                                        @for (int i = 0; i < regGameWithScores.Scores.Count; i++)
+                                        {
+                                            var idx = i;
+                                            <tr>
+                                                <td><InputText @bind-Value="regGameWithScores.Scores[idx].TEAM" class="form-control mb-1" placeholder="팀명" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S1" class="form-control form-control-sm" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S2" class="form-control form-control-sm" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S3" class="form-control form-control-sm" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S4" class="form-control form-control-sm" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S5" class="form-control form-control-sm" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S6" class="form-control form-control-sm" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S7" class="form-control form-control-sm" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S8" class="form-control form-control-sm" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S9" class="form-control form-control-sm" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].RUNS" class="form-control mb-1" placeholder="득점" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].HITS" class="form-control mb-1" placeholder="안타" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].ERRORS" class="form-control mb-1" placeholder="에러" /></td>
+                                                <td><InputNumber @bind-Value="regGameWithScores.Scores[idx].BALLS" class="form-control mb-1" placeholder="볼넷" /></td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" @onclick="e => CloseModal()">닫기</button>
+                        <button class="btn btn-primary" type="submit">수정</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}
+
+@code {
+    [Parameter]
+    public int GameId { get; set; }
+
+    private List<GameClass> Games = new();
+    private List<GameScoreClass> GameScores = new();
+    private GameWithScores gameWithScores;
+    private GameWithScores regGameWithScores;
+    private string preDate = "";
+    private bool isModalVisible = false;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await ReloadData();
+        // Games = await _GameService.GetGamesAsync();
+        // GameScores = await _GameService.GetGamesScoreAsync();
+
+        // var selectedGame = Games.FirstOrDefault(x => x.IDX == GameId);
+        // var selectedScores = GameScores.Where(x => x.REF_IDX == GameId.ToString()).ToList();
+
+        // if (selectedGame is not null)
+        // {
+        //     gameWithScores = new GameWithScores
+        //         {
+        //             Game = selectedGame,
+        //             Scores = selectedScores
+        //         };
+
+        //     //만약 경기예정으로, Score가 없이 등록됐다면, Scores 에 홈팀, 어웨이팀의 빈스코어를 추가해준다.
+        //     if(selectedScores.Count() == 0)
+        //     {
+        //         selectedScores = new List<GameScoreClass>
+        //         {
+        //             new GameScoreClass(),
+        //             new GameScoreClass()
+        //         };
+        //     }
+        //     else
+        //     {
+        //         //업데이트
+        //         selectedScores.ForEach(score => score.UPDATE = true);
+        //     }
+        //     regGameWithScores = new GameWithScores
+        //         {
+        //             Game = selectedGame,
+        //             Scores = selectedScores
+        //         };
+        // }
+        // else
+        // {
+        //     gameWithScores = null;
+        //     regGameWithScores = null;
+        // }
+
+        // preDate = gameWithScores.Game.STARTTIME?.ToString("yyyyMM", new System.Globalization.CultureInfo("ko-KR"));
+    }
+    private async Task RegisterGames() //수정
+    {
+        var sucess = await _GameService.EditGameAsync(regGameWithScores);
+        await ReloadData();
+
+        isModalVisible = false;
+        await js.InvokeVoidAsync("alert", "정상적으로 등록되었습니다.");
+        return;
+    }
+
+    private async Task ReloadData()
+    {
+        Games = await _GameService.GetGamesAsync();
+        GameScores = await _GameService.GetGamesScoreAsync();
+
+        var selectedGame = Games.FirstOrDefault(x => x.IDX == GameId);
+        var selectedScores = GameScores.Where(x => x.REF_IDX == GameId.ToString()).ToList();
+
+        if (selectedGame is not null)
+        {
+            gameWithScores = new GameWithScores
+                {
+                    Game = selectedGame,
+                    Scores = selectedScores
+                };
+
+            //만약 경기예정으로, Score가 없이 등록됐다면, Scores 에 홈팀, 어웨이팀의 빈스코어를 추가해준다.
+            if (selectedScores.Count() == 0)
+            {
+                selectedScores = new List<GameScoreClass>
+                {
+                    new GameScoreClass(),
+                    new GameScoreClass()
+                };
+            }
+            else
+            {
+                //업데이트
+                selectedScores.ForEach(score => score.UPDATE = true);
+            }
+            regGameWithScores = new GameWithScores
+                {
+                    Game = selectedGame,
+                    Scores = selectedScores
+                };
+        }
+        else
+        {
+            gameWithScores = null;
+            regGameWithScores = null;
+        }
+
+        preDate = gameWithScores.Game.STARTTIME?.ToString("yyyyMM", new System.Globalization.CultureInfo("ko-KR"));
+    }
+
+    private void CloseModal()
+    {
+        isModalVisible = false;
+    }
+    private async Task ConfirmDelete(string id)
+    {
+        bool confirmed = await js.InvokeAsync<bool>("confirm", "게임정보를 삭제하시겠습니까?");
+        if (confirmed)
+        {
+            var rs = await _GameService.DeleteItemAsync(id);
+            NavManager.NavigateTo("/game/init");
+        }
+        //await ReloadData();
+    }
+
+}

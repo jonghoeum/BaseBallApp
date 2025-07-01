@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\css\\footer.css"
     },
     {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\justifiedGallery.min.css",
+      "PackagePath": "staticwebassets\\css\\justifiedGallery.min.css"
+    },
+    {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\main.css",
       "PackagePath": "staticwebassets\\css\\main.css"
     },

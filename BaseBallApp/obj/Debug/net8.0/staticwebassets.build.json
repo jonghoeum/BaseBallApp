@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "L2pdPJoxBaVPP3XzQ0NoIJUdysPrymLYP28i5LT33rs=",
+  "Hash": "wgpxK6SHqGW1+fIb2QDxUCOBBaGLTRJ9uqlihqpKCJE=",
   "Source": "BaseBallApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -8128,6 +8128,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\footer.css"
+    },
+    {
+      "Identity": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\justifiedGallery.min.css",
+      "SourceId": "BaseBallApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/justifiedGallery.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\justifiedGallery.min.css"
     },
     {
       "Identity": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\main.css",

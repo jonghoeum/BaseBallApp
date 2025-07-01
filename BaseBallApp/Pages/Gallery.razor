@@ -1,0 +1,301 @@
+﻿@page "/gallery"
+
+@using System.Globalization
+@using BaseBallApp.Data;
+@using BaseBallApp.Shared;
+@using BaseBallApp.Shared.Models;
+
+@inject NavigationManager NavManager
+@inject IJSRuntime js
+@inject HttpClient Http
+@inject GalleryService _GalleryService
+
+
+<style>
+	.gallery-card {
+		aspect-ratio: 1 / 1; /* 정사각형 카드 */
+		position: relative;
+		background-color: #f0f0f0;
+		cursor: pointer;
+	}
+
+		.gallery-card img {
+			object-fit: cover;
+			transition: transform 0.3s ease;
+			height: 100%;
+			width: 100%;
+		}
+
+		.gallery-card:hover img {
+			transform: scale(1.05);
+		}
+
+	.gallery-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.4);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.gallery-card:hover .gallery-overlay {
+		opacity: 1;
+	}
+</style>
+    <div class="title_area" style="height: 782px;">
+        <h3>Gallery</h3>
+    </div>
+
+
+	<section id="clubCont" class="content_block">
+		<div>
+
+			<div class="tab_menu">
+				<ul>
+					<li class="active" id="PCFAGL"><a href="/FA/GL/PCFAGL01.do"><span></span>갤러리</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<h4 class="bold_title">다채로운 <span class="txt_hanwha">메티스</span>의<br> 모습을 만나보세요.</h4>
+		<div class="container py-4">
+			<div class="row g-3">
+				@foreach (var item in GalleryItems)
+				{
+					<div class="col-6 col-md-4 col-lg-3">
+						<div class="gallery-card position-relative overflow-hidden rounded">
+							<img src="@_GalleryService.GetImageUrl(item.ImagePath)" alt="@item.Title" class="img-fluid w-100 h-100 object-cover" />
+							<div class="gallery-overlay d-flex align-items-center justify-content-center">
+								<span class="text-white fw-bold">@item.Title</span>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+		@* <div class="gallery_conts justified-gallery" style="height: 306px;">
+			<a href="" title="2025 신규 유니폼 화보" class="jg-entry jg-entry-visible " style="width: 240px; height: 300px; top: 3px; left: 3px;" >
+				<img src="@_GalleryService.GetImageUrl("/gallery/1.jpg")" alt="2025 신규 유니폼 화보" style="width: 240px; height: 300px; margin-left: -120px; margin-top: -150px;">
+				<span>2</span>
+				<div class="jg-caption @cssClass">2025 신규 유니폼 화보</div>
+			</a><a href="/FA/GL/PCFAGL02.do?&amp;galleryId=163&amp;title=2025%20%EC%8B%A0%EA%B7%9C%20%EC%9C%A0%EB%8B%88%ED%8F%BC%20%ED%99%94%EB%B3%B4" title="2025 신규 유니폼 화보" class="jg-entry jg-entry-visible" style="width: 240px; height: 300px; top: 3px; left: 246px;">
+				<img src="@_GalleryService.GetImageUrl("/gallery/2.jpg")" alt="2025 신규 유니폼 화보" style="width: 240px; height: 300px; margin-left: -120px; margin-top: -150px;">
+				<span>3</span>
+				<div class="jg-caption">2025 신규 유니폼 화보</div>
+			</a><a href="/FA/GL/PCFAGL02.do?&amp;galleryId=162&amp;title=2025%20%EC%8B%A0%EA%B7%9C%20%EC%9C%A0%EB%8B%88%ED%8F%BC%20%ED%99%94%EB%B3%B4" title="2025 신규 유니폼 화보" class="jg-entry jg-entry-visible" style="width: 240px; height: 300px; top: 3px; left: 489px;">
+				<img src="@_GalleryService.GetImageUrl("/gallery/3.jpg")" alt="2025 신규 유니폼 화보" style="width: 240px; height: 300px; margin-left: -120px; margin-top: -150px;">
+				<span>3</span>
+				<div class="jg-caption">2025 신규 유니폼 화보</div>
+			</a><a href="/FA/GL/PCFAGL02.do?&amp;galleryId=161&amp;title=2025%20%EC%8B%A0%EA%B7%9C%20%EC%9C%A0%EB%8B%88%ED%8F%BC%20%ED%99%94%EB%B3%B4"  title="2025 신규 유니폼 화보" class="jg-entry jg-entry-visible" style="width: 240px; height: 300px; top: 3px; left: 732px;">
+				<img src="@_GalleryService.GetImageUrl("/gallery/4.jpg")" alt="2025 신규 유니폼 화보" style="width: 240px; height: 300px; margin-left: -120px; margin-top: -150px;">
+				<span>3</span>
+				<div class="jg-caption">2025 신규 유니폼 화보</div>
+			</a>
+		</div><!--//.gallery_conts--> *@
+
+		<p class="paging_area btn_area blind">
+			<a type="button" onclick="moreGalleryView()"><span></span>더보기</a>
+		</p> <!-- //.paging_area -->
+
+	</section>
+
+@if (isModalVisible)
+{
+	<div class="modal show d-block" tabindex="-1">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<EditForm Model="regGal" OnValidSubmit="RegisterGallerys">
+					<div class="modal-header" style="color:black;">
+						<h5 class="modal-title">등록</h5>
+						<button type="button" class="btn-close" @onclick="e => CloseModal()"></button>
+					</div>
+					<div class="modal-body">
+						<InputText @bind-Value="regGal.TITLE" class="form-control mb-2" placeholder="제목" />
+						<ValidationMessage For="@(() => regGal.TITLE)" />
+						<InputText @bind-Value="regGal.CONTENT" class="form-control mb-2" placeholder="내용" />
+						<ValidationMessage For="@(() => regGal.CONTENT)" />
+						
+					</div>
+				</EditForm>
+			</div>
+			@* <div class="modal-content">
+				<EditForm Model="regGal" OnValidSubmit="RegisterGallerys">
+					<DataAnnotationsValidator />
+					<div class="modal-header" style="color:black;">
+						<h5 class="modal-title">등록</h5>
+						<button type="button" class="btn-close" @onclick="e => CloseModal()"></button>
+					</div>
+
+					<div class="modal-body">
+						<h6 style="color:black;margin-bottom:5px;">경기 정보</h6>
+						<ValidationMessage For="@(() => regGameWithScores.Game.STATUS)" />
+						<InputText @bind-Value="regGameWithScores.Game.HOMETEAM" class="form-control mb-2" placeholder="홈팀" />
+						<InputText @bind-Value="regGameWithScores.Game.AWAYTEAM" class="form-control mb-2" placeholder="원정팀" />
+						<InputText @bind-Value="regGameWithScores.Game.PLACE" class="form-control mb-2" placeholder="경기장소" />
+						<input type="datetime-local"
+							   class="form-control mb-2"
+							   value="@startTimeString"
+							   @oninput="e => OnDateTimeChanged(e.Value?.ToString())" />
+						<InputText @bind-Value="regGameWithScores.Game.CATEGORY" class="form-control mb-2" placeholder="카테고리" />
+						<label for="StateSelect" class="form-label" style="color:black;">제품 선택:</label>
+						<InputSelect id="StateSelect" @bind-Value="regGameWithScores.Game.STATUS" class="form-select">
+							<option value="">경기상태</option>
+							@foreach (var option in regGameWithScores.Game.Options)
+							{
+								<option value="@option.Value">@option.Text</option>
+							}
+						</InputSelect>
+
+						<h6 class="mt-4" style="color:black;margin-bottom:5px;">점수 정보</h6>
+						@if (regGameWithScores?.Scores != null && regGameWithScores.Scores.Count >= 2)
+						{
+							<table class="table table-bordered text-center">
+								<thead>
+									<tr>
+										<th>팀명</th>
+										@for (int i = 1; i <= 9; i++)
+										{
+											<th>@i</th>
+										}
+										<th>R</th>
+										<th>H</th>
+										<th>E</th>
+										<th>B</th>
+									</tr>
+								</thead>
+								<tbody>
+									@for (int i = 0; i < regGameWithScores.Scores.Count; i++)
+									{
+										var idx = i;
+										<tr>
+											<td><InputText @bind-Value="regGameWithScores.Scores[idx].TEAM" class="form-control mb-1" placeholder="팀명" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S1" class="form-control form-control-sm" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S2" class="form-control form-control-sm" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S3" class="form-control form-control-sm" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S4" class="form-control form-control-sm" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S5" class="form-control form-control-sm" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S6" class="form-control form-control-sm" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S7" class="form-control form-control-sm" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S8" class="form-control form-control-sm" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].S9" class="form-control form-control-sm" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].RUNS" class="form-control mb-1" placeholder="득점" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].HITS" class="form-control mb-1" placeholder="안타" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].ERRORS" class="form-control mb-1" placeholder="에러" /></td>
+											<td><InputNumber @bind-Value="regGameWithScores.Scores[idx].BALLS" class="form-control mb-1" placeholder="볼넷" /></td>
+										</tr>
+									}
+								</tbody>
+							</table>
+						}
+					</div>
+
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button" @onclick="e => CloseModal()">닫기</button>
+						<button class="btn btn-primary" type="submit">등록</button>
+					</div>
+				</EditForm>
+			</div> *@
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
+
+
+@code {
+	public class GalleryItem
+	{
+		public string Title { get; set; } = "";
+		public string ImagePath { get; set; } = "";
+	}
+
+	private List<GalleryItem> GalleryItems = new();
+	private List<GalleryClass> GalleryList = new();
+	private bool isModalVisible = false;
+	private GalleryClass regGal = new();
+	private string responseMessage = "";
+	protected override async Task OnInitializedAsync()
+	{
+		//데이터 조회
+		GalleryList = await _GalleryService.GetGalleryAsync();
+
+		GalleryItems = new()
+	{
+		new() { Title = "2025 유니폼 1", ImagePath = "/gallery/1.jpg" },
+		new() { Title = "2025 유니폼 2", ImagePath = "/gallery/2.jpg" },
+		new() { Title = "2025 유니폼 3", ImagePath = "/gallery/3.jpg" },
+		new() { Title = "2025 유니폼 4", ImagePath = "/gallery/4.jpg" },
+		new() { Title = "2025 유니폼 1", ImagePath = "/gallery/1.jpg" },
+		new() { Title = "2025 유니폼 2", ImagePath = "/gallery/2.jpg" },
+		new() { Title = "2025 유니폼 3", ImagePath = "/gallery/3.jpg" },
+		new() { Title = "2025 유니폼 4", ImagePath = "/gallery/4.jpg" }
+	};
+	}
+
+	private string cssClass = "";
+
+	private void addClass()
+	{
+		cssClass = "jg-caption-visible";
+	}
+
+	private void removeClass()
+	{
+		cssClass = "";
+	}
+	private async Task RegisterGallerys()
+	{
+		// var sucess = await _GameService.InsertGameAsync(regGameWithScores);
+		var succes = true;
+
+		if (succes)
+		{
+			responseMessage = "정상적으로 등록되었습니다.";
+			// //playersList = await _DataService.GetPlayersAsync(); // 목록 갱신
+			// isModalVisible = false;
+
+			// await SetParametersAsync();
+			// Games = await _GameService.GetGamesAsync();
+			// GameScores = await _GameService.GetGamesScoreAsync();
+			// //Dictionary<DateTime, List<GameClass>> game = new();
+			// foreach (var gm in Games)
+			// {
+			// 	if (gm.STARTTIME.HasValue)
+			// 	{
+			// 		var gameDate = gm.STARTTIME.Value.Date;
+
+			// 		if (!GameSchedule.ContainsKey(gameDate))
+			// 		{
+			// 			GameSchedule[gameDate] = new List<GameWithScores>();
+			// 		}
+
+			// 		var scores = GameScores
+			// 						.Where(s => s.REF_IDX == gm.IDX.ToString()) // GAMEID로 두 개의 점수 매칭
+			// 						.ToList();
+
+			// 		GameSchedule[gameDate].Add(new GameWithScores
+			// 			{
+			// 				Game = gm,
+			// 				Scores = scores
+			// 			});
+			// 	}
+			// }
+
+			await js.InvokeVoidAsync("alert", responseMessage);
+			return;
+		}
+		else
+		{
+			responseMessage = "등록시 문제가 발생하였습니다. 관리자에게 문의해주세요";
+			await js.InvokeVoidAsync("alert", responseMessage);
+			return;
+		}
+	}
+	private void CloseModal()
+	{
+		isModalVisible = false;
+	}
+}

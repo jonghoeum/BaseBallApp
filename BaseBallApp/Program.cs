@@ -31,5 +31,6 @@ builder.Services.AddScoped(sp => new HttpClient
 builder.Services.AddScoped<TrophyService>();
 builder.Services.AddScoped<PlayerService>();
 builder.Services.AddScoped<GameService>();
+builder.Services.AddScoped<GalleryService>();
 
 await builder.Build().RunAsync();
