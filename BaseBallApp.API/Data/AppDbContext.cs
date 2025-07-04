@@ -11,5 +11,6 @@ namespace BaseBallApp.API.Data
 		public DbSet<GameScoreClass> GameScores { get; set; }
 		public DbSet<GalleryClass> Gallery { get; set; }
 		public DbSet<GalleryFiles> GalleryFiles { get; set; }
+		public DbSet<NoticeClass> Notice { get; set; }
 	}
 }

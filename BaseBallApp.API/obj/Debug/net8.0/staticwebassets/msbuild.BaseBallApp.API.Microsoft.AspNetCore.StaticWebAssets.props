@@ -16,6 +16,54 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\1.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\1331e2a3-9eaa-4e41-b704-289df3225fdc_천안시_야구소프트볼협회장배_실업야구대회4.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BaseBallApp.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BaseBallApp.API</BasePath>
+      <RelativePath>gallery/1331e2a3-9eaa-4e41-b704-289df3225fdc_천안시_야구소프트볼협회장배_실업야구대회4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\1331e2a3-9eaa-4e41-b704-289df3225fdc_천안시_야구소프트볼협회장배_실업야구대회4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\13c158a7-f882-4a25-bd7a-5f5be4986299_천안시_야구소프트볼협회장배_실업야구대회.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BaseBallApp.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BaseBallApp.API</BasePath>
+      <RelativePath>gallery/13c158a7-f882-4a25-bd7a-5f5be4986299_천안시_야구소프트볼협회장배_실업야구대회.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\13c158a7-f882-4a25-bd7a-5f5be4986299_천안시_야구소프트볼협회장배_실업야구대회.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\1c0367ad-0b8f-4574-99ad-3db00fbbc953_천안시_야구소프트볼협회장배_실업야구대회.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BaseBallApp.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BaseBallApp.API</BasePath>
+      <RelativePath>gallery/1c0367ad-0b8f-4574-99ad-3db00fbbc953_천안시_야구소프트볼협회장배_실업야구대회.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\1c0367ad-0b8f-4574-99ad-3db00fbbc953_천안시_야구소프트볼협회장배_실업야구대회.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\2.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>BaseBallApp.API</SourceId>
@@ -31,6 +79,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\2.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\254950e3-b578-4aff-a824-21d38dbc7aad_천안시_야구소프트볼협회장배_실업야구대회.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BaseBallApp.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BaseBallApp.API</BasePath>
+      <RelativePath>gallery/254950e3-b578-4aff-a824-21d38dbc7aad_천안시_야구소프트볼협회장배_실업야구대회.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\254950e3-b578-4aff-a824-21d38dbc7aad_천안시_야구소프트볼협회장배_실업야구대회.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\3.jpg))">
       <SourceType>Package</SourceType>
@@ -63,6 +127,86 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\4405b267-3414-4872-b9d6-13395006c5db_천안시_야구소프트볼협회장배_실업야구대회3.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BaseBallApp.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BaseBallApp.API</BasePath>
+      <RelativePath>gallery/4405b267-3414-4872-b9d6-13395006c5db_천안시_야구소프트볼협회장배_실업야구대회3.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\4405b267-3414-4872-b9d6-13395006c5db_천안시_야구소프트볼협회장배_실업야구대회3.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\45e90883-038c-4073-a180-c1d19eabd8dc_천안시_야구소프트볼협회장배_실업야구대회2.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BaseBallApp.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BaseBallApp.API</BasePath>
+      <RelativePath>gallery/45e90883-038c-4073-a180-c1d19eabd8dc_천안시_야구소프트볼협회장배_실업야구대회2.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\45e90883-038c-4073-a180-c1d19eabd8dc_천안시_야구소프트볼협회장배_실업야구대회2.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\8ddc0af8-9c7f-4fe6-a65e-54d318e7464a_천안시_야구소프트볼협회장배_실업야구대회4.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BaseBallApp.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BaseBallApp.API</BasePath>
+      <RelativePath>gallery/8ddc0af8-9c7f-4fe6-a65e-54d318e7464a_천안시_야구소프트볼협회장배_실업야구대회4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\8ddc0af8-9c7f-4fe6-a65e-54d318e7464a_천안시_야구소프트볼협회장배_실업야구대회4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\c3def57e-40e4-4e1f-89b2-236a3684c5b2_천안시_야구소프트볼협회장배_실업야구대회4.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BaseBallApp.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BaseBallApp.API</BasePath>
+      <RelativePath>gallery/c3def57e-40e4-4e1f-89b2-236a3684c5b2_천안시_야구소프트볼협회장배_실업야구대회4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\c3def57e-40e4-4e1f-89b2-236a3684c5b2_천안시_야구소프트볼협회장배_실업야구대회4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\e288048f-1516-4910-859f-d083d0f3de3d_천안시_야구소프트볼협회장배_실업야구대회4.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>BaseBallApp.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BaseBallApp.API</BasePath>
+      <RelativePath>gallery/e288048f-1516-4910-859f-d083d0f3de3d_천안시_야구소프트볼협회장배_실업야구대회4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\gallery\e288048f-1516-4910-859f-d083d0f3de3d_천안시_야구소프트볼협회장배_실업야구대회4.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\00a9c165-3cca-4d5e-84dc-a29ebb64c97e_1.jpg))">
       <SourceType>Package</SourceType>

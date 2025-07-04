@@ -10,10 +10,10 @@ namespace BaseBallApp.Shared.Models
 	public class GalleryClass
 	{
 		[Key]
-		public int? IDX { get; set; } = 0;
+		public int IDX { get; set; } = 0;
 		[Required(ErrorMessage = "제목을 입력하세요.")]
 		public string? TITLE { get; set; }
-		[Required(ErrorMessage = "내용을 입력하세요.")]
+		//[Required(ErrorMessage = "내용을 입력하세요.")]
 		public string? CONTENT { get; set; }
 		public string? FILE { get; set; }
 		public string? FILENAME { get; set; }

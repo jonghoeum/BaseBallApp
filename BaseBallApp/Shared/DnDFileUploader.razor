@@ -1,0 +1,149 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+@inject HttpClient Http
+@inject IJSRuntime js
+
+<style>
+    .dropzone {
+        border: 2px dashed #ccc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        color: #999;
+        background-color: #fafafa;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+    }
+
+        .dropzone.dragover {
+            border-color: #007bff;
+            background-color: #f5faff;
+        }
+
+    .file-hidden {
+        display: none;
+    }
+
+    .uploaded-list {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #333;
+        text-align: left;
+    }
+
+        .uploaded-list li {
+            margin-bottom: 4px;
+        }
+
+    .progress {
+        height: 20px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        white-space: nowrap;
+        transition: width 0.4s ease;
+    }
+</style>
+
+<div class="dropzone @dropClass"
+     @ondragover="e => OnDragOver(e)"
+     @ondragleave="OnDragLeave"
+     @ondrop="HandleDrop"
+     @onclick="TriggerFileInput">
+    <p><strong>이 영역에 파일을 드래그 앤 드롭</strong> 하거나 <u>클릭</u>해서 선택하세요</p>
+    <InputFile OnChange="HandleInputChange" multiple class="file-hidden" @ref="fileInput" />
+</div>
+
+@if (UploadProgress > 0 && UploadProgress < 100)
+{
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width:@UploadProgress%">@UploadProgress%</div>
+    </div>
+}
+
+@if (UploadedFiles.Any())
+{
+    <ul class="uploaded-list">
+        @foreach (var file in UploadedFiles)
+        {
+            <li>@file</li>
+        }
+    </ul>
+}
+
+@code {
+    private InputFile fileInput;
+    private long maxFileSize = 10 * 1024 * 1024; // 10MB
+    private int UploadProgress = 0;
+    private List<string> UploadedFiles = new();
+    private string dropClass = "";
+
+    private async Task TriggerFileInput()
+    {
+        await js.InvokeVoidAsync("triggerClick", fileInput.Element);
+    }
+
+    private async Task HandleInputChange(InputFileChangeEventArgs e)
+    {
+        await UploadFiles(e.GetMultipleFiles());
+    }
+
+    private async Task HandleDrop(DragEventArgs e)
+    {
+        dropClass = "";
+        await TriggerFileInput(); // Drag & Drop 시 파일선택창 트리거
+    }
+
+    private void OnDragOver(DragEventArgs e)
+    {
+        dropClass = "dragover";
+    }
+
+    private void OnDragLeave()
+    {
+        dropClass = "";
+    }
+
+    private async Task UploadFiles(IReadOnlyList<IBrowserFile> files)
+    {
+        UploadedFiles.Clear();
+        int index = 0;
+
+        foreach (var file in files)
+        {
+            var content = new MultipartFormDataContent();
+            var stream = file.OpenReadStream(maxFileSize);
+            content.Add(new StreamContent(stream), "files", file.Name);
+
+            var response = await Http.PostAsync("/api/gallery/upload", content);
+            index++;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadFromJsonAsync<UploadResult>();
+                UploadedFiles.Add(result?.Files?.FirstOrDefault() ?? file.Name);
+            }
+            else
+            {
+                UploadedFiles.Add($"{file.Name} (업로드 실패)");
+            }
+
+            UploadProgress = (int)((index / (double)files.Count) * 100);
+            StateHasChanged();
+        }
+
+        UploadProgress = 100;
+    }
+
+    public class UploadResult
+    {
+        public List<string> Files { get; set; } = new();
+    }
+}

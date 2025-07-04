@@ -20,6 +20,41 @@ body {
     color: transparent;
 }
 
+/* Quill 에디터 전체 배경 및 글자색 */
+.ql-container {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* 에디터 입력 영역 */
+.ql-editor {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* 툴바 배경색 및 글자색 */
+.ql-toolbar.ql-snow {
+    background-color: #f5f5f5 !important;
+    color: #000000 !important;
+}
+
+/* 버튼 및 셀렉터 텍스트 색 */
+.ql-toolbar button,
+.ql-toolbar .ql-picker-label,
+.ql-toolbar .ql-picker-item {
+    color: #000000 !important;
+}
+
+/* placeholder 글자색 */
+.ql-editor.ql-blank::before {
+    color: #888888 !important;
+}
+
+/* 에디터 외곽 테두리 선명하게 */
+.ql-container.ql-snow {
+    border-color: #cccccc !important;
+}
+
 .HanwhaL {
     font-family: 'HanwhaL' !important;
 }

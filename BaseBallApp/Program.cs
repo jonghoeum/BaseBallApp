@@ -5,6 +5,11 @@ using BaseBallApp.Data;
 using BaseBallApp.Models;
 using System.Net.Http.Json;
 
+using Blazorise;
+using Blazorise.Bootstrap5;
+using Blazorise.Icons.FontAwesome;
+using Blazorise.RichTextEdit;
+
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
@@ -32,5 +37,13 @@ builder.Services.AddScoped<TrophyService>();
 builder.Services.AddScoped<PlayerService>();
 builder.Services.AddScoped<GameService>();
 builder.Services.AddScoped<GalleryService>();
+builder.Services
+    .AddBlazorise(options =>
+    {
+        options.Immediate = true;
+    })
+    .AddBootstrap5Providers()
+    .AddFontAwesomeIcons()
+    .AddBlazoriseRichTextEdit();
 
 await builder.Build().RunAsync();

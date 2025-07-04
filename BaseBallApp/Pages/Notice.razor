@@ -1,0 +1,232 @@
+﻿@page "/Notice"
+@inject HttpClient Http
+@inject IJSRuntime JSRuntime
+
+@using BaseBallApp.Shared.Models
+
+
+<div class="title_area" style="height: 782px;">
+	<h3>Fan</h3>
+</div>
+
+<section class="content_block fan_news">
+
+	<div>
+
+		<script>
+			$(function () {
+				//메뉴 제어
+				var menuCd = "PCFACN";
+				console.log("My name is %s and.", menuCd);
+				if (menuCd != '') {
+					$("#" + menuCd).addClass("active");
+				}
+			});
+		</script>
+
+
+		<div class="tab_menu">
+			<ul>
+				<li class="active" ><a href="/FA/CN/PCFACN01.do"><span></span>구단소식</a></li>
+				<!--<li class="" id="PCFAMI"><a href="/FA/MI/PCFAMI03.do"><span></span>키즈클럽</a></li>
+				<li class="" id="PCFAFT"><a href="/FA/FT/PCFAFT01.do"><span></span>팬 타임즈</a></li>
+				<li class="" id="PCFAGL"><a href="/FA/GL/PCFAGL01.do"><span></span>갤러리</a></li>
+				<li class="" id="PCFAEC"><a href="/FA/EC/PCFAEC01.do"><span></span>이글스 아카이브</a></li> -->
+			</ul>
+		</div>
+	</div>
+
+	<h4 class="fan_title">
+		<span class="txt_hanwha">메티스</span> 구단의 소식을 전해드립니다.
+	</h4>
+
+	<!-- filter : 2차 오폰 -->
+	<div class="filter"></div>
+	<!--<div class="filter">
+		<div class="row_hr">
+			<strong class="blind">검색</strong>
+			<div class="item_row flex">
+				<div class="input_wrap datepick col">
+					<input type="text" class="in_datepicker hasDatepicker" id="fromDateId" title="검색시작날짜">
+				</div>
+				<span class="txt">-</span>
+				<div class="input_wrap datepick col">
+					<input type="text" class="in_datepicker hasDatepicker" id="toDateId" title="검색종료날짜">
+				</div>
+				<div class="input_wrap sch col">
+					<input type="text" title="검색어" id="searchTextId">
+					<button type="button" class="btn_ico_sch" onclick="searchTable()">
+						<span class="blind">검색</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- //filter : 2차 오폰 -->
+	<!-- list -->
+	<div class="list_notice">
+		<div class="th_wrap">
+			<div class="col">NO</div>
+			<div class="col">제목</div>
+			<div class="col">작성일</div>
+			<div class="col">조회수</div>
+			<!-- 2차 오폰 -->
+		</div>
+		<ul>
+
+			<li class="em">
+				<a href="/FA/CN/PCFACN02.do?&amp;id=1734" class="link">
+					<div class="col no">공지</div>
+					<div class="col tit">
+						[KBO] 한국 야구박물관, 명예의 전당 유물 기증 공고
+						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
+					</div>
+					<div class="col date">2025.03.25</div><!-- 작성날짜 -->
+					<div class="col hit">3347</div> <!-- 조회수 -->
+				</a>
+			</li>
+
+			<li class="em">
+				<a href="/FA/CN/PCFACN02.do?&amp;id=1699" class="link">
+					<div class="col no">공지</div>
+					<div class="col tit">
+						한화이글스, 구단 신규 BI · 유니폼 공개
+						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
+					</div>
+					<div class="col date">2024.11.12</div><!-- 작성날짜 -->
+					<div class="col hit">50185</div> <!-- 조회수 -->
+				</a>
+			</li>
+
+			<li class="em">
+				<a href="/FA/CN/PCFACN02.do?&amp;id=1745" class="link">
+					<div class="col no">237</div>
+					<div class="col tit">
+						한화이글스, 대체 외국인 선수 루이스 리베라토 영입
+						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
+					</div>
+					<div class="col date">2025.06.17</div><!-- 작성날짜 -->
+					<div class="col hit">780</div> <!-- 조회수 -->
+				</a>
+			</li>
+
+			<li class="em">
+				<a href="/FA/CN/PCFACN02.do?&amp;id=1744" class="link">
+					<div class="col no">236</div>
+					<div class="col tit">
+						한화이글스, 한화에어로스페이스 스폰서데이 이벤트
+						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
+					</div>
+					<div class="col date">2025.06.12</div><!-- 작성날짜 -->
+					<div class="col hit">534</div> <!-- 조회수 -->
+				</a>
+			</li>
+
+			<li class="em">
+				<a href="/FA/CN/PCFACN02.do?&amp;id=1743" class="link">
+					<div class="col no">235</div>
+					<div class="col tit">
+						제3회 한화이글스배 고교 vs 대학 올스타전 성료
+						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
+					</div>
+					<div class="col date">2025.06.02</div><!-- 작성날짜 -->
+					<div class="col hit">50</div> <!-- 조회수 -->
+				</a>
+			</li>
+
+			<li class="em">
+				<a href="/FA/CN/PCFACN02.do?&amp;id=1742" class="link">
+					<div class="col no">234</div>
+					<div class="col tit">
+						한화이글스, 수리X꿈돌이 콜라보로 대전 브랜드 전국 확산 기여
+						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
+					</div>
+					<div class="col date">2025.05.29</div><!-- 작성날짜 -->
+					<div class="col hit">84</div> <!-- 조회수 -->
+				</a>
+			</li>
+
+			<li class="em">
+				<a href="/FA/CN/PCFACN02.do?&amp;id=1741" class="link">
+					<div class="col no">233</div>
+					<div class="col tit">
+						제3회 한화이글스배 고교vs대학 올스타전 참가선수 명단 확정
+						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
+					</div>
+					<div class="col date">2025.05.20</div><!-- 작성날짜 -->
+					<div class="col hit">49</div> <!-- 조회수 -->
+				</a>
+			</li>
+
+			<li class="em">
+				<a href="/FA/CN/PCFACN02.do?&amp;id=1740" class="link">
+					<div class="col no">232</div>
+					<div class="col tit">
+						한화이글스, 대전시 마스코트 꿈돌이와 콜라보 상품 출시
+						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
+					</div>
+					<div class="col date">2025.05.01</div><!-- 작성날짜 -->
+					<div class="col hit">3166</div> <!-- 조회수 -->
+				</a>
+			</li>
+
+			<li class="em">
+				<a href="/FA/CN/PCFACN02.do?&amp;id=1739" class="link">
+					<div class="col no">231</div>
+					<div class="col tit">
+						한화이글스, 창단 40주년 기념 레거시 유니폼 화보 공개
+						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
+					</div>
+					<div class="col date">2025.04.06</div><!-- 작성날짜 -->
+					<div class="col hit">7859</div> <!-- 조회수 -->
+				</a>
+			</li>
+
+			<li class="em">
+				<a href="/FA/CN/PCFACN02.do?&amp;id=1738" class="link">
+					<div class="col no">230</div>
+					<div class="col tit">
+						한화이글스, 에스앤케이병원과 후원 협약
+						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
+					</div>
+					<div class="col date">2025.04.04</div><!-- 작성날짜 -->
+					<div class="col hit">956</div> <!-- 조회수 -->
+				</a>
+			</li>
+
+		</ul>
+	</div>
+	<!-- //list -->
+	<!-- .paging_area -->
+	<div>
+		<div class="paging_area">
+
+			<div class="paging">
+
+				<!-- <button type="button" th:onclick="|searchTable(0, '${page_length}')|" class="btn_page start" th:disabled="${btn_select == 0}"><span class="blind">맨처음</span></button>  -->
+				<button type="button" onclick="searchTable('0', '10')" class="btn_page prev" disabled="disabled"><span class="blind">이전 10</span></button>
+				<div class="go_num">
+					<a style="pointer-events: none;" onclick="searchTable('0', '10')" class="on">1</a><a style="cursor: pointer;" onclick="searchTable('10', '10')">2</a><a style="cursor: pointer;" onclick="searchTable('20', '10')">3</a><a style="cursor: pointer;" onclick="searchTable('30', '10')">4</a><a style="cursor: pointer;" onclick="searchTable('40', '10')">5</a><a style="cursor: pointer;" onclick="searchTable('50', '10')">6</a><a style="cursor: pointer;" onclick="searchTable('60', '10')">7</a><a style="cursor: pointer;" onclick="searchTable('70', '10')">8</a><a style="cursor: pointer;" onclick="searchTable('80', '10')">9</a><a style="cursor: pointer;" onclick="searchTable('90', '10')">10</a>
+				</div>
+				<button type="button" class="btn_page next" onclick="searchTable('10', '10')">
+					<span class="blind">다음 10</span>
+				</button>
+				<!--
+				<button type="button"
+					class="btn_page end"
+					th:onclick="|searchTable('${(btn_all_length -1) * page_length}', '${page_length}')|"
+					th:disabled="${btn_select &gt;= (btn_all_length - 1)}">
+					<span class="blind">맨끝</span>
+				</button>  -->
+			</div>
+
+
+		</div>
+	</div>
+	<!-- //.paging_area -->
+	
+</section>
+
+@code {
+	
+}

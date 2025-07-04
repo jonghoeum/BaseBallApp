@@ -19,5 +19,26 @@ namespace BaseBallApp.Data
 		{
 			return await _http.GetFromJsonAsync<List<GalleryClass>>("api/Gallery/gallery");
 		}
+
+		public async Task<bool> InsertGalleryAsync(GalleryClass gal)
+		{
+			//return await _http.PostAsJsonAsync("api/Games/insert", game);
+			var response = await _http.PostAsJsonAsync("api/Gallery/insert", gal);
+			if (response.IsSuccessStatusCode)
+			{
+				Console.WriteLine("등록 성공");
+				return true;
+			}
+			else //실패시
+			{
+				Console.WriteLine($"등록 실패: {response.StatusCode}");
+				return false;
+			}
+		}
+		public async Task<bool> DeleteGalleryAsync(int id)
+		{
+			var response = await _http.DeleteAsync($"api/Gallery/delete/{id}");
+			return response.IsSuccessStatusCode;
+		}
 	}
 }

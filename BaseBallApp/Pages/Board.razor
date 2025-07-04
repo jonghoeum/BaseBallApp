@@ -1,0 +1,87 @@
+@page "/board"
+@using BaseBallApp.Shared.Models
+@using Blazorise.RichTextEdit
+@inject HttpClient Http
+
+
+<div class="title_area" style="height: 782px;">
+    <h3>Fan</h3>
+</div>
+<h3>📋 게시판</h3>
+
+<EditForm Model="@newPost" OnValidSubmit="@SubmitPost">
+    <InputText class="form-control mb-2" @bind-Value="newPost.Title" placeholder="제목" />
+    <div class="form-check mb-2">
+        <InputCheckbox @bind-Value="newPost.IsNotice" class="form-check-input" />
+        <label class="form-check-label">공지로 등록</label>
+    </div>
+
+    <RichTextEdit @ref="editorRef" Theme="RichTextEditTheme.Snow" UseResize="true" />
+
+    <button class="btn btn-primary mt-2">등록</button>
+</EditForm>
+
+<hr />
+
+@foreach (var post in posts)
+{
+    <div class="card mb-2" @onclick="() => LoadPost(post.Id)" style="cursor:pointer">
+        <div class="card-header">
+            <strong>@(post.IsNotice ? "[공지] " : "")@post.Title</strong>
+            <span class="float-end">@post.CreatedAt:yyyy-MM-dd | 조회수: @post.ViewCount</span>
+        </div>
+    </div>
+}
+
+@if (selectedPost != null)
+{
+    <hr />
+    <h4>@selectedPost.Title</h4>
+    <div class="text-muted">@selectedPost.CreatedAt | 조회수: @selectedPost.ViewCount</div>
+    <div class="border p-3 mt-2">@((MarkupString)selectedPost.Content)</div>
+}
+
+@code {
+    private List<BoardPost> posts = new();
+    private BoardPost newPost = new();
+    private BoardPost? selectedPost;
+    private RichTextEdit? editorRef;
+    private string[][] toolbar = new[]
+    {
+        new[] { "bold", "italic", "underline", "strike" },
+        new[] { "blockquote", "code-block" },
+        new[] { "header-1", "header-2" },
+        new[] { "list-ordered", "list-bullet" },
+        new[] { "script-sub", "script-super" },
+        new[] { "indent--1", "indent-+1" },
+        new[] { "direction-rtl" },
+        new[] { "size-small", "size-large", "size-huge" },
+        new[] { "header-1", "header-2", "header-3", "header-4" },
+        new[] { "color", "background" },
+        new[] { "link", "image", "video" },
+        new[] { "align-left", "align-center", "align-right", "align-justify" },
+        new[] { "clean" }
+    };
+    protected override async Task OnInitializedAsync()
+    {
+        //posts = await Http.GetFromJsonAsync<List<BoardPost>>("api/Board");
+    }
+
+    private async Task SubmitPost()
+    {
+        if (editorRef != null)
+        {
+            newPost.Content = await editorRef.GetHtmlAsync(); // ✅ GetHtmlAsync 제공
+            await Http.PostAsJsonAsync("api/Board", newPost);
+            newPost = new();
+            await OnInitializedAsync();
+            await editorRef.ClearAsync(); // 내용 초기화
+        }
+    }
+
+    private async Task LoadPost(int id)
+    {
+        selectedPost = await Http.GetFromJsonAsync<BoardPost>($"api/Board/{id}");
+        await OnInitializedAsync(); // 조회수 반영
+    }
+}
