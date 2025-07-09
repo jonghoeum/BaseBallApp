@@ -1,34 +1,46 @@
 ﻿@using Microsoft.AspNetCore.Components.Forms
-@* @typeparam T *@
 
-<div>
-    <InputFile @ref="fileInput" OnChange="OnFileChanged" />
+<div class="mb-3">
+    <InputFile key="@inputKey" @ref="fileInput" OnChange="OnFileChanged" class="form-control" />
+
     @if (SelectedFile != null)
     {
-        <p>선택한 파일: @SelectedFile.Name</p>
+        <div class="mt-2">
+            <span class="badge bg-info text-dark">선택한 파일: @SelectedFile.Name</span>
+        </div>
     }
-    @if (!string.IsNullOrEmpty(ErrorMessage))
+
+    @if (!string.IsNullOrEmpty(_errorMessage))
     {
-        <p class="text-danger">@ErrorMessage</p>
+        <div class="text-danger mt-1">@_errorMessage</div>
     }
 </div>
 
 @code {
-    private InputFile fileInput;
+    private InputFile? fileInput;
+    private string inputKey = Guid.NewGuid().ToString(); // ⚠️ 매번 리렌더링 트리거용 key
+
     [Parameter] public EventCallback<IBrowserFile> OnFileSelected { get; set; }
-    [Parameter] public string ErrorMessage { get; set; }
-    public IBrowserFile SelectedFile { get; private set; }
+
+    private string _errorMessage = string.Empty;
+    public IBrowserFile? SelectedFile { get; private set; }
 
     private async Task OnFileChanged(InputFileChangeEventArgs e)
     {
         if (e.FileCount > 0)
         {
             SelectedFile = e.File;
+            _errorMessage = string.Empty;
             await OnFileSelected.InvokeAsync(SelectedFile);
         }
         else
         {
-            ErrorMessage = "파일을 선택하세요.";
+            // 파일 선택 취소됨
+            SelectedFile = null;
+            _errorMessage = string.Empty;
+
+            // ⚠️ InputFile을 리렌더링하여 상태 초기화
+            inputKey = Guid.NewGuid().ToString();
         }
     }
 }

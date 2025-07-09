@@ -1484,7 +1484,8 @@
 }
 
 /* 게시판 list */
-.list_notice .th_wrap, .list_notice li .link {
+/* ori */
+/*.list_notice .th_wrap, .list_notice li .link {
     display: -ms-flexbox;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1552,7 +1553,184 @@
         margin-left: 4px;
         background: url('/images/common/ico_new.png') no-repeat center;
         background-size: cover;
+    }*/
+.list_notice .th_wrap,
+.list_notice li .link {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.list_notice .th_wrap {
+    height: 58px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+}
+
+    .list_notice .th_wrap .col {
+        color: #808080;
+        font-family: 'HanwhaGothicEL', sans-serif;
+        font-size: 16px;
+        line-height: 56px;
+        text-align: center;
     }
+
+.list_notice ul {
+    border-bottom: 1px solid #666;
+}
+
+.list_notice li {
+    border-top: 1px solid #333;
+}
+
+    .list_notice li:first-child {
+        border-top: 0;
+    }
+
+    .list_notice li .link {
+        width: 100%;
+        min-height: 58px;
+        padding: 25px 0 23px;
+    }
+
+    .list_notice li .col {
+        color: #808080;
+        font-family: 'myriad-pro', 'HanwhaGothicEL', sans-serif;
+        font-size: 14px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+        /* 제목은 왼쪽 정렬 */
+        .list_notice li .col.tit,
+        .list_notice .th_wrap .col.tit {
+            color: #b3b3b3;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+/* 각 열 width 지정 (정렬 맞춤) */
+.col.no {
+    width: 10%;
+}
+
+.col.tit {
+    width: 40%;
+}
+
+.col.date {
+    width: 15%;
+}
+
+.col.hit {
+    width: 10%;
+}
+
+.col.edit {
+    width: 7%;
+    text-align: center;
+}
+.col.del {
+    width: 7%;
+    text-align: center;
+}
+
+    /* 버튼 정렬 보완 */
+    .col.edit button {
+        padding: 2px 10px;
+        font-size: 13px;
+    }
+    .col.del button {
+        padding: 2px 10px;
+        font-size: 13px;
+    }
+
+/* 호버 시 색상 유지 */
+.list_notice li .link:hover .col,
+.list_notice li .link:hover .col.tit {
+    color: #fff;
+}
+
+
+/*.list_notice .th_wrap {
+    display: flex;*/ /* flex 정렬 */
+    /*height: 58px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    align-items: center;
+    padding: 0 10px;
+}
+
+    .list_notice .th_wrap .col {
+        color: #808080;
+        font-family: 'HanwhaGothicEL', sans-serif;
+        font-size: 16px;
+        line-height: 56px;
+        text-align: center;
+    }*/
+
+        /* 각 열의 비율 지정 - 번호, 제목, 작성일, 조회수, (수정버튼 자리용 빈칸) */
+        /*.list_notice .th_wrap .col.no {
+            width: 10%;
+        }
+
+        .list_notice .th_wrap .col.tit {
+            width: 50%;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .list_notice .th_wrap .col.date {
+            width: 15%;
+        }
+
+        .list_notice .th_wrap .col.hit {
+            width: 10%;
+        }
+
+        .list_notice .th_wrap .col.action {
+            width: 15%;
+        }*/
+/* 수정 버튼 자리용 빈칸 */
+
+/* 수정 버튼이 오른쪽에 정렬되도록 li 전체를 flex로 구성 */
+/*.list_notice li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #333;
+    padding: 10px 0;
+}*/
+
+/* 링크 영역은 왼쪽에, 수정 버튼은 오른쪽에 */
+/*.list_notice li .link {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    min-height: 58px;
+    padding: 10px 0;
+}*/
+
+/* 수정 버튼 스타일 */
+/*.list_notice li .edit-button {
+    margin-left: auto;
+    margin-right: 10px;
+    padding: 6px 12px;
+    font-size: 13px;
+    background-color: transparent;
+    color: #ccc;
+    border: 1px solid #666;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.list_notice li .edit-button:hover {
+    background-color: #444;
+    color: #fff;
+}*/
+
 
 .paging_area {
     position: relative;
@@ -1819,7 +1997,7 @@
 
     .notice_view .view_detail .btn_attach_down {
         display: block;
-        padding: 2px 0 0 30px;
+        padding: 2px 0 0 0;
         color: #f37321 !important;
         background: url('/images/common/btn_ico_down_org.png') no-repeat left center;
         background-size: 25px 25px;

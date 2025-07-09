@@ -12,5 +12,10 @@ namespace BaseBallApp.API.Data
 		public DbSet<GalleryClass> Gallery { get; set; }
 		public DbSet<GalleryFiles> GalleryFiles { get; set; }
 		public DbSet<NoticeClass> Notice { get; set; }
+		public DbSet<NoticeViewModel> NoticeViewModel { get; set; } = default!;
+		public DbSet<NewsClass> News { get; set; }
+		public DbSet<NewsViewModel> NewsViewModel { get; set; } = default!;
+		public DbSet<RecruitClass> Recruit { get; set; }
+		public DbSet<RecruitViewModel> RecruitViewModel { get; set;} = default!;
 	}
 }

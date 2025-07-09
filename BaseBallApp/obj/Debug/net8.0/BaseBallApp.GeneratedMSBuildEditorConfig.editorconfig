@@ -70,12 +70,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/local/BaseBallApp/BaseBallApp/Pages/News.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/NewsDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3c0RldGFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/local/BaseBallApp/BaseBallApp/Pages/Notice.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/local/BaseBallApp/BaseBallApp/Pages/NoticeDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWNlRGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/local/BaseBallApp/BaseBallApp/Pages/Players.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/RecruitDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVjcnVpdERldGFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Recruitment.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVjcnVpdG1lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/local/BaseBallApp/BaseBallApp/Pages/Staff.razor]

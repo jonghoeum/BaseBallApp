@@ -46,22 +46,7 @@
     private BoardPost newPost = new();
     private BoardPost? selectedPost;
     private RichTextEdit? editorRef;
-    private string[][] toolbar = new[]
-    {
-        new[] { "bold", "italic", "underline", "strike" },
-        new[] { "blockquote", "code-block" },
-        new[] { "header-1", "header-2" },
-        new[] { "list-ordered", "list-bullet" },
-        new[] { "script-sub", "script-super" },
-        new[] { "indent--1", "indent-+1" },
-        new[] { "direction-rtl" },
-        new[] { "size-small", "size-large", "size-huge" },
-        new[] { "header-1", "header-2", "header-3", "header-4" },
-        new[] { "color", "background" },
-        new[] { "link", "image", "video" },
-        new[] { "align-left", "align-center", "align-right", "align-justify" },
-        new[] { "clean" }
-    };
+    
     protected override async Task OnInitializedAsync()
     {
         //posts = await Http.GetFromJsonAsync<List<BoardPost>>("api/Board");

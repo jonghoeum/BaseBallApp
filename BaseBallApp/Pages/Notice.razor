@@ -2,7 +2,19 @@
 @inject HttpClient Http
 @inject IJSRuntime JSRuntime
 
-@using BaseBallApp.Shared.Models
+@using System.Globalization
+@using BaseBallApp.Data;
+@using BaseBallApp.Shared;
+@using BaseBallApp.Shared.Models;
+@using Blazorise.RichTextEdit;
+
+
+
+@inject NavigationManager NavManager
+@inject IJSRuntime js
+@inject HttpClient Http
+@inject NoticeService _NoticeService
+@* @inject GalleryService _GalleryService *@
 
 
 <div class="title_area" style="height: 782px;">
@@ -12,22 +24,9 @@
 <section class="content_block fan_news">
 
 	<div>
-
-		<script>
-			$(function () {
-				//메뉴 제어
-				var menuCd = "PCFACN";
-				console.log("My name is %s and.", menuCd);
-				if (menuCd != '') {
-					$("#" + menuCd).addClass("active");
-				}
-			});
-		</script>
-
-
 		<div class="tab_menu">
 			<ul>
-				<li class="active" ><a href="/FA/CN/PCFACN01.do"><span></span>구단소식</a></li>
+				<li class="active"><a href="javascript:void(0);" @onclick="goList"><span></span>구단소식</a></li>
 				<!--<li class="" id="PCFAMI"><a href="/FA/MI/PCFAMI03.do"><span></span>키즈클럽</a></li>
 				<li class="" id="PCFAFT"><a href="/FA/FT/PCFAFT01.do"><span></span>팬 타임즈</a></li>
 				<li class="" id="PCFAGL"><a href="/FA/GL/PCFAGL01.do"><span></span>갤러리</a></li>
@@ -35,7 +34,9 @@
 			</ul>
 		</div>
 	</div>
-
+	<div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+		<button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
+	</div>
 	<h4 class="fan_title">
 		<span class="txt_hanwha">메티스</span> 구단의 소식을 전해드립니다.
 	</h4>
@@ -66,6 +67,35 @@
 	<!-- list -->
 	<div class="list_notice">
 		<div class="th_wrap">
+			<div class="col no">NO</div>
+			<div class="col tit">제목</div>
+			<div class="col date">작성일</div>
+			<div class="col hit">조회수</div>
+			<div class="col edit"> </div> <!-- 추가 -->
+			<div class="col del"> </div> <!-- 추가 -->
+		</div>
+		<ul>
+			@foreach (var noti in NoticeList)
+			{
+				<li class="em">
+					<div @onclick="() => OnNoticeClicked(noti)" class="link">
+						<div class="col no">@noti.No</div>
+						<div class="col tit">@noti.Title</div>
+						<div class="col date">@noti.CreatedAt.ToString("yyyy.MM.dd")</div>
+						<div class="col hit">@noti.ViewCount</div>
+						<div class="col edit">
+							<button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => OpenEditModal(noti)">수정</button>
+						</div>
+						<div class="col del">
+							<button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="@(() => DeleteNotice(noti.IDX))">삭제</button>
+						</div>
+					</div>
+				</li>
+			}
+		</ul>
+	</div>
+	@* <div class="list_notice">
+		<div class="th_wrap">
 			<div class="col">NO</div>
 			<div class="col">제목</div>
 			<div class="col">작성일</div>
@@ -73,136 +103,31 @@
 			<!-- 2차 오폰 -->
 		</div>
 		<ul>
-
-			<li class="em">
-				<a href="/FA/CN/PCFACN02.do?&amp;id=1734" class="link">
-					<div class="col no">공지</div>
-					<div class="col tit">
-						[KBO] 한국 야구박물관, 명예의 전당 유물 기증 공고
-						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
-					</div>
-					<div class="col date">2025.03.25</div><!-- 작성날짜 -->
-					<div class="col hit">3347</div> <!-- 조회수 -->
-				</a>
-			</li>
-
-			<li class="em">
-				<a href="/FA/CN/PCFACN02.do?&amp;id=1699" class="link">
-					<div class="col no">공지</div>
-					<div class="col tit">
-						한화이글스, 구단 신규 BI · 유니폼 공개
-						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
-					</div>
-					<div class="col date">2024.11.12</div><!-- 작성날짜 -->
-					<div class="col hit">50185</div> <!-- 조회수 -->
-				</a>
-			</li>
-
-			<li class="em">
-				<a href="/FA/CN/PCFACN02.do?&amp;id=1745" class="link">
-					<div class="col no">237</div>
-					<div class="col tit">
-						한화이글스, 대체 외국인 선수 루이스 리베라토 영입
-						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
-					</div>
-					<div class="col date">2025.06.17</div><!-- 작성날짜 -->
-					<div class="col hit">780</div> <!-- 조회수 -->
-				</a>
-			</li>
-
-			<li class="em">
-				<a href="/FA/CN/PCFACN02.do?&amp;id=1744" class="link">
-					<div class="col no">236</div>
-					<div class="col tit">
-						한화이글스, 한화에어로스페이스 스폰서데이 이벤트
-						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
-					</div>
-					<div class="col date">2025.06.12</div><!-- 작성날짜 -->
-					<div class="col hit">534</div> <!-- 조회수 -->
-				</a>
-			</li>
-
-			<li class="em">
-				<a href="/FA/CN/PCFACN02.do?&amp;id=1743" class="link">
-					<div class="col no">235</div>
-					<div class="col tit">
-						제3회 한화이글스배 고교 vs 대학 올스타전 성료
-						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
-					</div>
-					<div class="col date">2025.06.02</div><!-- 작성날짜 -->
-					<div class="col hit">50</div> <!-- 조회수 -->
-				</a>
-			</li>
-
-			<li class="em">
-				<a href="/FA/CN/PCFACN02.do?&amp;id=1742" class="link">
-					<div class="col no">234</div>
-					<div class="col tit">
-						한화이글스, 수리X꿈돌이 콜라보로 대전 브랜드 전국 확산 기여
-						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
-					</div>
-					<div class="col date">2025.05.29</div><!-- 작성날짜 -->
-					<div class="col hit">84</div> <!-- 조회수 -->
-				</a>
-			</li>
-
-			<li class="em">
-				<a href="/FA/CN/PCFACN02.do?&amp;id=1741" class="link">
-					<div class="col no">233</div>
-					<div class="col tit">
-						제3회 한화이글스배 고교vs대학 올스타전 참가선수 명단 확정
-						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
-					</div>
-					<div class="col date">2025.05.20</div><!-- 작성날짜 -->
-					<div class="col hit">49</div> <!-- 조회수 -->
-				</a>
-			</li>
-
-			<li class="em">
-				<a href="/FA/CN/PCFACN02.do?&amp;id=1740" class="link">
-					<div class="col no">232</div>
-					<div class="col tit">
-						한화이글스, 대전시 마스코트 꿈돌이와 콜라보 상품 출시
-						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
-					</div>
-					<div class="col date">2025.05.01</div><!-- 작성날짜 -->
-					<div class="col hit">3166</div> <!-- 조회수 -->
-				</a>
-			</li>
-
-			<li class="em">
-				<a href="/FA/CN/PCFACN02.do?&amp;id=1739" class="link">
-					<div class="col no">231</div>
-					<div class="col tit">
-						한화이글스, 창단 40주년 기념 레거시 유니폼 화보 공개
-						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
-					</div>
-					<div class="col date">2025.04.06</div><!-- 작성날짜 -->
-					<div class="col hit">7859</div> <!-- 조회수 -->
-				</a>
-			</li>
-
-			<li class="em">
-				<a href="/FA/CN/PCFACN02.do?&amp;id=1738" class="link">
-					<div class="col no">230</div>
-					<div class="col tit">
-						한화이글스, 에스앤케이병원과 후원 협약
-						<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
-					</div>
-					<div class="col date">2025.04.04</div><!-- 작성날짜 -->
-					<div class="col hit">956</div> <!-- 조회수 -->
-				</a>
-			</li>
-
+			
+			@foreach (var noti in NoticeList)
+			{
+				<li class="em">
+					<a @onclick="() => OnNoticeClicked(noti)" class="link" style="cursor:pointer;">
+						<div class="col no">@noti.No</div>
+						<div class="col tit">
+							@noti.Title
+							<!--<span class="" th:classappend="${(row?.containsKey('NEWS') ? row.NEWS : 0)} <= 1 ? 'ico new' : ''"> <span class="blind">new</span></span> --> <!-- new icon -->
+						</div>
+						<div class="col date">@noti.CreatedAt.ToString("yyyy.MM.dd")</div><!-- 작성날짜 -->
+						<div class="col hit">@noti.ViewCount</div> <!-- 조회수 -->
+					</a>
+					<button class="btn btn-sm btn-outline-secondary edit-button" @onclick="() => OpenEditModal(noti)">수정</button>
+				</li>
+				
+			}
 		</ul>
-	</div>
+	</div> *@
+
 	<!-- //list -->
 	<!-- .paging_area -->
-	<div>
+	@* <div>
 		<div class="paging_area">
-
 			<div class="paging">
-
 				<!-- <button type="button" th:onclick="|searchTable(0, '${page_length}')|" class="btn_page start" th:disabled="${btn_select == 0}"><span class="blind">맨처음</span></button>  -->
 				<button type="button" onclick="searchTable('0', '10')" class="btn_page prev" disabled="disabled"><span class="blind">이전 10</span></button>
 				<div class="go_num">
@@ -211,22 +136,299 @@
 				<button type="button" class="btn_page next" onclick="searchTable('10', '10')">
 					<span class="blind">다음 10</span>
 				</button>
-				<!--
-				<button type="button"
-					class="btn_page end"
-					th:onclick="|searchTable('${(btn_all_length -1) * page_length}', '${page_length}')|"
-					th:disabled="${btn_select &gt;= (btn_all_length - 1)}">
-					<span class="blind">맨끝</span>
-				</button>  -->
 			</div>
+		</div>
+	</div> *@
+	<div>
+		<div class="paging_area">
+			<div class="paging">
+				<!-- 이전 10페이지 버튼 -->
+				<button type="button" class="btn_page prev"
+						@onclick="PreviousPageGroup"
+						disabled="@(PageNum <= 10)">
+					<span class="blind">이전 10</span>
+				</button>
 
+				<div class="go_num">
+					@for (int i = StartPage; i <= EndPage && i <= TotalPages; i++)
+					{
+						int pg = i;
+						<a href="javascript:void(0);"
+						   class="@(pg == PageNum ? "on" : "")"
+						   style="cursor: pointer;"
+						   @onclick="() => LoadPage(pg)">
+							@pg
+						</a>
+					}
+				</div>
 
+				<!-- 다음 10페이지 버튼 -->
+				<button type="button" class="btn_page next"
+						@onclick="NextPageGroup"
+						disabled="@(EndPage >= TotalPages)">
+					<span class="blind">다음 10</span>
+				</button>
+			</div>
 		</div>
 	</div>
 	<!-- //.paging_area -->
 	
 </section>
+@if (isModalVisible)
+{
+	<div class="modal show d-block" tabindex="-1">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<EditForm Model="@newPost" OnValidSubmit="RegisterNotices">
+					<div class="modal-header" style="color:black;">
+						<h5 class="modal-title">등록</h5>
+						<button type="button" class="btn-close" @onclick="e => CloseModal()"></button>
+					</div>
+					<div class="modal-body">
+						<InputText @bind-Value="@newPost.Title" class="form-control mb-2" placeholder="제목" />
+						<ValidationMessage For="@(() => newPost.Title)" />
+						@* <InputSelect class="custom-select" TValue="bool" @bind-Value="@newPost.IsNotice">
+							<option value="False">일반</option>
+							<option value="True">공지</option>
+						</InputSelect> *@
+						<div class="form-check form-switch">
+							<InputCheckbox @bind-Value="newPost.IsNotice" class="form-check-input" />
+							<label class="form-check-label" style="color:black;">공지로 등록</label>
+						</div>
+						@* <InputRadioGroup @bind-Value="newPost.IsNotice">
+							<label class="me-3">
+								<InputRadio Value="false" /> 일반
+							</label>
+							<label>
+								<InputRadio Value="true" /> 공지
+							</label>
+						</InputRadioGroup> *@
+						@* <InputRadioGroup @bind-Value="newPost.IsNotice" class="mb-2 d-flex gap-3">
+							<label>
+								<InputRadio Value="false" /> 일반
+							</label>
+							<label>
+								<InputRadio Value="true" /> 공지
+							</label>
+						</InputRadioGroup> *@
+						@* <InputRadioGroup @bind-Value="newPost.IsNotice" Name="myRadioGroup">
+							<InputRadio Value="false">일반</InputRadio>
+							<InputRadio Value="true">공지</InputRadio>
+						</InputRadioGroup> *@
+						<RichTextEdit @ref="editorRef" Theme="RichTextEditTheme.Snow" UseResize="true"  >
+						@* 	<Toolbar>
+							<RichTextEditToolbarGroup>
+								<RichTextEditToolbarButton Action="RichTextEditAction.Bold" />
+								<RichTextEditToolbarButton Action="RichTextEditAction.Italic" />
+								<RichTextEditToolbarSelect Action="RichTextEditAction.Size">
+									<RichTextEditToolbarSelectItem Value="small" />
+									<RichTextEditToolbarSelectItem Selected />
+									<RichTextEditToolbarSelectItem Value="large" />
+									<RichTextEditToolbarSelectItem Value="huge">Very Big</RichTextEditToolbarSelectItem>
+								</RichTextEditToolbarSelect>
+								<RichTextEditToolbarButton Action="RichTextEditAction.List" Value="ordered" />
+								<RichTextEditToolbarButton Action="RichTextEditAction.List" Value="bullet" />
+							</RichTextEditToolbarGroup>
+						</Toolbar> *@
+						</RichTextEdit>
+						@* <InputText @bind-Value="regGal.CONTENT" class="form-control mb-2" placeholder="내용" />
+						<ValidationMessage For="@(() => regGal.CONTENT)" /> *@
+						@* <DnDFileUploader /> *@
+						
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button" @onclick="e => CloseModal()">닫기</button>
+						<button class="btn btn-primary" type="submit">등록</button>
+					</div>
+				</EditForm>
+			</div>
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
+
+@if (isEditModalVisible)
+{
+	<div class="modal show d-block" tabindex="-1">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<EditForm Model="@editPost" OnValidSubmit="UpdateNotice">
+					<div class="modal-header" style="color:black;">
+						<h5 class="modal-title">수정</h5>
+						<button type="button" class="btn-close" @onclick="CloseEditModal"></button>
+					</div>
+					<div class="modal-body">
+						<InputText @bind-Value="editPost.Title" class="form-control mb-2" placeholder="제목" />
+						<ValidationMessage For="@(() => editPost.Title)" />
+
+						<div class="form-check form-switch">
+							<InputCheckbox @bind-Value="editPost.IsNotice" class="form-check-input" />
+							<label class="form-check-label" style="color:black;">공지로 등록</label>
+						</div>
+
+						<RichTextEdit @ref="editEditorRef" Theme="RichTextEditTheme.Snow" UseResize="true" />
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button" @onclick="CloseEditModal">닫기</button>
+						<button class="btn btn-primary" type="submit">저장</button>
+					</div>
+				</EditForm>
+			</div>
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
 
 @code {
-	
+	private List<NoticeViewModel> NoticeList = new();
+	private bool isModalVisible = false;
+	private string responseMessage ="";
+	private NoticeClass newPost = new();
+	private RichTextEdit? editorRef;
+	private int PageNum = 1;
+	private int PageSize = 10;
+	private long TotalCount = 0;
+	private int TotalPages => (int)Math.Ceiling((double)TotalCount / PageSize);
+	private int StartPage => ((PageNum - 1) / 10) * 10 + 1;
+	private int EndPage => StartPage + 9;
+
+	private NoticeClass editPost = new();
+	private bool isEditModalVisible = false;
+	private RichTextEdit? editEditorRef;
+
+	protected override async Task OnInitializedAsync()
+	{
+		await LoadPage(PageNum);
+	}
+	private async Task LoadPage(int pageNumber)
+	{
+		PageNum = pageNumber;
+		NoticeList = await _NoticeService.GetNoticeAsync(PageNum, PageSize);
+		TotalCount = NoticeList.FirstOrDefault()?.TotalCount ?? 0;
+	}
+	private async Task PreviousPageGroup()
+	{
+		int prevGroupPage = Math.Max(StartPage - 10, 1);
+		await LoadPage(prevGroupPage);
+	}
+
+	private async Task NextPageGroup()
+	{
+		int nextGroupPage = StartPage + 10;
+		if (nextGroupPage <= TotalPages)
+		{
+			await LoadPage(nextGroupPage);
+		}
+	}
+	private async Task RegisterNotices()
+	{
+		if (editorRef != null)
+		{
+			newPost.Content = await editorRef.GetHtmlAsync(); // ✅ GetHtmlAsync 제공
+		}
+		newPost.Other1 = "";
+		newPost.Other2 = "";
+		newPost.Other3 = "";
+		newPost.Other4 = "";
+		newPost.Other5 = "";
+		//var sucess = await _GameService.InsertGameAsync(regGameWithScores);
+		//var succes = await _GalleryService.InsertGalleryAsync(regGal);
+		//var succes = true;
+		var succes = await _NoticeService.InsertNoticeAsync(newPost);
+
+		if (succes)
+		{
+			responseMessage = "정상적으로 등록되었습니다.";
+			isModalVisible = false;
+			newPost = new();
+			await js.InvokeVoidAsync("alert", responseMessage);
+			await LoadPage(PageNum);
+			return;
+		}
+		else
+		{
+			responseMessage = "등록시 문제가 발생하였습니다. 관리자에게 문의해주세요";
+			await js.InvokeVoidAsync("alert", responseMessage);
+			return;
+		}
+	}
+	private void CloseModal()
+	{
+		isModalVisible = false;
+	}
+
+	private async Task OnNoticeClicked(NoticeViewModel noti)
+	{
+		await _NoticeService.IncrementViewCountAsync(noti.IDX);
+		NavManager.NavigateTo($"/notice/detail/{noti.IDX}");
+	}
+
+	private void OpenEditModal(NoticeViewModel notice)
+	{
+		editPost = new NoticeClass
+			{
+				IDX = notice.IDX,
+				Title = notice.Title,
+				Content = notice.Content,
+				IsNotice = notice.IsNotice,
+				ViewCount = notice.ViewCount,
+				CreatedAt = notice.CreatedAt
+			};
+		isEditModalVisible = true;
+
+		// 에디터 초기값 설정을 위해 렌더링 후 내용 적용 필요
+		_ = Task.Delay(100).ContinueWith(async _ =>
+		{
+			if (editEditorRef != null)
+			{
+				await InvokeAsync(() => editEditorRef.SetHtmlAsync(editPost.Content ?? ""));
+			}
+		});
+	}
+
+	private void CloseEditModal()
+	{
+		isEditModalVisible = false;
+	}
+
+	private async Task UpdateNotice()
+	{
+		if (editEditorRef != null)
+		{
+			editPost.Content = await editEditorRef.GetHtmlAsync();
+		}
+
+		var success = await _NoticeService.UpdateNoticeAsync(editPost);
+		if (success)
+		{
+			await JSRuntime.InvokeVoidAsync("alert", "수정이 완료되었습니다.");
+			isEditModalVisible = false;
+			await LoadPage(PageNum);
+		}
+		else
+		{
+			await JSRuntime.InvokeVoidAsync("alert", "수정에 실패했습니다.");
+		}
+	}
+
+	private void goList()
+	{
+		NavManager.NavigateTo("/notice");
+	}
+	private async Task DeleteNotice(int id)
+	{
+		bool confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "정말 삭제하시겠습니까?");
+		if (confirmed)
+		{
+			var success = await _NoticeService.DeleteNoticeAsync(id);
+			if (success)
+			{
+				await LoadPage(PageNum); // 목록 새로고침
+			}
+			else
+			{
+				await JSRuntime.InvokeVoidAsync("alert", "삭제에 실패했습니다.");
+			}
+		}
+	}
 }

@@ -270,7 +270,7 @@
 			// 	EditPlayer.FILE = path;
 			// }
 
-			using var stream = selectedFile.OpenReadStream(maxAllowedSize: 1024 * 1024 * 10); // 최대 5MB
+			using var stream = selectedFile.OpenReadStream(maxAllowedSize: 1024 * 1024 * 30); // 최대 30MB
 			var buffer = new byte[selectedFile.Size];
 			await stream.ReadAsync(buffer);
 			var base64 = Convert.ToBase64String(buffer);

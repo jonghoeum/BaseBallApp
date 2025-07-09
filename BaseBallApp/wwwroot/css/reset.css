@@ -9,7 +9,17 @@ html, body {
     /*height: auto !important;*/ /* 고정된 height 무시 */
     /*min-height: 100vh;*/ /* 최소 높이를 화면 전체로 설정 */
 }
-
+/* 2. 모든 태그에 공통 적용하되 라디오버튼만 기본 유지 */
+/**:not(hr):not(input[type="radio"]):not(input[type="checkbox"]) {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    border: 0;
+    outline-color: orange;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}*/
+ 기존
 *:not(hr) {
     margin: 0;
     padding: 0;

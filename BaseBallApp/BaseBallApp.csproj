@@ -8,14 +8,17 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\js\custom.js" />
+    <Content Remove="wwwroot\js\Scroll.js" />
   </ItemGroup>
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\js\custom.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\Scroll.js" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\js\custom.js" />
+    <None Include="wwwroot\js\Scroll.js" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2393,7 +2393,7 @@
     margin: 10px 0 5px;
     font-weight: 500;
 }
-
+ 
 .modal-body input,
 .modal-body textarea {
     width: 100%;
@@ -2403,6 +2403,15 @@
     font-size: 0.95rem;
 }
 
+/* 1. 라디오버튼과 체크박스는 제외시킴 */
+/*.modal-body input:not([type="radio"]):not([type="checkbox"]),
+.modal-body textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+}*/
 .modal-footer {
     margin-top: 20px;
     text-align: right;

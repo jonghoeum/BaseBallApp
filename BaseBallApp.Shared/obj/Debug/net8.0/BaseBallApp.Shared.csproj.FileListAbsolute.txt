@@ -21,3 +21,4 @@ C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.dll
 C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\refint\BaseBallApp.Shared.dll
 C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.pdb
 C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\ref\BaseBallApp.Shared.dll
+C:\local\BaseBallApp\BaseBallApp.Shared\obj\Debug\net8.0\BaseBallApp.Shared.csproj.AssemblyReference.cache

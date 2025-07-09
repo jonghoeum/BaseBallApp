@@ -45,12 +45,32 @@
       "PackagePath": "staticwebassets\\gallery\\8ddc0af8-9c7f-4fe6-a65e-54d318e7464a_천안시_야구소프트볼협회장배_실업야구대회4.jpg"
     },
     {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\gallery\\94bfd571-48bc-4a9f-a8d9-f45f7602fec5_천안시_야구소프트볼협회장배_실업야구대회3.jpg",
+      "PackagePath": "staticwebassets\\gallery\\94bfd571-48bc-4a9f-a8d9-f45f7602fec5_천안시_야구소프트볼협회장배_실업야구대회3.jpg"
+    },
+    {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\gallery\\c3def57e-40e4-4e1f-89b2-236a3684c5b2_천안시_야구소프트볼협회장배_실업야구대회4.jpg",
       "PackagePath": "staticwebassets\\gallery\\c3def57e-40e4-4e1f-89b2-236a3684c5b2_천안시_야구소프트볼협회장배_실업야구대회4.jpg"
     },
     {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\gallery\\e288048f-1516-4910-859f-d083d0f3de3d_천안시_야구소프트볼협회장배_실업야구대회4.jpg",
       "PackagePath": "staticwebassets\\gallery\\e288048f-1516-4910-859f-d083d0f3de3d_천안시_야구소프트볼협회장배_실업야구대회4.jpg"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\recruit\\1.png",
+      "PackagePath": "staticwebassets\\recruit\\1.png"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\recruit\\283f35b4-9553-463c-9bf3-8cb727119616_ACTIVE_ERP_멀티사용방법.pptx",
+      "PackagePath": "staticwebassets\\recruit\\283f35b4-9553-463c-9bf3-8cb727119616_ACTIVE_ERP_멀티사용방법.pptx"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\recruit\\61e124a3-a9fb-4a0e-8f90-0c8f1bcae6e3_ACTIVE_ERP_멀티사용방법.pptx",
+      "PackagePath": "staticwebassets\\recruit\\61e124a3-a9fb-4a0e-8f90-0c8f1bcae6e3_ACTIVE_ERP_멀티사용방법.pptx"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\recruit\\82d8f2a8-ff53-4d6f-a65d-75ccf3998a12_테스트_bom.xlsx",
+      "PackagePath": "staticwebassets\\recruit\\82d8f2a8-ff53-4d6f-a65d-75ccf3998a12_테스트_bom.xlsx"
     },
     {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\uploads\\00a9c165-3cca-4d5e-84dc-a29ebb64c97e_1.jpg",

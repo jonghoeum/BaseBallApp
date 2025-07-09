@@ -25,7 +25,8 @@ builder.Services.AddCors(options =>
 });
 builder.Services.Configure<FormOptions>(options =>
 {
-	options.MultipartBodyLengthLimit = 10 * 1024 * 1024; // 10MB
+    //options.MultipartBodyLengthLimit = 10 * 1024 * 1024; // 10MB
+    options.MultipartBodyLengthLimit = 104_857_600; // 10MB
 });
 
 var app = builder.Build();
@@ -51,6 +52,13 @@ app.UseStaticFiles(new StaticFileOptions
 	FileProvider = new PhysicalFileProvider(
 		Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "gallery")),
 	RequestPath = "/gallery"
+});
+
+app.UseStaticFiles(new StaticFileOptions
+{
+	FileProvider = new PhysicalFileProvider(
+		Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "recruit")),
+	RequestPath = "/recruit"
 });
 
 app.UseHttpsRedirection();
