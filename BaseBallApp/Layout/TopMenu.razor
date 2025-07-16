@@ -1,5 +1,5 @@
 ﻿@inject IJSRuntime js
-
+@using BaseBallApp.Shared
 @* <link rel="stylesheet" href="css/TopMenu.css"> *@
 @* <header id="header" class="" @onmouseleave="(e => HandleMouseLeave())" @onmouseenter="(e => HandleMouseEnter())" @onmouseover="(e => HandleMouseOver())" > *@
 <header id="header" class="">
@@ -30,7 +30,6 @@
                             <li><a href="player">선수</a></li>
                         </ul>
                     </li>
-
                     <li>
                         <a href="game/init"><span style="width: 0px;"></span><span style="width: 0px;"></span>GAME</a>
                         <ul style="display: none; height: 70px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
@@ -51,19 +50,17 @@
                         <a href="/recruitment"><span style="width: 0px;"></span><span style="width: 0px;"></span>선수모집</a>
                     </li>
                     <li class="pc_only">
-                        <a href="/SH/PCSH01.do"><span style="width: 0px;"></span><span style="width: 0px;"></span>SUPPORTERS</a>
+                        <a href="/Supporters"><span style="width: 0px;"></span><span style="width: 0px;"></span>SUPPORTERS</a>
                     </li>
                     <li class="pc_only">
-                        <a href="/SH/PCSH01.do"><span style="width: 0px;"></span><span style="width: 0px;"></span>Q&A</a>
+                        <a href="/Faq"><span style="width: 0px;"></span><span style="width: 0px;"></span>Q&A</a>
                     </li>
-                    
-                    
                     <!-- <li class="pc_only"><a href="http://www.ticketlink.co.kr/sports/baseball/63#reservation" target="_blank" class=""><span style="width: 0px;"></span>TICKET</a></li> -->
                     <!--
                     <li class="pc_only"><a href="javascript:fnLoginChk('F');"><span style="width: 0px;"></span>TICKET</a></li>
                      -->
                     <!-- <li><a href="javascript:void(0)" onclick="javascript:alert('시즌 준비중입니다.');"><span style="width: 0px;"></span>TICKET</a></li> -->
-                    <li><a href="/ticketInfo.do" class="both"><span style="width: 0px;"></span><span style="width: 0px;"></span>TICKET</a></li>
+                    @* <li><a href="/ticketInfo.do" class="both"><span style="width: 0px;"></span><span style="width: 0px;"></span>TICKET</a></li> *@
                     <!-- <li><a href="javascript:alert('시즌 준비중입니다.');" class="txt_kr">실시간중계보기</a></li>  -->
                     <!-- <li><a href="https://sporki.com/kbaseball/schedule/todaygame?teamSeq=170&utm_source=hanhwaeagles&utm_medium=affiliate&utm_campaign=kbase_game&utm_content=eagles_banner" class="both txt_kr" target="_blank">실시간중계보기</a></li> -->
                     <!-- <li><a href="https://web.rethinkmall.com/commerce-context/hanwhaeagles" class="both txt_kr" target="_blank"><em class="HanwhaL">이글스</em>리씽크몰</a></li> -->
@@ -72,32 +69,35 @@
             <div class="util_menu">
                 <ul>
                     <!-- s: LOGOUT -->
-                    <li>
+                    @* <li>
                         <a id="test" href="/">KO</a>
                         <a href="/EN/index.do">EN</a>
-                    </li>
-
+                    </li> *@
                     <!-- s: LOGOUT -->
-                    <li><a href="/LO/PCLO01.do">LOGIN</a></li>
-                    <li><a href="/JO/PCJO01.do">JOIN US</a></li>
+                    <li><a href="">LOGIN</a></li>
+                    <li><a href="#" @onclick="ShowJoinModal" @onclick:preventDefault="true">JOIN US</a></li>
                     <!-- e: LOGOUT -->
                 </ul>
             </div>
-            @* <div class="sns_menu mobile_only">
+            @* 
+            <div class="sns_menu mobile_only">
                 <ul>
                     <li><a href="https://www.youtube.com/channel/UCdq4Ji3772xudYRUatdzRrg" class="youtube" target="_blank">youtube 바로가기</a></li>
                     <li><a href="https://www.facebook.com/hanwhaeagles.news/" class="facebook" target="_blank">facebook 바로가기</a></li>
                     <li><a href="https://www.instagram.com/hanwhaeagles_soori" class="instagram" target="_blank">instagram 바로가기</a></li>
                     <li><a href="https://twitter.com/hoodi_thespace" class="twitter" target="_blank">twitter 바로가기</a></li>
                 </ul>
-            </div> *@
+            </div> 
+            *@
         </div><!-- //.menu_effect -->
+        <JoinModal @ref="joinModal" />
     </div>
     @code {
         // protected override async Task OnInitializedAsync()
         // {
         //     //Console.WriteLine();
         // }
+        private JoinModal? joinModal;
         private async Task HandleMouseLeave()
         {
             //await js.InvokeVoidAsync("CustomAlert", "전화번호가 정상적이지 않습니다.\n 전화번호를 확인해주세요.");
@@ -112,6 +112,12 @@
         private async Task HandleMouseOver()
         {
             await js.InvokeVoidAsync("HeaderOver", "mouseover");
+        }
+        
+
+        private void ShowJoinModal()
+        {
+            joinModal?.Show();
         }
         // private async Task ContainerChange(string page)
         // {

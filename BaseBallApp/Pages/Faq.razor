@@ -1,0 +1,247 @@
+﻿@page "/Faq"
+@inject HttpClient Http
+@inject FaqService _FaqService
+@inject IJSRuntime JS
+@inject NavigationManager NavManager
+
+@using System.Globalization
+@using BaseBallApp.Data;
+@using BaseBallApp.Shared
+@using BaseBallApp.Shared.Models;
+@using Blazorise.RichTextEdit;
+
+
+<style>
+    .faq_question {
+        background: none;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .faq_answer {
+        border-left: 3px solid #007bff;
+    }
+</style>
+<div class="title_area" style="height: 782px;">
+    <h3>Faq</h3>
+</div>
+<section class="content_block fan_news">
+	<div>
+		<div class="tab_menu">
+			<ul>
+				<li class="active"><a href="javascript:void(0);" @onclick="GoList"><span></span>FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+    @* <div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+        <button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
+    </div> *@
+    <div class="text-end mt-4">
+        <button class="btn btn-primary" @onclick="ShowAddModal">FAQ 등록</button>
+    </div>
+@* <div class="board_area"> *@
+    @if (faqList is null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <div class="faq_list">
+            @foreach (var faq in faqList)
+            {
+                <div class="faq_item border-bottom py-3">
+                    <button class="faq_question btn w-100 text-start" style="color:white;" @onclick="() => ToggleAnswer(faq.IDX)">
+                        <strong>[Q]</strong> @faq.Title
+                    </button>
+                    @if (expandedFaqId == faq.IDX)
+                    {
+                        <div class="faq_answer p-3 mt-2" >
+                            <strong>[A]</strong>
+                            <div class="mt-2" >@((MarkupString)faq.Content)</div>
+
+                            @if (!string.IsNullOrEmpty(faq.FilePath1))
+                            {
+                                <div class="mt-2" >
+                                    <a href="@_FaqService.GetDownloadUrl(faq.FilePath1)" target="_blank" title="@faq.FileName1">📎 첨부파일 다운로드</a>
+                                </div>
+                            }
+
+                            <div class="mt-2 " >조회수: @faq.ViewCount | 등록일: @faq.CreatedAt.ToString("yyyy-MM-dd")</div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary me-2" @onclick="() => ShowEditModal(faq)">수정</button>
+                                <button class="btn btn-sm btn-outline-danger" @onclick="() => DeleteFaq(faq.IDX)">삭제</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="mt-4 text-center">
+            <button class="btn btn-secondary" @onclick="LoadMore">더 보기</button>
+        </div>
+    }
+
+    
+</section> 
+
+<!-- 등록/수정 모달 -->
+@if (isModalOpen)
+{
+    <div class="modal-backdrop fade show"></div>
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <EditForm Model="currentFaq" OnValidSubmit="SaveFaq">
+                    <div class="modal-header">
+                        <h5 class="modal-title">@(isEditMode ? "FAQ 수정" : "FAQ 등록")</h5>
+                        <button type="button" class="btn-close" @onclick="CloseModal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <InputText class="form-control mb-3" @bind-Value="currentFaq.Title" placeholder="질문 제목" />
+                        @* <InputTextArea class="form-control" @bind-Value="currentFaq.Content" rows="5" placeholder="답변 내용" /> *@
+                        <RichTextEdit @ref="editorRef" Theme="RichTextEditTheme.Snow" UseResize="true">
+                        </RichTextEdit>
+                        <div class="mt-2">
+                            <FileUploader OnFileSelected="HandleFileUpload" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">저장</button>
+                        <button type="button" class="btn btn-secondary" @onclick="CloseModal">취소</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    List<FaqViewModel>? faqList;
+    FaqClass currentFaq = new();
+    private RichTextEdit? editorRef;
+    int expandedFaqId = -1;
+    int page = 1;
+    bool isModalOpen = false;
+    bool isEditMode = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadFaqs();
+    }
+
+    async Task LoadFaqs()
+    {
+        var newItems = await _FaqService.GetFaqsAsync(page, 10);
+        if (faqList == null) faqList = newItems;
+        else faqList.AddRange(newItems);
+    }
+
+    void LoadMore()
+    {
+        page++;
+        _ = LoadFaqs();
+    }
+
+    void ToggleAnswer(int idx)
+    {
+        expandedFaqId = expandedFaqId == idx ? -1 : idx;
+
+        if (expandedFaqId != -1)
+            _ = _FaqService.IncrementViewCountAsync(idx);
+    }
+
+    void ShowAddModal()
+    {
+        currentFaq = new FaqClass();
+        isEditMode = false;
+        isModalOpen = true;
+    }
+
+    void ShowEditModal(FaqViewModel faq)
+    {
+        currentFaq = new FaqClass
+            {
+                IDX = faq.IDX,
+                Title = faq.Title,
+                Content = faq.Content,
+                FileName1 = faq.FileName1,
+                FilePath1 = faq.FilePath1,
+            };
+        isEditMode = true;
+        isModalOpen = true;
+    }
+
+    void CloseModal()
+    {
+        isModalOpen = false;
+        currentFaq = new();
+    }
+
+    async Task SaveFaq()
+    {
+        if (editorRef != null)
+		{
+            currentFaq.Content = await editorRef.GetHtmlAsync(); // ✅ GetHtmlAsync 제공
+		}
+        bool result = isEditMode ? await _FaqService.UpdateFaqAsync(currentFaq) : await _FaqService.InsertFaqAsync(currentFaq);
+        if (result)
+        {
+            faqList?.Clear();
+            page = 1;
+            await LoadFaqs();
+        }
+        CloseModal();
+    }
+
+    async Task DeleteFaq(int id)
+    {
+        if (await JS.InvokeAsync<bool>("confirm", "정말 삭제하시겠습니까?"))
+        {
+            if (await _FaqService.DeleteFaqAsync(id))
+            {
+                faqList?.RemoveAll(f => f.IDX == id);
+            }
+        }
+    }
+
+    async Task HandleFileUpload(IBrowserFile selectedFile)
+    {
+        string path = ""; ;
+        path = await UploadFileAsync(selectedFile);
+        if (string.IsNullOrEmpty(path))
+        {
+            //responseMessage = "파일 업로드 실패.";
+            return;
+        }
+        //regGal.FILENAME = selectedFile.Name;
+        //regGal.FILE = path;
+        currentFaq.FileName1 = selectedFile.Name;
+        currentFaq.FilePath1 = path;
+
+        using var stream = selectedFile.OpenReadStream(maxAllowedSize: 1024 * 1024 * 30); // 최대 30MB
+        var buffer = new byte[selectedFile.Size];
+        await stream.ReadAsync(buffer);
+        var base64 = Convert.ToBase64String(buffer);
+    }
+    private async Task<string> UploadFileAsync(IBrowserFile file)
+    {
+        var content = new MultipartFormDataContent();
+
+        var stream = file.OpenReadStream(30 * 1024 * 1024); // ✅ 30MB 허용
+        var fileContent = new StreamContent(stream);
+        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
+        content.Add(fileContent, "File", file.Name);
+
+        var response = await Http.PostAsync("api/faq/upload", content);
+        if (response.IsSuccessStatusCode)
+        {
+            return await response.Content.ReadAsStringAsync();  // 서버에서 반환된 파일 경로
+        }
+
+        return null;
+    }
+    private void GoList() => NavManager.NavigateTo("/Faq");
+}

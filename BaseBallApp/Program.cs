@@ -40,6 +40,8 @@ builder.Services.AddScoped<GalleryService>();
 builder.Services.AddScoped<NoticeService>();
 builder.Services.AddScoped<NewsService>();
 builder.Services.AddScoped<RecruitService>();
+builder.Services.AddScoped<SupporterService>();
+builder.Services.AddScoped<FaqService>();
 
 builder.Services
     .AddBlazorise(options =>

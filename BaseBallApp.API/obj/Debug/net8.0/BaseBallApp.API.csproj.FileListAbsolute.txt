@@ -188,3 +188,4 @@ C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\refint\BaseBallApp.API.dll
 C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.pdb
 C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\BaseBallApp.API.genruntimeconfig.cache
 C:\local\BaseBallApp\BaseBallApp.API\obj\Debug\net8.0\ref\BaseBallApp.API.dll
+C:\local\BaseBallApp\BaseBallApp.API\bin\Debug\net8.0\BCrypt.Net-Next.dll

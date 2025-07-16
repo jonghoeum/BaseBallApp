@@ -1,0 +1,83 @@
+﻿@inject HttpClient Http
+@inject IJSRuntime JS
+@using BaseBallApp.Shared.Models;
+
+<style>
+    .btn-purple {
+        background-color: #6C63FF;
+        color: white;
+        border: none;
+        font-weight: bold;
+    }
+
+        .btn-purple:hover {
+            background-color: #5a52e0;
+        }
+</style>
+@if (show)
+{
+    <div class="modal show d-block" tabindex="-1" style="background: rgba(0, 0, 0, 0.4);">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4 rounded-4 shadow" style="max-width: 400px; margin: auto; border-radius: 20px;">
+                <h5 class="fw-bold mb-1 text-center" style="color:black;">회원가입</h5>
+                <p class="mb-4 text-muted text-center" style="font-size: 14px;">가입을 통해 더 다양한 서비스를 만나보세요!</p>
+
+                <input class="form-control mb-2" @bind="newMember.UserId" placeholder="아이디" />
+                <input class="form-control mb-2" @bind="newMember.Password" placeholder="비밀번호" type="password" />
+                <input class="form-control mb-2" @bind="newMember.Name" placeholder="이름" />
+                <input class="form-control mb-2" @bind="newMember.Nickname" placeholder="닉네임" />
+                <input class="form-control mb-2" @bind="newMember.Email" placeholder="이메일 주소" />
+
+                <select class="form-select mb-3" @bind="newMember.Role">
+                    <option value="User">일반회원</option>
+                    <option value="Admin">관리자</option>
+                </select>
+
+                @if (!string.IsNullOrEmpty(resultMessage))
+                {
+                    <div class="text-danger text-center mb-2">@resultMessage</div>
+                }
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-purple" @onclick="Submit">가입하기</button>
+                    <button class="btn btn-link text-muted" @onclick="Hide">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private MemberClass newMember = new();
+    private bool show = false;
+    private string resultMessage = "";
+
+    // public void Show() => show = true;
+    // public void Hide() => show = false;
+    public void Show()
+    {
+        show = true;
+        StateHasChanged(); // 화면 갱신 강제
+    }
+
+    public void Hide()
+    {
+        show = false;
+        StateHasChanged(); // 화면 갱신 강제
+    }
+
+    private async Task Submit()
+    {
+        var response = await Http.PostAsJsonAsync("/api/member/register", newMember);
+        if (response.IsSuccessStatusCode)
+        {
+            resultMessage = "회원가입 성공!";
+            await JS.InvokeVoidAsync("alert", "정상적으로 회원가입 되었습니다.");
+            Hide();
+        }
+        else
+        {
+            resultMessage = await response.Content.ReadAsStringAsync();
+        }
+    }
+}

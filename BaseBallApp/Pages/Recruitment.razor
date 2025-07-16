@@ -1,0 +1,415 @@
+﻿@page "/Recruitment"
+@inject HttpClient Http
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavManager
+@inject RecruitService _RecruitService
+
+@using System.Globalization
+@using BaseBallApp.Data;
+@using BaseBallApp.Shared
+@using BaseBallApp.Shared.Models;
+@using Blazorise.RichTextEdit;
+
+<div class="title_area" style="height: 782px;">
+	<h3>Recruitment</h3>
+</div>
+
+<section class="content_block fan_news">
+	<div>
+		<div class="tab_menu">
+			<ul>
+				<li class="active"><a href="javascript:void(0);" @onclick="GoList"><span></span>선수 모집</a></li>
+			</ul>
+		</div>
+	</div>
+	<div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+		<button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
+	</div>
+	<h4 class="fan_title">
+		<span class="txt_hanwha">메티스</span> 구단의 선수를 찾습니다.
+	</h4>
+	<div class="filter"></div>
+	<div class="list_notice">
+		<div class="th_wrap">
+			<div class="col no">NO</div>
+			<div class="col tit">제목</div>
+			<div class="col date">작성일</div>
+			<div class="col hit">조회수</div>
+			<div class="col edit"> </div>
+			<div class="col del"> </div>
+		</div>
+		<ul>
+			@foreach (var rec in RecruitList)
+			{
+				<li class="em">
+					<div @onclick="() => OnRecruitClicked(rec)" class="link">
+						<div class="col no">@rec.No</div>
+						<div class="col tit">@rec.Title</div>
+						<div class="col date">@rec.CreatedAt.ToString("yyyy.MM.dd")</div>
+						<div class="col hit">@rec.ViewCount</div>
+						<div class="col edit">
+							<button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => OpenEditModal(rec)">수정</button>
+						</div>
+						<div class="col del">
+							<button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => DeleteRecruit(rec.IDX)">삭제</button>
+						</div>
+					</div>
+				</li>
+			}
+		</ul>
+	</div>
+
+	<div>
+		<div class="paging_area">
+			<div class="paging">
+				<button type="button" class="btn_page prev" @onclick="PreviousPageGroup" disabled="@(PageNum <= 10)">
+					<span class="blind">이전 10</span>
+				</button>
+				<div class="go_num">
+					@for (int i = StartPage; i <= EndPage && i <= TotalPages; i++)
+					{
+						int pg = i;
+						<a href="javascript:void(0);" class="@(pg == PageNum ? "on" : "")" style="cursor: pointer;" @onclick="() => LoadPage(pg)">@pg</a>
+					}
+				</div>
+				<button type="button" class="btn_page next" @onclick="NextPageGroup" disabled="@(EndPage >= TotalPages)">
+					<span class="blind">다음 10</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+@if (isModalVisible)
+{
+	<div class="modal show d-block" tabindex="-1">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<EditForm Model="@newPost" OnValidSubmit="RegisterRecruits">
+					<div class="modal-header" style="color:black;">
+						<h5 class="modal-title">등록</h5>
+						<button type="button" class="btn-close" @onclick="e => CloseModal()"></button>
+					</div>
+					<div class="modal-body">
+						<InputText @bind-Value="@newPost.Title" class="form-control mb-2" placeholder="제목" />
+						<ValidationMessage For="@(() => newPost.Title)" />
+						<div class="form-check form-switch">
+							<InputCheckbox @bind-Value="newPost.IsNotice" class="form-check-input" />
+							<label class="form-check-label" style="color:black;">공지로 등록</label>
+						</div>
+						<RichTextEdit @ref="editorRef" Theme="RichTextEditTheme.Snow" UseResize="true"  >
+						</RichTextEdit>
+						<!-- 📎 첨부파일 업로드 영역 -->
+						<div class="mt-3">
+							<label style="color:black;">첨부파일1</label>
+							<FileUploader OnFileSelected="HandleFileSelected1" />
+						</div>
+						<div class="mt-3">
+							<label style="color:black;">첨부파일2</label>
+							<FileUploader OnFileSelected="HandleFileSelected2" />
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button" @onclick="e => CloseModal()">닫기</button>
+						<button class="btn btn-primary" type="submit">등록</button>
+					</div>
+				</EditForm>
+			</div>
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
+
+@if (isEditModalVisible)
+{
+	<div class="modal show d-block" tabindex="-1">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<EditForm Model="@editPost" OnValidSubmit="UpdateRecruit">
+					<div class="modal-header" style="color:black;">
+						<h5 class="modal-title">수정</h5>
+						<button type="button" class="btn-close" @onclick="CloseEditModal"></button>
+					</div>
+					<div class="modal-body">
+						<InputText @bind-Value="editPost.Title" class="form-control mb-2" placeholder="제목" />
+						<ValidationMessage For="@(() => editPost.Title)" />
+
+						<div class="form-check form-switch">
+							<InputCheckbox @bind-Value="editPost.IsNotice" class="form-check-input" />
+							<label class="form-check-label" style="color:black;">공지로 등록</label>
+						</div>
+
+						<RichTextEdit @ref="editEditorRef" Theme="RichTextEditTheme.Snow" UseResize="true" />
+						<!-- 기존 파일1 다운로드 -->
+						@if (!string.IsNullOrEmpty(editPost.FileName1))
+						{
+							var downUrl1 = _RecruitService.GetDownloadUrl(editPost.FilePath1);
+							<div class="mt-3">
+								<label style="color:black;">기존 첨부파일1:</label>
+								<a href="@downUrl1" target="_blank" style="color: #0071c1;cursor: pointer;">@editPost.FileName1</a>
+							</div>
+						}
+
+						<!-- 새 파일 업로드 -->
+						<div class="mt-3">
+							<label style="color:black;">새 첨부파일1</label>
+							<FileUploader OnFileSelected="HandleEditFileSelected1" />
+						</div>
+
+						@if (!string.IsNullOrEmpty(editPost.FileName2))
+						{
+							var downUrl2 = _RecruitService.GetDownloadUrl(editPost.FilePath2);
+							<div class="mt-3">
+								<label style="color:black;">기존 첨부파일2:</label>
+								<a href="@downUrl2" target="_blank" style="color: #0071c1;cursor: pointer;">@editPost.FileName2</a>
+							</div>
+						}
+						<div class="mt-3">
+							<label style="color:black;">새 첨부파일2</label>
+							<FileUploader OnFileSelected="HandleEditFileSelected2" />
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button" @onclick="CloseEditModal">닫기</button>
+						<button class="btn btn-primary" type="submit">저장</button>
+					</div>
+				</EditForm>
+			</div>
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
+@code {
+	private List<RecruitViewModel> RecruitList = new();
+	private bool isModalVisible = false;
+	private RecruitClass newPost = new();
+	private RichTextEdit? editorRef;
+	private int PageNum = 1;
+	private int PageSize = 10;
+	private long TotalCount = 0;
+	private int TotalPages => (int)Math.Ceiling((double)TotalCount / PageSize);
+	private int StartPage => ((PageNum - 1) / 10) * 10 + 1;
+	private int EndPage => StartPage + 9;
+	private bool isEditModalVisible = false;
+	private RecruitClass editPost = new();
+	private RichTextEdit? editEditorRef;
+	private string responseMessage = "";
+
+	protected override async Task OnInitializedAsync() => await LoadPage(PageNum);
+
+	private async Task LoadPage(int pageNumber)
+	{
+		PageNum = pageNumber;
+		RecruitList = await _RecruitService.GetRecruitAsync(PageNum, PageSize);
+		TotalCount = RecruitList.FirstOrDefault()?.TotalCount ?? 0;
+	}
+
+	private async Task PreviousPageGroup() => await LoadPage(Math.Max(StartPage - 10, 1));
+
+	private async Task RegisterRecruits()
+	{
+		if (editorRef != null)
+		{
+			newPost.Content = await editorRef.GetHtmlAsync(); // ✅ GetHtmlAsync 제공
+		}
+
+		//var sucess = await _GameService.InsertGameAsync(regGameWithScores);
+		//var succes = await _GalleryService.InsertGalleryAsync(regGal);
+		//var succes = true;
+		var succes = await _RecruitService.InsertRecruitAsync(newPost);
+
+		if (succes)
+		{
+			responseMessage = "정상적으로 등록되었습니다.";
+			isModalVisible = false;
+			newPost = new();
+			await JSRuntime.InvokeVoidAsync("alert", responseMessage);
+			await LoadPage(PageNum);
+			return;
+		}
+		else
+		{
+			responseMessage = "등록시 문제가 발생하였습니다. 관리자에게 문의해주세요";
+			await JSRuntime.InvokeVoidAsync("alert", responseMessage);
+			return;
+		}
+	}
+	private async Task NextPageGroup()
+	{
+		int nextGroupPage = StartPage + 10;
+		if (nextGroupPage <= TotalPages)
+		{
+			await LoadPage(nextGroupPage);
+		}
+	}
+
+	private void GoList() => NavManager.NavigateTo("/Recruitment");
+
+	private async Task OnRecruitClicked(RecruitViewModel rec)
+	{
+		await _RecruitService.IncrementViewCountAsync(rec.IDX);
+		NavManager.NavigateTo($"/Recruit/detail/{rec.IDX}");
+	}
+
+	private void OpenEditModal(RecruitViewModel Recruit)
+	{
+		editPost = new RecruitClass
+			{
+				IDX = Recruit.IDX,
+				Title = Recruit.Title,
+				Content = Recruit.Content,
+				IsNotice = Recruit.IsNotice,
+				ViewCount = Recruit.ViewCount,
+				CreatedAt = Recruit.CreatedAt,
+				FileName1 = Recruit.FileName1,
+				FilePath1 = Recruit.FilePath1,
+				FileName2 = Recruit.FileName2,
+				FilePath2 = Recruit.FilePath2
+			};
+		isEditModalVisible = true;
+
+		_ = Task.Delay(100).ContinueWith(async _ =>
+		{
+			if (editEditorRef != null)
+			{
+				await InvokeAsync(() => editEditorRef.SetHtmlAsync(editPost.Content ?? ""));
+			}
+		});
+	}
+
+	private async Task DeleteRecruit(int id)
+	{
+		bool confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "정말 삭제하시겠습니까?");
+		if (confirmed)
+		{
+			var success = await _RecruitService.DeleteRecruitAsync(id);
+			if (success)
+			{
+				await LoadPage(PageNum);
+			}
+			else
+			{
+				await JSRuntime.InvokeVoidAsync("alert", "삭제에 실패했습니다.");
+			}
+		}
+	}
+	private void CloseModal()
+	{
+		isModalVisible = false;
+		newPost = new();
+	}
+	private void CloseEditModal()
+	{
+		isEditModalVisible = false;
+		editPost = new();
+	}
+	private async Task UpdateRecruit()
+	{
+		if (editEditorRef != null)
+		{
+			editPost.Content = await editEditorRef.GetHtmlAsync();
+		}
+
+		var success = await _RecruitService.UpdateRecruitAsync(editPost);
+		if (success)
+		{
+			await JSRuntime.InvokeVoidAsync("alert", "수정이 완료되었습니다.");
+			isEditModalVisible = false;
+			await LoadPage(PageNum);
+		}
+		else
+		{
+			await JSRuntime.InvokeVoidAsync("alert", "수정에 실패했습니다.");
+		}
+	}
+
+	private async Task HandleFileSelected1(IBrowserFile selectedFile)
+	{
+		// if (!selectedFile.ContentType.StartsWith("image/"))
+		// {
+		// 	await JSRuntime.InvokeVoidAsync("alert", "이미지 파일만 업로드 가능합니다.");
+		// 	return;
+		// }
+		// 파일 업로드 처리
+		string path = ""; ;
+		path = await UploadFileAsync(selectedFile);
+		if (string.IsNullOrEmpty(path))
+		{
+			responseMessage = "파일 업로드 실패.";
+			return;
+		}
+		//regGal.FILENAME = selectedFile.Name;
+		//regGal.FILE = path;
+		newPost.FilePath1 = path;
+		newPost.FileName1 = selectedFile.Name;
+
+		using var stream = selectedFile.OpenReadStream(maxAllowedSize: 1024 * 1024 * 30); // 최대 30MB
+		var buffer = new byte[selectedFile.Size];
+		await stream.ReadAsync(buffer);
+		var base64 = Convert.ToBase64String(buffer);
+	}
+	
+
+	private async Task HandleFileSelected2(IBrowserFile selectedFile)
+	{
+		// 파일 업로드 처리
+		string path = ""; ;
+		path = await UploadFileAsync(selectedFile);
+		if (string.IsNullOrEmpty(path))
+		{
+			responseMessage = "파일 업로드 실패.";
+			return;
+		}
+		//regGal.FILENAME = selectedFile.Name;
+		//regGal.FILE = path;
+		newPost.FilePath2 = path;
+		newPost.FileName2 = selectedFile.Name;
+
+		using var stream = selectedFile.OpenReadStream(maxAllowedSize: 1024 * 1024 * 30); // 최대 30MB
+		var buffer = new byte[selectedFile.Size];
+		await stream.ReadAsync(buffer);
+		var base64 = Convert.ToBase64String(buffer);
+	}
+
+	private async Task HandleEditFileSelected1(IBrowserFile selectedFile)
+	{
+		string path = await UploadFileAsync(selectedFile);
+		if (string.IsNullOrEmpty(path))
+		{
+			responseMessage = "파일 업로드 실패.";
+			return;
+		}
+		editPost.FilePath1 = path;
+		editPost.FileName1 = selectedFile.Name;
+	}
+
+	private async Task HandleEditFileSelected2(IBrowserFile selectedFile)
+	{
+		string path = await UploadFileAsync(selectedFile);
+		if (string.IsNullOrEmpty(path))
+		{
+			responseMessage = "파일 업로드 실패.";
+			return;
+		}
+		editPost.FilePath2 = path;
+		editPost.FileName2 = selectedFile.Name;
+	}
+
+
+	private async Task<string> UploadFileAsync(IBrowserFile file)
+	{
+		var content = new MultipartFormDataContent();
+
+		var stream = file.OpenReadStream(30 * 1024 * 1024); // ✅ 30MB 허용
+		var fileContent = new StreamContent(stream);
+		fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
+		content.Add(fileContent, "File", file.Name);
+
+		var response = await Http.PostAsync("api/recruit/upload", content);
+		if (response.IsSuccessStatusCode)
+		{
+			return await response.Content.ReadAsStringAsync();  // 서버에서 반환된 파일 경로
+		}
+
+		return null;
+	}
+}

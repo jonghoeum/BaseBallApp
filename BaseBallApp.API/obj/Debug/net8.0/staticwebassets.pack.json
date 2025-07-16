@@ -1,6 +1,18 @@
 {
   "Files": [
     {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\faq\\40d42877-50b7-4d74-8034-874a3371af29_(주)메티스 취업규칙.pdf",
+      "PackagePath": "staticwebassets\\faq\\40d42877-50b7-4d74-8034-874a3371af29_(주)메티스 취업규칙.pdf"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\faq\\638f8209-4aad-4a5a-b8cb-607b65bf6a08_(주)메티스 취업규칙.pdf",
+      "PackagePath": "staticwebassets\\faq\\638f8209-4aad-4a5a-b8cb-607b65bf6a08_(주)메티스 취업규칙.pdf"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\faq\\9c9a094d-fae2-4024-a262-1211a86bd496_deliveryLabel.xls",
+      "PackagePath": "staticwebassets\\faq\\9c9a094d-fae2-4024-a262-1211a86bd496_deliveryLabel.xls"
+    },
+    {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\gallery\\1.jpg",
       "PackagePath": "staticwebassets\\gallery\\1.jpg"
     },
@@ -57,8 +69,8 @@
       "PackagePath": "staticwebassets\\gallery\\e288048f-1516-4910-859f-d083d0f3de3d_천안시_야구소프트볼협회장배_실업야구대회4.jpg"
     },
     {
-      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\recruit\\1.png",
-      "PackagePath": "staticwebassets\\recruit\\1.png"
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\recruit\\191e6a23-a87d-44d6-95b3-e16d831eb56d_ERP_현품표추가관련.png",
+      "PackagePath": "staticwebassets\\recruit\\191e6a23-a87d-44d6-95b3-e16d831eb56d_ERP_현품표추가관련.png"
     },
     {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\recruit\\283f35b4-9553-463c-9bf3-8cb727119616_ACTIVE_ERP_멀티사용방법.pptx",
@@ -69,8 +81,24 @@
       "PackagePath": "staticwebassets\\recruit\\61e124a3-a9fb-4a0e-8f90-0c8f1bcae6e3_ACTIVE_ERP_멀티사용방법.pptx"
     },
     {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\recruit\\68b27edd-62e2-4510-974c-0cd770f10b92_MBI_수정본.zip",
+      "PackagePath": "staticwebassets\\recruit\\68b27edd-62e2-4510-974c-0cd770f10b92_MBI_수정본.zip"
+    },
+    {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\recruit\\82d8f2a8-ff53-4d6f-a65d-75ccf3998a12_테스트_bom.xlsx",
       "PackagePath": "staticwebassets\\recruit\\82d8f2a8-ff53-4d6f-a65d-75ccf3998a12_테스트_bom.xlsx"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\recruit\\b2efc1ac-bf9c-45c5-9664-e4e706e6ea9f_20250611085618_IR,IP,BP,BS,LT,SC_[Platform]_공용화LPMFirmware개선변경건_Rev002.pdf",
+      "PackagePath": "staticwebassets\\recruit\\b2efc1ac-bf9c-45c5-9664-e4e706e6ea9f_20250611085618_IR,IP,BP,BS,LT,SC_[Platform]_공용화LPMFirmware개선변경건_Rev002.pdf"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\recruit\\b91d2a7b-f76a-47f3-9e70-f36fcbd7b00e_ACTIVE_ERP_멀티사용방법.pptx",
+      "PackagePath": "staticwebassets\\recruit\\b91d2a7b-f76a-47f3-9e70-f36fcbd7b00e_ACTIVE_ERP_멀티사용방법.pptx"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\supporters\\31f7199c-c415-4428-87d9-ff062dd6e07b_■ 110029750_CB_BOM 0519 취합본 REV.4 FACILITIES FEED ASSY (변경점 최종본).xlsx",
+      "PackagePath": "staticwebassets\\supporters\\31f7199c-c415-4428-87d9-ff062dd6e07b_■ 110029750_CB_BOM 0519 취합본 REV.4 FACILITIES FEED ASSY (변경점 최종본).xlsx"
     },
     {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\uploads\\00a9c165-3cca-4d5e-84dc-a29ebb64c97e_1.jpg",

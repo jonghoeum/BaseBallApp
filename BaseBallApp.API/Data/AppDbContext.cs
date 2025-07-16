@@ -17,5 +17,11 @@ namespace BaseBallApp.API.Data
 		public DbSet<NewsViewModel> NewsViewModel { get; set; } = default!;
 		public DbSet<RecruitClass> Recruit { get; set; }
 		public DbSet<RecruitViewModel> RecruitViewModel { get; set;} = default!;
-	}
+		public DbSet<SupportersClass> Supporters { get; set; } = default!;
+		public DbSet<SupportersViewModel> SupportersViewModel { get; set; } = default!;
+		public DbSet<FaqClass> Faq { get; set; } = default!;
+		public DbSet<FaqViewModel> FaqViewModel { get;set; } = default!;
+		public DbSet<MemberClass> Members { get; set; } = default!;
+
+    }
 }

@@ -1,0 +1,270 @@
+﻿@page "/news"
+@inject HttpClient Http
+@inject IJSRuntime JSRuntime
+@using System.Globalization
+@using BaseBallApp.Data;
+@using BaseBallApp.Shared;
+@using BaseBallApp.Shared.Models;
+@using Blazorise.RichTextEdit;
+
+@inject NavigationManager NavManager
+@inject NewsService _NewsService
+
+<div class="title_area" style="height: 782px;">
+    <h3>Fan</h3>
+</div>
+
+<section class="content_block fan_news">
+    <div>
+        <div class="tab_menu">
+            <ul>
+                <li class="active"><a href="javascript:void(0);" @onclick="GoList"><span></span>구단뉴스</a></li>
+            </ul>
+        </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+        <button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
+    </div>
+    <h4 class="fan_title">
+        <span class="txt_hanwha">메티스</span> 구단의 뉴스를 전해드립니다.
+    </h4>
+    <div class="filter"></div>
+    <div class="list_notice">
+        <div class="th_wrap">
+            <div class="col no">NO</div>
+            <div class="col tit">제목</div>
+            <div class="col date">작성일</div>
+            <div class="col hit">조회수</div>
+            <div class="col edit"></div>
+            <div class="col del"></div>
+        </div>
+        <ul>
+            @foreach (var news in NewsList)
+            {
+                <li class="em">
+                    <div @onclick="() => OnNewsClicked(news)" class="link">
+                        <div class="col no">@news.No</div>
+                        <div class="col tit">@news.Title</div>
+                        <div class="col date">@news.CreatedAt.ToString("yyyy.MM.dd")</div>
+                        <div class="col hit">@news.ViewCount</div>
+                        <div class="col edit">
+                            <button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => OpenEditModal(news)">수정</button>
+                        </div>
+                        <div class="col del">
+                            <button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => DeleteNews(news.IDX)">삭제</button>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <div>
+        <div class="paging_area">
+            <div class="paging">
+                <!-- 이전 10페이지 버튼 -->
+                <button type="button" class="btn_page prev"
+                        @onclick="PreviousPageGroup"
+                        disabled="@(PageNum <= 10)">
+                    <span class="blind">이전 10</span>
+                </button>
+
+                <div class="go_num">
+                    @for (int i = StartPage; i <= EndPage && i <= TotalPages; i++)
+                    {
+                        int pg = i;
+                        <a href="javascript:void(0);"
+                           class="@(pg == PageNum ? "on" : "")"
+                           style="cursor: pointer;"
+                           @onclick="() => LoadNews(pg)">
+                            @pg
+                        </a>
+                    }
+                </div>
+
+                <!-- 다음 10페이지 버튼 -->
+                <button type="button" class="btn_page next"
+                        @onclick="NextPageGroup"
+                        disabled="@(EndPage >= TotalPages)">
+                    <span class="blind">다음 10</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- //.paging_area -->
+</section>
+
+@if (isModalVisible)
+{
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <EditForm Model="@newPost" OnValidSubmit="RegisterNews">
+                    <div class="modal-header" style="color:black;">
+                        <h5 class="modal-title">등록</h5>
+                        <button type="button" class="btn-close" @onclick="() => isModalVisible = false"></button>
+                    </div>
+                    <div class="modal-body">
+                        <InputText @bind-Value="newPost.Title" class="form-control mb-2" placeholder="제목" />
+                        <ValidationMessage For="@(() => newPost.Title)" />
+
+                        <div class="form-check form-switch">
+                            <InputCheckbox @bind-Value="newPost.IsNotice" class="form-check-input" />
+                            <label class="form-check-label" style="color:black;">공지로 등록</label>
+                        </div>
+
+                        <RichTextEdit @ref="editorRef" Theme="RichTextEditTheme.Snow" UseResize="true" />
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" @onclick="() => isModalVisible = false">닫기</button>
+                        <button class="btn btn-primary" type="submit">등록</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}
+
+@if (isEditModalVisible)
+{
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <EditForm Model="@editPost" OnValidSubmit="UpdateNews">
+                    <div class="modal-header" style="color:black;">
+                        <h5 class="modal-title">수정</h5>
+                        <button type="button" class="btn-close" @onclick="() => isEditModalVisible = false"></button>
+                    </div>
+                    <div class="modal-body">
+                        <InputText @bind-Value="editPost.Title" class="form-control mb-2" placeholder="제목" />
+                        <ValidationMessage For="@(() => editPost.Title)" />
+
+                        <div class="form-check form-switch">
+                            <InputCheckbox @bind-Value="editPost.IsNotice" class="form-check-input" />
+                            <label class="form-check-label" style="color:black;">공지로 등록</label>
+                        </div>
+
+                        <RichTextEdit @ref="editEditorRef" Theme="RichTextEditTheme.Snow" UseResize="true" />
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" @onclick="() => isEditModalVisible = false">닫기</button>
+                        <button class="btn btn-primary" type="submit">저장</button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}
+
+@code {
+    private List<NewsViewModel> NewsList = new();
+    private bool isModalVisible = false;
+    private bool isEditModalVisible = false;
+    private NewsClass newPost = new();
+    private NewsClass editPost = new();
+    private RichTextEdit? editorRef;
+    private RichTextEdit? editEditorRef;
+
+    private int PageNum = 1;
+	private int PageSize = 10;
+	private long TotalCount = 0;
+	private int TotalPages => (int)Math.Ceiling((double)TotalCount / PageSize);
+	private int StartPage => ((PageNum - 1) / 10) * 10 + 1;
+	private int EndPage => StartPage + 9;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadNews(PageNum);
+    }
+
+    private async Task LoadNews(int pageNumber)
+    {
+        PageNum = pageNumber;
+        NewsList = await _NewsService.GetNewsAsync(PageNum, PageSize);
+        TotalCount = NewsList.FirstOrDefault()?.TotalCount ?? 0;
+    }
+
+    private async Task RegisterNews()
+    {
+        if (editorRef != null)
+            newPost.Content = await editorRef.GetHtmlAsync();
+
+        var success = await _NewsService.InsertNewsAsync(newPost);
+        if (success)
+        {
+            isModalVisible = false;
+            newPost = new();
+            await LoadNews(PageNum);
+        }
+    }
+
+    private void OpenEditModal(NewsViewModel news)
+    {
+        editPost = new NewsClass
+            {
+                IDX = news.IDX,
+                Title = news.Title,
+                Content = news.Content,
+                IsNotice = news.IsNotice,
+                ViewCount = news.ViewCount,
+                CreatedAt = news.CreatedAt
+            };
+
+        isEditModalVisible = true;
+
+        _ = Task.Delay(100).ContinueWith(async _ =>
+        {
+            if (editEditorRef != null)
+                await InvokeAsync(() => editEditorRef.SetHtmlAsync(editPost.Content ?? ""));
+        });
+    }
+
+    private async Task UpdateNews()
+    {
+        if (editEditorRef != null)
+            editPost.Content = await editEditorRef.GetHtmlAsync();
+
+        var success = await _NewsService.UpdateNewsAsync(editPost);
+        if (success)
+        {
+            isEditModalVisible = false;
+            await LoadNews(PageNum);
+        }
+    }
+
+    private async Task DeleteNews(int id)
+    {
+        bool confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "정말 삭제하시겠습니까?");
+        if (confirmed)
+        {
+            var success = await _NewsService.DeleteNewsAsync(id);
+            if (success)
+                await LoadNews(PageNum);
+        }
+    }
+
+    private async Task OnNewsClicked(NewsViewModel news)
+    {
+        await _NewsService.IncrementViewCountAsync(news.IDX);
+        NavManager.NavigateTo($"/news/detail/{news.IDX}");
+    }
+
+    private void GoList()
+    {
+        NavManager.NavigateTo("/news");
+    }
+    private async Task PreviousPageGroup()
+    {
+        int prevGroupPage = Math.Max(StartPage - 10, 1);
+        await LoadNews(prevGroupPage);
+    }
+    private async Task NextPageGroup()
+    {
+        int nextGroupPage = StartPage + 10;
+        if (nextGroupPage <= TotalPages)
+        {
+            await LoadNews(nextGroupPage);
+        }
+    }
+}

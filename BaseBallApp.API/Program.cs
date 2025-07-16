@@ -61,6 +61,20 @@ app.UseStaticFiles(new StaticFileOptions
 	RequestPath = "/recruit"
 });
 
+app.UseStaticFiles(new StaticFileOptions
+{
+	FileProvider = new PhysicalFileProvider(
+		Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "supporters")),
+	RequestPath = "/supporters"
+});
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "faq")),
+    RequestPath = "/faq"
+});
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
