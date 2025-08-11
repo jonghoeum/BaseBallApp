@@ -35,5 +35,22 @@ namespace BaseBallApp.API.Controllers
 
             return Ok("회원가입 성공");
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(MemberClass model)
+        {
+            var member = await _db.Members.FirstOrDefaultAsync(m => m.UserId == model.UserId);
+            if (member == null)
+                return Unauthorized("아이디 또는 비밀번호가 틀렸습니다.");
+
+            bool verified = BCrypt.Net.BCrypt.Verify(model.Password, member.Password);
+            if (!verified)
+                return Unauthorized("아이디 또는 비밀번호가 틀렸습니다.");
+
+            // 성공 시, 세션 토큰 생성 및 반환 예시 (간단히 UserId만 반환)
+            // JWT 토큰이나 쿠키 방식은 별도 구현 필요.
+            return Ok(new { UserId = member.UserId, Role = member.Role, Name = member.Name });
+        }
+
     }
 }

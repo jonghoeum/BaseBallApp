@@ -9,6 +9,7 @@
 
 @inject NavigationManager NavManager
 @inject NewsService _NewsService
+@inject LoginStateService LoginState
 
 <div class="title_area" style="height: 782px;">
     <h3>Fan</h3>
@@ -22,9 +23,12 @@
             </ul>
         </div>
     </div>
-    <div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
-        <button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
-    </div>
+    @if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
+    {
+        <div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+            <button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
+        </div>
+    }
     <h4 class="fan_title">
         <span class="txt_hanwha">메티스</span> 구단의 뉴스를 전해드립니다.
     </h4>
@@ -35,8 +39,11 @@
             <div class="col tit">제목</div>
             <div class="col date">작성일</div>
             <div class="col hit">조회수</div>
-            <div class="col edit"></div>
-            <div class="col del"></div>
+            @if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
+            {
+                <div class="col edit"></div>
+                <div class="col del"></div>
+            }
         </div>
         <ul>
             @foreach (var news in NewsList)
@@ -47,12 +54,15 @@
                         <div class="col tit">@news.Title</div>
                         <div class="col date">@news.CreatedAt.ToString("yyyy.MM.dd")</div>
                         <div class="col hit">@news.ViewCount</div>
-                        <div class="col edit">
-                            <button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => OpenEditModal(news)">수정</button>
-                        </div>
-                        <div class="col del">
-                            <button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => DeleteNews(news.IDX)">삭제</button>
-                        </div>
+                        @if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
+                        {
+                            <div class="col edit">
+                                <button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => OpenEditModal(news)">수정</button>
+                            </div>
+                            <div class="col del">
+                                <button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => DeleteNews(news.IDX)">삭제</button>
+                            </div>
+                        }
                     </div>
                 </li>
             }
@@ -176,6 +186,7 @@
     protected override async Task OnInitializedAsync()
     {
         await LoadNews(PageNum);
+        LoginState.OnChange += StateHasChanged;
     }
 
     private async Task LoadNews(int pageNumber)
@@ -266,5 +277,9 @@
         {
             await LoadNews(nextGroupPage);
         }
+    }
+    public void Dispose()
+    {
+        LoginState.OnChange -= StateHasChanged;
     }
 }

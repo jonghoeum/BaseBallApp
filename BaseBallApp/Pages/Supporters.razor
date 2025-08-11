@@ -9,6 +9,7 @@
 @using BaseBallApp.Shared
 @using BaseBallApp.Shared.Models;
 @using Blazorise.RichTextEdit;
+@inject LoginStateService LoginState
 
 <div class="title_area" style="height: 782px;">
 	<h3>Supporters</h3>
@@ -22,9 +23,12 @@
 			</ul>
 		</div>
 	</div>
-	<div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
-		<button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
-	</div>
+	@if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
+	{
+		<div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+			<button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
+		</div>
+	}
 	<h4 class="fan_title">
 		<span class="txt_hanwha">메티스</span> 구단을 응원합니다.
 	</h4>
@@ -35,8 +39,11 @@
 			<div class="col tit">제목</div>
 			<div class="col date">작성일</div>
 			<div class="col hit">조회수</div>
-			<div class="col edit"> </div>
-			<div class="col del"> </div>
+			@if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
+			{
+				<div class="col edit"> </div>
+				<div class="col del"> </div>
+			}
 		</div>
 		<ul>
 			@foreach (var supp in SupporterList)
@@ -47,12 +54,15 @@
 						<div class="col tit">@supp.Title</div>
 						<div class="col date">@supp.CreatedAt.ToString("yyyy.MM.dd")</div>
 						<div class="col hit">@supp.ViewCount</div>
-						<div class="col edit">
-							<button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => OpenEditModal(supp)">수정</button>
-						</div>
-						<div class="col del">
-							<button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => DeleteRecruit(supp.IDX)">삭제</button>
-						</div>
+						@if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
+						{
+							<div class="col edit">
+								<button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => OpenEditModal(supp)">수정</button>
+							</div>
+							<div class="col del">
+								<button class="btn btn-sm btn-outline-secondary" @onclick:stopPropagation @onclick="() => DeleteRecruit(supp.IDX)">삭제</button>
+							</div>
+						}
 					</div>
 				</li>
 			}
@@ -179,7 +189,12 @@
 	private RichTextEdit? editEditorRef;
 	private string responseMessage = "";
 
-	protected override async Task OnInitializedAsync() => await LoadPage(PageNum);
+	//protected override async Task OnInitializedAsync() => await LoadPage(PageNum);
+	protected override async Task OnInitializedAsync()
+	{
+		await LoadPage(PageNum);
+		LoginState.OnChange += StateHasChanged;
+	}
 
 	private async Task LoadPage(int pageNumber)
 	{
@@ -361,5 +376,10 @@
 		}
 
 		return null;
+	}
+
+	public void Dispose()
+	{
+		LoginState.OnChange -= StateHasChanged;
 	}
 }

@@ -7,6 +7,7 @@
 @inject IJSRuntime js
 @inject HttpClient Http
 @inject GameService _GameService
+@inject LoginStateService LoginState
 
 <article id="container" class="egles">
     <div class="title_area" style="height: 782px;">
@@ -19,9 +20,12 @@
                 <li><a href="/GA/GF/PCFAGF01.do"><span></span>퓨처스 경기일정</a></li>
             </ul>
         </div> *@
-        <div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
-            <button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
-        </div>
+        @if(LoginState.IsLoggedIn && LoginState.Role == "Admin")
+        {
+            <div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+                <button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
+            </div>
+        }
         <div class="tab_conts">
             @* <div class="sel_view">
                 <button type="button" class="btn_calendar active"><span class="blind">달력형</span></button>
@@ -299,6 +303,7 @@
                     });
             }
         }
+        LoginState.OnChange += StateHasChanged;
     }
     private async Task SetParametersAsync()
     {
@@ -530,6 +535,11 @@
         {
             regGameWithScores.Game.STARTTIME = parsed;
         }
+    }
+
+    public void Dispose()
+    {
+        LoginState.OnChange -= StateHasChanged;
     }
     // private void ShowEditModal(GameWithScores selectedGame)
     // {

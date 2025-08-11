@@ -1,5 +1,8 @@
-﻿@inherits LayoutComponentBase
+﻿@using BaseBallApp.Data
+
+@inherits LayoutComponentBase
 @inject NavigationManager Navigation
+@inject LoginStateService LoginState
 
 <div id="wrap">
 <Blazorise.Bootstrap5.Bootstrap5ThemeProvider />
@@ -29,25 +32,8 @@
 </div> *@
 
 @code{
-    // private string currentUrl;
-    // private string currentPage;
-    // private string cls = "";
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        // currentUrl = Navigation.Uri;
-        // var uri = new Uri(Navigation.Uri);
-        // var segments = uri.Segments;
-        // //currentPage = segments.LastOrDefault()?.TrimEnd('/') ?? "홈";
-        // currentPage = segments.LastOrDefault()?.TrimEnd('/');
-
-        // switch(currentPage)
-        // {
-        //     case "trophy":
-        //         cls = "shop";
-        //         break;
-        //     default :
-        //         cls = "content px-4 main eagles";
-        //         break;
-        // }
+        await LoginState.InitializeAsync();
     }
 }

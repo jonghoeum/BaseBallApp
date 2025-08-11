@@ -6,6 +6,7 @@
 @inject IJSRuntime js
 @inject HttpClient Http
 @inject PlayerService _DataService
+@inject LoginStateService LoginState
 
 <article id="container" class="eagles">
 	<div class="title_area" style="height: 782px;">
@@ -27,9 +28,12 @@
 				</ul>
 			</div>
 		</div>
+		@if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
+		{
 		<div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
 			<button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
 		</div>
+		}
 
 		<div class="content_detail">
 			<div class="player_group">
@@ -43,11 +47,14 @@
 								<li>
 									<p class="thumb">
 										<img src="@imageUrl" alt="@py.NAME" class="blurImg">
-									</p>R
+									</p>
 									<p class="btn_area">
 										<span>
-											<a href="javascript:void(0);" @onclick="e => ModifyModal(py)"><span></span>수정</a><br />
-											<a href="javascript:void(0);" @onclick="e => DeletePlayer(py)"><span></span>삭제</a><br />
+											@if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
+											{
+												<a href="javascript:void(0);" @onclick="e => ModifyModal(py)"><span></span>수정</a><br />
+												<a href="javascript:void(0);" @onclick="e => DeletePlayer(py)"><span></span>삭제</a><br />
+											}
 											프로필<br />
 											@(py.BIRTH?.ToString("yyyy-MM-dd"))<br />
 											@py.POSITION / @(py.STATURE + " cm"), @(py.WEIGHT + " kg")<br />
@@ -191,14 +198,16 @@
 	private string path = "";
 	private string responseMessage = "";
 	private int mode = 0; //0 등록 1수정
+	private string Role = "";
 	protected override async Task OnInitializedAsync()
 	{
 		playersList = await _DataService.GetPlayersAsync();
+		LoginState.OnChange += StateHasChanged;
 	}
 	private async Task RegisterPlayers() //등록
 	{
 		var success = await _DataService.InsertPlayerAsync(player);
-
+		
 		if (success)
 		{
 			responseMessage = "트로피 등록 성공!";
@@ -352,5 +361,9 @@
 				return;
 			}
 		}
+	}
+	public void Dispose()
+	{
+		LoginState.OnChange -= StateHasChanged;
 	}
 }

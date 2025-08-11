@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZEG+F/QE65Tugh7hjDxs7+LvQqe0T09K/uaK7ulIvQc=",
+  "Hash": "Oi1LbwBPu1ELWFnnm3NzhTay2VzpbOUqpITqlh9pEPY=",
   "Source": "BaseBallApp.API",
   "BasePath": "_content/BaseBallApp.API",
   "Mode": "Default",
@@ -1022,6 +1022,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\blank_symbol.png"
+    },
+    {
+      "Identity": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\uploads\\d92f3df9-c4f3-4aef-aed0-222a647f6a46_가공사출_월별재고현황.png",
+      "SourceId": "BaseBallApp.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\",
+      "BasePath": "_content/BaseBallApp.API",
+      "RelativePath": "uploads/d92f3df9-c4f3-4aef-aed0-222a647f6a46_가공사출_월별재고현황.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\d92f3df9-c4f3-4aef-aed0-222a647f6a46_가공사출_월별재고현황.png"
     },
     {
       "Identity": "C:\\local\\BaseBallApp\\BaseBallApp.API\\wwwroot\\uploads\\eb285cc1-3886-4e7e-aff5-24b51c48d320_최기웅님.png",

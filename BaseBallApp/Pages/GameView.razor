@@ -8,6 +8,7 @@
 @inject IJSRuntime js
 @inject HttpClient Http
 @inject GameService _GameService
+@inject LoginStateService LoginState
 
 <article id="container" class="egles">
     <div class="title_area" style="height: 782px;">
@@ -179,8 +180,11 @@
 </article>
 
 <div class="paginate btn_area center mt50">
-    <a href="javascript:void(0);" class="btn_com" @onclick="() => isModalVisible = true"><span></span>수정</a>
-    <a href="javascript:void(0);" class="btn_com" @onclick="e => ConfirmDelete(GameId.ToString())"><span></span>삭제</a>
+    @if(LoginState.IsLoggedIn && LoginState.Role == "Admin")
+    {
+        <a href="javascript:void(0);" class="btn_com" @onclick="() => isModalVisible = true"><span></span>수정</a>
+        <a href="javascript:void(0);" class="btn_com" @onclick="e => ConfirmDelete(GameId.ToString())"><span></span>삭제</a>
+    }
     <a href="/game/@preDate" class="btn_com"><span></span>목록</a>
 </div>
 
@@ -280,7 +284,10 @@
     private GameWithScores regGameWithScores;
     private string preDate = "";
     private bool isModalVisible = false;
-
+    protected override async Task OnInitializedAsync()
+    {
+        LoginState.OnChange += StateHasChanged;
+    }
     protected override async Task OnParametersSetAsync()
     {
         await ReloadData();
@@ -395,5 +402,8 @@
         }
         //await ReloadData();
     }
-
+    public void Dispose()
+    {
+        LoginState.OnChange -= StateHasChanged;
+    }
 }

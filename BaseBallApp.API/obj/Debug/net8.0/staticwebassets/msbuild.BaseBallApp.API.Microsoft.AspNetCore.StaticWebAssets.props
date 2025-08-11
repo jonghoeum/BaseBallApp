@@ -848,6 +848,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\blank_symbol.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\d92f3df9-c4f3-4aef-aed0-222a647f6a46_가공사출_월별재고현황.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>BaseBallApp.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BaseBallApp.API</BasePath>
+      <RelativePath>uploads/d92f3df9-c4f3-4aef-aed0-222a647f6a46_가공사출_월별재고현황.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\d92f3df9-c4f3-4aef-aed0-222a647f6a46_가공사출_월별재고현황.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\eb285cc1-3886-4e7e-aff5-24b51c48d320_최기웅님.png))">
       <SourceType>Package</SourceType>
       <SourceId>BaseBallApp.API</SourceId>

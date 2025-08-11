@@ -3,6 +3,7 @@
 @inject FaqService _FaqService
 @inject IJSRuntime JS
 @inject NavigationManager NavManager
+@inject LoginStateService LoginState
 
 @using System.Globalization
 @using BaseBallApp.Data;
@@ -38,9 +39,12 @@
     @* <div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
         <button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
     </div> *@
-    <div class="text-end mt-4">
-        <button class="btn btn-primary" @onclick="ShowAddModal">FAQ 등록</button>
-    </div>
+    @if(LoginState.IsLoggedIn && LoginState.Role == "Admin")
+    {
+        <div class="text-end mt-4">
+            <button class="btn btn-primary" @onclick="ShowAddModal">FAQ 등록</button>
+        </div>
+    }
 @* <div class="board_area"> *@
     @if (faqList is null)
     {
@@ -69,10 +73,13 @@
                             }
 
                             <div class="mt-2 " >조회수: @faq.ViewCount | 등록일: @faq.CreatedAt.ToString("yyyy-MM-dd")</div>
-                            <div class="mt-2">
-                                <button class="btn btn-sm btn-outline-primary me-2" @onclick="() => ShowEditModal(faq)">수정</button>
-                                <button class="btn btn-sm btn-outline-danger" @onclick="() => DeleteFaq(faq.IDX)">삭제</button>
-                            </div>
+                            @if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
+                            {
+                                <div class="mt-2">
+                                    <button class="btn btn-sm btn-outline-primary me-2" @onclick="() => ShowEditModal(faq)">수정</button>
+                                    <button class="btn btn-sm btn-outline-danger" @onclick="() => DeleteFaq(faq.IDX)">삭제</button>
+                                </div>
+                            }
                         </div>
                     }
                 </div>
@@ -130,6 +137,8 @@
     protected override async Task OnInitializedAsync()
     {
         await LoadFaqs();
+
+        LoginState.OnChange += StateHasChanged;
     }
 
     async Task LoadFaqs()
@@ -244,4 +253,9 @@
         return null;
     }
     private void GoList() => NavManager.NavigateTo("/Faq");
+
+    public void Dispose()
+    {
+        LoginState.OnChange -= StateHasChanged;
+    }
 }

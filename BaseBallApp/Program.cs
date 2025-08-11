@@ -42,6 +42,7 @@ builder.Services.AddScoped<NewsService>();
 builder.Services.AddScoped<RecruitService>();
 builder.Services.AddScoped<SupporterService>();
 builder.Services.AddScoped<FaqService>();
+builder.Services.AddScoped<LoginStateService>();
 
 builder.Services
     .AddBlazorise(options =>

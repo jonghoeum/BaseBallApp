@@ -9,6 +9,7 @@
 @inject IJSRuntime js
 @inject HttpClient Http
 @inject GalleryService _GalleryService
+@inject LoginStateService LoginState
 
 <style>
 	.gallery-card {
@@ -65,23 +66,28 @@
 			</div>
 
 		</div>
-		<div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
-			<button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
-		</div>
-
+		@if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
+		{
+			<div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+				<button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
+			</div>
+		}
 		<h4 class="bold_title">다채로운 <span class="txt_hanwha">메티스</span>의<br> 모습을 만나보세요.</h4>
 		<div class="container py-4">
 			<div class="row g-3">
 				@foreach (var item in GalleryList)
 				{
-					<div class="col-6 col-md-4 col-lg-3">
-						<div class="gallery-card position-relative overflow-hidden rounded">
+				<div class="col-6 col-md-4 col-lg-3">
+					<div class="gallery-card position-relative overflow-hidden rounded">
 						<!-- 삭제 버튼 -->
-						<button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1"
-								title="삭제"
-								@onclick="() => DeleteImage(item)">
-							✕
-						</button>
+						@if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
+						{
+							<button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1"
+							title="삭제"
+							@onclick="() => DeleteImage(item)">
+								✕
+							</button>
+						}
 						<!-- 이미지 -->
 							<img src="@_GalleryService.GetImageUrl(item.FILE)" alt="@item.TITLE" class="img-fluid w-100 h-100 object-cover" />
 							<!-- 오버레이 -->
@@ -148,7 +154,7 @@
 	{
 		//데이터 조회
 		GalleryList = await _GalleryService.GetGalleryAsync();
-
+		LoginState.OnChange += StateHasChanged;
 		// 	GalleryItems = new()
 		// {
 		// 	new() { Title = "2025 유니폼 1", ImagePath = "/gallery/1.jpg" },
@@ -313,5 +319,8 @@
 			await js.InvokeVoidAsync("alert", "삭제 실패. 관리자에게 문의하세요.");
 		}
 	}
-
+	public void Dispose()
+	{
+		LoginState.OnChange -= StateHasChanged;
+	}
 }

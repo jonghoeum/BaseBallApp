@@ -7,6 +7,8 @@
 @inject IJSRuntime js
 @inject TrophyService _DataService
 @inject HttpClient Http
+@inject LoginStateService LoginState
+
 <style>
 	.custom-modal-overlay {
     position: fixed;
@@ -99,6 +101,71 @@
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
 }
+
+/* 카드형 디자인*/
+	.trophy-card-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: 24px;
+		padding: 0;
+		margin: 20px 0;
+		list-style: none;
+	}
+
+	.trophy-card-item {
+		background: #fff;
+		border: 1px solid #ddd;
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		cursor: pointer;
+	}
+
+		.trophy-card-item:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+		}
+
+		.trophy-card-item img {
+			width: 100%;
+			height: 180px;
+			object-fit: cover;
+			border-bottom: 1px solid #eee;
+		}
+
+		.trophy-card-item span {
+			display: block;
+			padding: 12px;
+			font-size: 1rem;
+			font-weight: 500;
+			color: #333;
+			text-align: center;
+		}
+
+	.trophy-card-btn {
+		position: absolute;
+		top: 10px;
+		padding: 4px 8px;
+		font-size: 0.75rem;
+		border-radius: 6px;
+		color: #fff;
+		cursor: pointer;
+		z-index: 1;
+	}
+
+		.trophy-card-btn.modify {
+			left: 10px;
+			background-color: #0d6efd;
+		}
+
+		.trophy-card-btn.delete {
+			right: 10px;
+			background-color: #dc3545;
+		}
 </style>
 @* <div class="title_area" style="height: 782px;">
     <h3></h3>
@@ -108,100 +175,38 @@
 		<div>
 			<div class="tab_menu">
 				<ul>
-					<li class="" id="PCMNHI"><a href="history"><span></span>HISTORY</a></li>
-					<li class="active" id="PCMNEP"><a href="trophy"><span></span>사료실</a></li>
-					<li class="" id="PCMNCS"><a href="uniform"><span></span>엠블럼/유니폼</a></li>
+					<li class="" id=""><a href="history"><span></span>HISTORY</a></li>
+					<li class="active" id=""><a href="trophy"><span></span>사료실</a></li>
+					<li class="" id=""><a href="uniform"><span></span>엠블럼/유니폼</a></li>
 				</ul>
 			</div>
 
 		</div>
 
 	<div class="prd_list">
-			<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;" @onclick="e => InitModal()">등록</button></div>
-		<p class="counting">전체 <span>@total</span> </p>
-		<ul>
-			@if (trophies.Count() > 0)
-			{
-				@foreach(var trp in trophies)
+			<ul class="trophy-card-list">
+				@if (trophies.Count() > 0)
 				{
-					var imageUrl = _DataService.GetImageUrl(trp.FILE);
-					<li class="goods-card">
-							<a href="javascript:void(0);" class="" @onclick="e => ViewModal(trp)">
-							<i class="new" @onclick="e => ModifyModal(trp)">수정</i>
-							<i class="new2" @onclick="e => DeleteTrophy(trp)">삭제</i>
-							<!-- <i th:case="*" class="best">BEST</i> -->
-							<img style="max-height: 80%; max-width: 100%;" src="@imageUrl" alt="17f8771e-a579-4521-bc90-04ad6863a0bd.png">
-							<span>@trp.TITLE</span>
-						</a>
-					</li>
-				}
-			}
-			else
-			{
-						
-			}
-		@*<li class="goods-card">
-				<a href="https://eaglesshop.co.kr/product/%EC%98%A4%EB%A0%8C%EC%A7%80-%EB%A6%AC%EB%B3%B8-%EB%A8%B8%EB%A6%AC%ED%95%80/363/category/68/display/1/" target="_blank" data-id="697" class="">
-					<i class="new">NEW</i>
-					<!-- <i th:case="*" class="best">BEST</i> -->
-						<img style="max-height: 80%; max-width: 100%;" src="/image/251.png" alt="73269b4a-5163-4c94-83f2-ef6337a8e5e6.png">
-					<span>오렌지 리본 머리핀</span>
-				</a>
-			</li>
-			<li class="goods-card">
-				<a href="https://eaglesshop.co.kr/product/%EC%88%98%EB%A6%AC-%EC%A7%91%EA%B2%8C-%EB%A8%B8%EB%A6%AC%ED%95%80-2%EC%9E%85/373/category/68/display/1/" target="_blank" data-id="696">
-					<i class="new">NEW</i>
-					<!-- <i th:case="*" class="best">BEST</i> -->
-						<img style="max-height: 80%; max-width: 100%;" src="/image/252.png" alt="724f8afa-8cbb-4ca5-9be0-705941acdd8d.png">
-					<span>수리 집게 머리핀 2입</span>
-				</a>
-			</li>
-			<li class="goods-card">
-				<a href="https://eaglesshop.co.kr/product/%EC%88%98%EB%A6%AC-%EC%84%B8%EC%8C%8D%EB%91%A5%EC%9D%B4-%EB%A8%B8%EB%A6%AC%ED%95%80-2%EC%9E%85/371/category/65/display/1/" target="_blank" data-id="695">
-					<i class="new">NEW</i>
-					<!-- <i th:case="*" class="best">BEST</i> -->
-						<img style="max-height: 80%; max-width: 100%;" src="/image/253.png" alt="b48265d7-9de0-47c0-882c-013fc3dd7c36.png">
-					<span>수리 세쌍둥이 머리핀 2입</span>
-				</a>
-			</li>
-			<li class="goods-card">
-				<a href="https://eaglesshop.co.kr/product/%EB%AF%B8%EB%8B%88-%EB%AA%A8%EC%9E%90-%ED%82%A4%EB%A7%81/364/category/67/display/1/" target="_blank" data-id="694">
-					<i class="new">NEW</i>
-					<!-- <i th:case="*" class="best">BEST</i> -->
-						<img style="max-height: 80%; max-width: 100%;" src="/image/254.png" alt="86e796df-b595-4f4e-9aac-4df3fb9dfb07.png">
-					<span>미니 모자 키링</span>
-				</a>
-			</li> *@
-		</ul>
+					@foreach (var trp in trophies)
+					{
+						var imageUrl = _DataService.GetImageUrl(trp.FILE);
+						<li class="trophy-card-item" @onclick="e => ViewModal(trp)">
+							@if(LoginState.IsLoggedIn && LoginState.Role == "Admin")
+							{
+								<span class="trophy-card-btn modify" @onclick:stopPropagation @onclick="e => ModifyModal(trp)">수정</span>
+								<span class="trophy-card-btn delete" @onclick:stopPropagation @onclick="e => DeleteTrophy(trp)">삭제</span>
+							}
 
-		<div>
-			<div class="paging_area">
-				<div class="paging">
-					<!-- <button type="button" th:onclick="|searchTable(0, '${page_length}')|" class="btn_page start" th:disabled="${btn_select == 0}"><span class="blind">맨처음</span></button>  -->
-					<button type="button" onclick="searchTable('0', '40')" class="btn_page prev" disabled="disabled"><span class="blind">이전 10</span></button>
-					<div class="go_num">
-						<a style="pointer-events: none;" onclick="searchTable('0', '40')" class="on">1</a>
-					</div>
-					<button type="button" class="btn_page next" onclick="searchTable('40', '40')" disabled="disabled">
-						<span class="blind">다음 10</span>
-					</button>
-					<!--
-					<button type="button"
-						class="btn_page end"
-						th:onclick="|searchTable('${(btn_all_length -1) * page_length}', '${page_length}')|"
-						th:disabled="${btn_select &gt;= (btn_all_length - 1)}">
-						<span class="blind">맨끝</span>
-					</button>  
-					-->
-				</div>
-			</div>
-		</div>
-		@* <div>
-			<input @bind="trophys.TITLE" placeholder="제목" />
-			<input @bind="trophys.CONTENT" placeholder="내용" />
-			<FileUploader OnFileSelected="HandleFileSelected" />
-			<button @onclick="RegisterTrophy">등록</button>
-		</div> *@
+							<img src="@imageUrl" alt="@trp.TITLE" />
+							<span>@trp.TITLE</span>
+						</li>
+					}
+				}
+				else
+				{
+					<li style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #888;">등록된 트로피가 없습니다.</li>
+				}
+			</ul>
 	</div>
 	
 </section>
@@ -375,6 +380,7 @@
 		{
 			total = trophies.Count();
 		}
+		LoginState.OnChange += StateHasChanged;
 		//Tdata = await _DataService.GetTrophyData();
 	}
 	private async Task HandleFileSelected(IBrowserFile selectedFile)
@@ -552,5 +558,10 @@
 			USE = trophy.USE,
 			REG_DATE = trophy.REG_DATE
 		};
+	}
+
+	public void Dispose()
+	{
+		LoginState.OnChange -= StateHasChanged;
 	}
 }
