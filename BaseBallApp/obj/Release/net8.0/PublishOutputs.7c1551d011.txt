@@ -1,0 +1,4 @@
+C:\local\BaseBallApp\BaseBallApp.API\blazor_publish\appsettings.Development.json
+C:\local\BaseBallApp\BaseBallApp.API\blazor_publish\wwwroot\js\custom.js
+C:\local\BaseBallApp\BaseBallApp.API\blazor_publish\wwwroot\js\Scroll.js
+C:\local\BaseBallApp\BaseBallApp.API\blazor_publish\web.config

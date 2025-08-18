@@ -9,6 +9,13 @@
   <ItemGroup>
     <Content Remove="wwwroot\js\custom.js" />
     <Content Remove="wwwroot\js\Scroll.js" />
+	<Content Remove="wwwroot\_framework\blazor.webassembly.js" />
+	<Content Remove="wwwroot\_framework\**" />
+	<Content Remove="wwwroot\_content\Blazored.TextEditor\**" />
+	<Content Remove="wwwroot\_content\Blazorise.Bootstrap5\**" />
+	<Content Remove="wwwroot\_content\Blazorise.Icons.FontAwesome\**" />
+	<Content Remove="wwwroot\_content\Blazorise.RichTextEdit\**" />
+	<Content Remove="wwwroot\_content\**" />
   </ItemGroup>
 
   <ItemGroup>

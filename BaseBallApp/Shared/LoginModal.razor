@@ -1,0 +1,101 @@
+﻿@using BaseBallApp.Data
+@inject HttpClient Http
+@inject IJSRuntime JS
+@inject LoginStateService LoginState
+
+@if (show)
+{
+    <div class="modal show d-block" tabindex="-1" style="background: rgba(0,0,0,0.4);">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4 rounded-4 shadow" style="max-width: 400px; margin: auto; border-radius: 20px;">
+                <h5 class="fw-bold mb-3 text-center" style="color:black;">로그인</h5>
+                <input class="form-control mb-2" @bind="loginUser.UserId" placeholder="아이디" />
+                <input type="password" class="form-control mb-3" @bind="loginUser.Password" @bind:event="oninput" placeholder="비밀번호" @onkeydown="HandleKeyDown" />
+
+                @if (!string.IsNullOrEmpty(resultMessage))
+                {
+                    <div class="text-danger text-center mb-2">@resultMessage</div>
+                }
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" @onclick="Submit">로그인</button>
+                    <button class="btn btn-link text-muted" @onclick="Hide">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    public class LoginModel
+    {
+        public string UserId { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+
+    private LoginModel loginUser = new();
+    private bool show = false;
+    private string resultMessage = "";
+
+    public void Show()
+    {
+        show = true;
+        StateHasChanged();
+    }
+
+    public void Hide()
+    {
+        show = false;
+        resultMessage = "";
+        StateHasChanged();
+    }
+
+    [Parameter]
+    public EventCallback<bool> OnLoginResult { get; set; } // 로그인 성공 알림용
+
+    private async Task Submit()
+    {
+        var response = await Http.PostAsJsonAsync("/api/member/login", loginUser);
+        if (response.IsSuccessStatusCode)
+        {
+            var userInfo = await response.Content.ReadFromJsonAsync<UserInfo>();
+
+            // 세션 유지 시간 설정 (30분)
+            var expireAt = DateTime.Now.AddMinutes(30);
+
+            await JS.InvokeVoidAsync("sessionStorage.setItem", "UserId", userInfo.UserId);
+            await JS.InvokeVoidAsync("sessionStorage.setItem", "UserName", userInfo.Name);
+            await JS.InvokeVoidAsync("sessionStorage.setItem", "Role", userInfo.Role);
+            await JS.InvokeVoidAsync("sessionStorage.setItem", "ExpireAt", expireAt.ToString("O")); // ISO 8601
+
+            //입력값 초기화
+            loginUser = new();
+            // 로그인 상태 전역 초기화
+            await LoginState.InitializeAsync();
+
+            // 부모 컴포넌트에 로그인 성공 알림
+            await OnLoginResult.InvokeAsync(true);
+
+            Hide();
+        }
+        else
+        {
+            resultMessage = await response.Content.ReadAsStringAsync();
+        }
+    }
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await Submit();
+        }
+    }
+
+    private class UserInfo
+    {
+        public string UserId { get; set; } = "";
+        public string Name { get; set; } = "";
+        public string Role { get; set; } = "";
+    }
+}

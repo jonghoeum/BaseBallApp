@@ -1,0 +1,4 @@
+C:\local\BaseBallApp\BaseBallApp.API\ClientApp\appsettings.Development.json
+C:\local\BaseBallApp\BaseBallApp.API\ClientApp\wwwroot\js\custom.js
+C:\local\BaseBallApp\BaseBallApp.API\ClientApp\wwwroot\js\Scroll.js
+C:\local\BaseBallApp\BaseBallApp.API\ClientApp\web.config

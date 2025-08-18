@@ -1,0 +1,4 @@
+C:\Project_Baseball\publish\Client\appsettings.Development.json
+C:\Project_Baseball\publish\Client\wwwroot\js\custom.js
+C:\Project_Baseball\publish\Client\wwwroot\js\Scroll.js
+C:\Project_Baseball\publish\Client\web.config

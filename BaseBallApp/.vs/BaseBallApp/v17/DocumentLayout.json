@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\local\\BaseBallApp\\BaseBallApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\newsdetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\newsdetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\trophy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\trophy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\noticedetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\noticedetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\players.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\players.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\wwwroot\\css\\page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:wwwroot\\css\\page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\notice.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -23,82 +23,24 @@
       "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\news.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\noticedetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\noticedetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\shared\\loginmodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:shared\\loginmodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\gallery.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\gallery.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\faq.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\faq.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\supporters.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\supporters.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\recruitment.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\recruitment.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\gameview.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\gameview.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\game.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\game.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\trophy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:pages\\trophy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\layout\\topmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:layout\\topmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\data\\playerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:data\\playerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\shared\\joinmodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:shared\\joinmodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\wwwroot\\css\\page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:wwwroot\\css\\page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\data\\loginstateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:data\\loginstateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\controllers\\membercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\controllers\\faqcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\data\\faqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:data\\faqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\faqclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\memberclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|c:\\local\\baseballapp\\baseballapp\\pages\\supportersdetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -113,7 +55,22 @@
       "RelativeMoniker": "D:0:0:{9FBC7511-7EC5-4278-B4FF-D48A53901D68}|BaseBallApp.csproj|solutionrelative:data\\supporterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\memberclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\controllers\\faqcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\faqclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\controllers\\recruitcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\faqviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -122,16 +79,16 @@
       "AbsoluteMoniker": "D:0:0:{BF82D3EE-258C-45B5-B980-63EC74556AD2}|..\\BaseBallApp.API\\BaseBallApp.API.csproj|c:\\local\\baseballapp\\baseballapp.api\\controllers\\supporterscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\supportersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\recruitviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\supportersclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\supportersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\recruitclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5513FFA4-D9D0-4C90-954D-1EA6E6935E56}|..\\BaseBallApp.Shared\\BaseBallApp.Shared.csproj|c:\\local\\baseballapp\\baseballapp.shared\\models\\supportersclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -141,32 +98,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "NewsDetail.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\NewsDetail.razor",
-              "RelativeDocumentMoniker": "Pages\\NewsDetail.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\NewsDetail.razor",
-              "RelativeToolTip": "Pages\\NewsDetail.razor",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAFMAAAAFAAAA",
+              "DocumentIndex": 3,
+              "Title": "Notice.razor",
+              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Notice.razor",
+              "RelativeDocumentMoniker": "Pages\\Notice.razor",
+              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Notice.razor",
+              "RelativeToolTip": "Pages\\Notice.razor",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACIAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-11T07:56:47.804Z",
+              "WhenOpened": "2025-08-14T07:34:41.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Trophy.razor",
+              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Trophy.razor",
+              "RelativeDocumentMoniker": "Pages\\Trophy.razor",
+              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Trophy.razor",
+              "RelativeToolTip": "Pages\\Trophy.razor",
+              "ViewState": "AQIAAKQAAAAAAAAAAAArwL4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T07:30:18.689Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "NoticeDetail.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\NoticeDetail.razor",
-              "RelativeDocumentMoniker": "Pages\\NoticeDetail.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\NoticeDetail.razor",
-              "RelativeToolTip": "Pages\\NoticeDetail.razor",
-              "ViewState": "AQIAADYAAAAAAAAAAAAnwEkAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-11T07:56:28.29Z"
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "wwwroot\\index.html",
+              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\index.html",
+              "RelativeToolTip": "wwwroot\\index.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-14T07:04:41.259Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -176,73 +146,25 @@
               "RelativeDocumentMoniker": "Pages\\News.razor",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\News.razor",
               "RelativeToolTip": "Pages\\News.razor",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAAAEEAAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-28T07:44:10.598Z"
+              "WhenOpened": "2025-08-14T06:45:12.715Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Notice.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Notice.razor",
-              "RelativeDocumentMoniker": "Pages\\Notice.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Notice.razor",
-              "RelativeToolTip": "Pages\\Notice.razor",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAAAH4AAAAAAAAA",
+              "DocumentIndex": 5,
+              "Title": "NoticeDetail.razor",
+              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\NoticeDetail.razor",
+              "RelativeDocumentMoniker": "Pages\\NoticeDetail.razor",
+              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\NoticeDetail.razor",
+              "RelativeToolTip": "Pages\\NoticeDetail.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEAAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-28T07:36:52.586Z"
+              "WhenOpened": "2025-08-11T07:56:28.29Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Gallery.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Gallery.razor",
-              "RelativeDocumentMoniker": "Pages\\Gallery.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Gallery.razor",
-              "RelativeToolTip": "Pages\\Gallery.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-28T07:27:39.036Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "GameView.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\GameView.razor",
-              "RelativeDocumentMoniker": "Pages\\GameView.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\GameView.razor",
-              "RelativeToolTip": "Pages\\GameView.razor",
-              "ViewState": "AQIAAL0AAAAAAAAAAAAEwLYAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-28T07:12:11.414Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Game.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Game.razor",
-              "RelativeDocumentMoniker": "Pages\\Game.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Game.razor",
-              "RelativeToolTip": "Pages\\Game.razor",
-              "ViewState": "AQIAAAQBAAAAAAAAAAAEwBYBAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-28T07:10:29.647Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Players.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Players.razor",
-              "RelativeDocumentMoniker": "Pages\\Players.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Players.razor",
-              "RelativeToolTip": "Pages\\Players.razor",
-              "ViewState": "AQIAADsAAAAAAAAAAAAEwEcAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-28T06:23:17.367Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
               "Title": "PlayerService.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Data\\PlayerService.cs",
               "RelativeDocumentMoniker": "Data\\PlayerService.cs",
@@ -254,31 +176,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 2,
               "Title": "page.css",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\page.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\page.css",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\page.css",
               "RelativeToolTip": "wwwroot\\css\\page.css",
-              "ViewState": "AQIAAN4EAAAAAAAAAAAAAPkEAAAiAAAA",
+              "ViewState": "AQIAAEEFAAAAAAAAAAAhwFgFAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-07-16T06:11:55.551Z"
+              "WhenOpened": "2025-07-16T06:11:55.551Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Trophy.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Trophy.razor",
-              "RelativeDocumentMoniker": "Pages\\Trophy.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Trophy.razor",
-              "RelativeToolTip": "Pages\\Trophy.razor",
-              "ViewState": "AQIAABQCAAAAAAAAAAAUwCUCAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T05:55:16.05Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 8,
               "Title": "LoginStateService.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Data\\LoginStateService.cs",
               "RelativeDocumentMoniker": "Data\\LoginStateService.cs",
@@ -290,19 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "TopMenu.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Layout\\TopMenu.razor",
-              "RelativeDocumentMoniker": "Layout\\TopMenu.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Layout\\TopMenu.razor",
-              "RelativeToolTip": "Layout\\TopMenu.razor",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAAF8AAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T00:27:21.813Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "LoginModal.razor",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Shared\\LoginModal.razor",
               "RelativeDocumentMoniker": "Shared\\LoginModal.razor",
@@ -314,31 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "JoinModal.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Shared\\JoinModal.razor",
-              "RelativeDocumentMoniker": "Shared\\JoinModal.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Shared\\JoinModal.razor",
-              "RelativeToolTip": "Shared\\JoinModal.razor",
-              "ViewState": "AQIAACwAAAAAAAAAAAAmwEEAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T02:13:01.513Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "MemberController.cs",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.API\\Controllers\\MemberController.cs",
-              "RelativeDocumentMoniker": "..\\BaseBallApp.API\\Controllers\\MemberController.cs",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp.API\\Controllers\\MemberController.cs",
-              "RelativeToolTip": "..\\BaseBallApp.API\\Controllers\\MemberController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAIwBwAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T01:08:55.464Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 13,
               "Title": "MemberClass.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.Shared\\Models\\MemberClass.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.Shared\\Models\\MemberClass.cs",
@@ -350,19 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Faq.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Faq.razor",
-              "RelativeDocumentMoniker": "Pages\\Faq.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Faq.razor",
-              "RelativeToolTip": "Pages\\Faq.razor",
-              "ViewState": "AQIAAI8AAAAAAAAAAAAqwI8AAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-15T02:43:46.889Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 14,
               "Title": "FaqController.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.API\\Controllers\\FaqController.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.API\\Controllers\\FaqController.cs",
@@ -374,19 +237,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 9,
               "Title": "FaqService.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Data\\FaqService.cs",
               "RelativeDocumentMoniker": "Data\\FaqService.cs",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Data\\FaqService.cs",
               "RelativeToolTip": "Data\\FaqService.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACcAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAABIwCcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-15T02:42:37.111Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 15,
               "Title": "FaqClass.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.Shared\\Models\\FaqClass.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.Shared\\Models\\FaqClass.cs",
@@ -398,31 +261,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 12,
               "Title": "SupporterService.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Data\\SupporterService.cs",
               "RelativeDocumentMoniker": "Data\\SupporterService.cs",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Data\\SupporterService.cs",
               "RelativeToolTip": "Data\\SupporterService.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAABIwDgAAAAAAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAOBjwDgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T23:53:40.214Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Recruitment.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Recruitment.razor",
-              "RelativeDocumentMoniker": "Pages\\Recruitment.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Recruitment.razor",
-              "RelativeToolTip": "Pages\\Recruitment.razor",
-              "ViewState": "AQIAAL0AAAAAAAAAAAArwNMAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T00:08:21.344Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 16,
               "Title": "RecruitController.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.API\\Controllers\\RecruitController.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.API\\Controllers\\RecruitController.cs",
@@ -434,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 11,
               "Title": "RecruitService.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Data\\RecruitService.cs",
               "RelativeDocumentMoniker": "Data\\RecruitService.cs",
@@ -446,19 +297,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 17,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.API\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.API\\Data\\AppDbContext.cs",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp.API\\Data\\AppDbContext.cs",
               "RelativeToolTip": "..\\BaseBallApp.API\\Data\\AppDbContext.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAawBcAAAAjAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAIA0wBcAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T23:59:35.194Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 18,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.API\\Program.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.API\\Program.cs",
@@ -470,31 +321,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 10,
               "Title": "SupportersDetail.razor",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\SupportersDetail.razor",
               "RelativeDocumentMoniker": "Pages\\SupportersDetail.razor",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\SupportersDetail.razor",
               "RelativeToolTip": "Pages\\SupportersDetail.razor",
-              "ViewState": "AQIAACoAAAAAAAAAAABIwDsAAAB3AAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAABiwDsAAAB3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-14T07:14:32.63Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Supporters.razor",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Supporters.razor",
-              "RelativeDocumentMoniker": "Pages\\Supporters.razor",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Pages\\Supporters.razor",
-              "RelativeToolTip": "Pages\\Supporters.razor",
-              "ViewState": "AQIAACIAAAAAAAAAAAArwDQAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-13T23:53:34.343Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 19,
               "Title": "FaqViewModel.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.Shared\\Models\\FaqViewModel.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.Shared\\Models\\FaqViewModel.cs",
@@ -506,19 +345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAAswDMAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T00:31:13.232Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 20,
               "Title": "SupportersController.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.API\\Controllers\\SupportersController.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.API\\Controllers\\SupportersController.cs",
@@ -530,7 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 21,
               "Title": "RecruitViewModel.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.Shared\\Models\\RecruitViewModel.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.Shared\\Models\\RecruitViewModel.cs",
@@ -542,19 +369,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 22,
               "Title": "SupportersViewModel.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.Shared\\Models\\SupportersViewModel.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.Shared\\Models\\SupportersViewModel.cs",
               "ToolTip": "C:\\local\\BaseBallApp\\BaseBallApp.Shared\\Models\\SupportersViewModel.cs",
               "RelativeToolTip": "..\\BaseBallApp.Shared\\Models\\SupportersViewModel.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAABIwBgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAABQwBgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-14T00:31:14.873Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 23,
               "Title": "RecruitClass.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.Shared\\Models\\RecruitClass.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.Shared\\Models\\RecruitClass.cs",
@@ -566,7 +393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 24,
               "Title": "SupportersClass.cs",
               "DocumentMoniker": "C:\\local\\BaseBallApp\\BaseBallApp.Shared\\Models\\SupportersClass.cs",
               "RelativeDocumentMoniker": "..\\BaseBallApp.Shared\\Models\\SupportersClass.cs",

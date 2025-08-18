@@ -1,0 +1,14 @@
+C:\local\BaseBallApp\publish\blazor\BaseBallApp.Shared.dll
+C:\local\BaseBallApp\publish\blazor\BaseBallApp.Shared.deps.json
+C:\local\BaseBallApp\publish\blazor\BaseBallApp.Shared.pdb
+C:\local\BaseBallApp\publish\blazor\Microsoft.EntityFrameworkCore.dll
+C:\local\BaseBallApp\publish\blazor\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\local\BaseBallApp\publish\blazor\Microsoft.Extensions.Caching.Abstractions.dll
+C:\local\BaseBallApp\publish\blazor\Microsoft.Extensions.Caching.Memory.dll
+C:\local\BaseBallApp\publish\blazor\Microsoft.Extensions.DependencyInjection.dll
+C:\local\BaseBallApp\publish\blazor\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\local\BaseBallApp\publish\blazor\Microsoft.Extensions.Logging.dll
+C:\local\BaseBallApp\publish\blazor\Microsoft.Extensions.Logging.Abstractions.dll
+C:\local\BaseBallApp\publish\blazor\Microsoft.Extensions.Options.dll
+C:\local\BaseBallApp\publish\blazor\Microsoft.Extensions.Primitives.dll
+C:\local\BaseBallApp\publish\blazor\System.Diagnostics.DiagnosticSource.dll

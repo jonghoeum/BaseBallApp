@@ -1,0 +1,155 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = BaseBallApp
+build_property.RootNamespace = BaseBallApp
+build_property.ProjectDir = C:\local\BaseBallApp\BaseBallApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\local\BaseBallApp\BaseBallApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/local/BaseBallApp/BaseBallApp/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Layout/Footer.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XEZvb3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Layout/TopMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XFRvcE1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/About.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Board.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9hcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Faq.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFxLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Gallery.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FsbGVyeS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Game.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Game2.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZTIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/GameView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZVZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/History.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGlzdG9yeS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/News.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/NewsDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3c0RldGFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Notice.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/NoticeDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWNlRGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Players.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWVycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/RecruitDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVjcnVpdERldGFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Recruitment.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVjcnVpdG1lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Staff.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmYucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Supporters.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VwcG9ydGVycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/SupportersDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VwcG9ydGVyc0RldGFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Trophy.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJvcGh5LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Uniform.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVW5pZm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Shared/DnDFileUploader.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERuREZpbGVVcGxvYWRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Shared/FileUploader.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZpbGVVcGxvYWRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Shared/JoinModal.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEpvaW5Nb2RhbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Shared/LoginModal.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/local/BaseBallApp/BaseBallApp/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-fv88zmfowz
+
+[C:/local/BaseBallApp/BaseBallApp/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-d2o14fr5nf
