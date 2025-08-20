@@ -17,7 +17,7 @@ namespace BaseBallApp.Data
 
 		public async Task<List<PlayersClass>> GetPlayersAsync()
 		{
-			return await _http.GetFromJsonAsync<List<PlayersClass>>("api/Players");
+			return await _http.GetFromJsonAsync<List<PlayersClass>>("api/Players/Player");
 		}
 
 		public async Task<bool> InsertPlayerAsync(PlayersClass players)

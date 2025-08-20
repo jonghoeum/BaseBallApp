@@ -170,15 +170,11 @@
 @* <div class="title_area" style="height: 782px;">
     <h3></h3>
 </div> *@
-<button type="button" @onclick="e => InitModal()">등록</button>
 <article id="container" class="shop">
-	<section class="content_block">
-		@* @if (LoginState.IsLoggedIn && LoginState.Role == "Admin")
-		{
-			<div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
-				<button class="btn btn-primary" @onclick="() => isModalVisible = true">등록</button>
-			</div>
-		} *@
+	<div class="title_area" style="height: 782px;">
+		<h3>Trophy</h3>
+	</div>
+<section class="content_block">
 		<div>
 			<div class="tab_menu">
 				<ul>
@@ -187,10 +183,10 @@
 					<li class="" id=""><a href="uniform"><span></span>엠블럼/유니폼</a></li>
 				</ul>
 			</div>
+
 		</div>
 
 	<div class="prd_list">
-			<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;" @onclick="e => InitModal()">등록</button></div>
 			<ul class="trophy-card-list">
 				@if (trophies.Count() > 0)
 				{

@@ -38,6 +38,7 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
+app.UseBlazorFrameworkFiles();
 app.UseStaticFiles(); // 기본 wwwroot 설정
 
 app.UseStaticFiles(new StaticFileOptions
@@ -80,5 +81,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapFallbackToFile("index.html");
 
 app.Run();

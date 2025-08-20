@@ -24,6 +24,27 @@ var apiBaseAddress = configJson?["ApiSettings"]["BaseAddress"] ?? throw new Exce
 // DI에 HttpClient 등록
 builder.Services.AddScoped(sp => new HttpClient
 {
+    BaseAddress = new Uri(apiBaseAddress)
+});
+
+//// 환경에 따라 appsettings 파일 선택
+//string environment = builder.HostEnvironment.Environment;
+
+////var configFile = environment == "Development"
+////	? "appsettings.Development.json"
+////	: "appsettings.Production.json";
+//var configFile = "appsettings.Production.json";
+
+//// appsettings.{env}.json 읽기
+//using var tempClient = new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) };
+//var configJson = await tempClient.GetFromJsonAsync<Dictionary<string, Dictionary<string, string>>>(configFile);
+
+//var apiBaseAddress = configJson?["ApiSettings"]["BaseAddress"]
+//	?? throw new Exception($"BaseAddress not found in {configFile}");
+
+// HttpClient DI 등록
+builder.Services.AddScoped(sp => new HttpClient
+{
 	BaseAddress = new Uri(apiBaseAddress)
 });
 

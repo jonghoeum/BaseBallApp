@@ -9,16 +9,10 @@
   <ItemGroup>
     <Content Remove="wwwroot\js\custom.js" />
     <Content Remove="wwwroot\js\Scroll.js" />
-	<Content Remove="wwwroot\_framework\blazor.webassembly.js" />
-	<Content Remove="wwwroot\_framework\**" />
-	<Content Remove="wwwroot\_content\Blazored.TextEditor\**" />
-	<Content Remove="wwwroot\_content\Blazorise.Bootstrap5\**" />
-	<Content Remove="wwwroot\_content\Blazorise.Icons.FontAwesome\**" />
-	<Content Remove="wwwroot\_content\Blazorise.RichTextEdit\**" />
-	<Content Remove="wwwroot\_content\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\appsettings.Production.json" />
     <_ContentIncludedByDefault Remove="wwwroot\js\custom.js" />
     <_ContentIncludedByDefault Remove="wwwroot\js\Scroll.js" />
   </ItemGroup>
@@ -43,6 +37,28 @@
   <ItemGroup>
     <ProjectReference Include="..\BaseBallApp.Shared\BaseBallApp.Shared.csproj" />
   </ItemGroup>
+	<!--<ItemGroup>
+		<Content Include="wwwroot\appsettings.Production.json" />
+	</ItemGroup>-->
+
+	<!-- SDK 자동 Content 중복 방지 -->
+	<!--<ItemGroup>
+		<Content Remove="wwwroot\appsettings.Development.json" />
+		<Content Remove="wwwroot\appsettings.Production.json" />
+	</ItemGroup>-->
+
+	<!-- 빌드 환경별 appsettings.json 복사 -->
+	<!--<Target Name="CopyAppSettings" AfterTargets="Build">-->
+		<!-- Debug 빌드 시 -->
+		<!--<Copy SourceFiles="wwwroot\appsettings.Development.json"
+			  DestinationFiles="wwwroot\appsettings.json"
+			  Condition="'$(Configuration)'=='Debug'" />-->
+
+		<!-- Release 빌드 시 -->
+		<!--<Copy SourceFiles="wwwroot\appsettings.Production.json"
+			  DestinationFiles="wwwroot\appsettings.json"
+			  Condition="'$(Configuration)'=='Release'" />
+	</Target>-->
 
   <ItemGroup>
     <Content Update="Pages\History.razor">

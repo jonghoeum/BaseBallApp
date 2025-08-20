@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "BaseBallApp",
   "resources": {
-    "hash": "sha256-YomPIG+6JeZo4Pdn8FguMoK6/DVcJoSbRRu4Wdawlz0=",
+    "hash": "sha256-5GXPIHfiQuiGn6qChlKMuEUmrS1xHhJ0pMm+OehbWGs=",
     "jsModuleNative": {
       "dotnet.native.8.0.14.n6jge83vn9.js": "sha256-DTUQS6Jc6BNnS7sYYezFfaUKVmQq0/lanhQuJfygH/k="
     },
@@ -220,18 +220,21 @@
       "mscorlib.wasm": "sha256-8L4O6tiH48gEZfzf0Y84J01S+3eEG59Bo5bfpH2H+9Y=",
       "netstandard.wasm": "sha256-sEvS/ZjfGhf1dLglmk72ysM50loOygjujJ/J5OhFLEw=",
       "System.Private.CoreLib.wasm": "sha256-BhHYDTpkph+YJOQuAlv6aSrvjTVX0WLTIDBXecinFXo=",
-      "BaseBallApp.Shared.wasm": "sha256-UkagCXMk+BOCSkDEn+rxFkE/NhidCvRMeyuewj2C++g=",
-      "BaseBallApp.wasm": "sha256-uZaQjzUIZCkeIbRJFJSNkb1WQkpihKyk/JTBGxyz4zA="
+      "BaseBallApp.Shared.wasm": "sha256-t8/NjTXaKsRbPnVpti5T5xXS83V7rIZTmXrG27Hcvic=",
+      "BaseBallApp.wasm": "sha256-+tKmODc5sxUprn4Z8xCJYqYE5sH+bK1Uv67SlmT2kg8="
     },
     "pdb": {
-      "BaseBallApp.Shared.pdb": "sha256-G120UQtZXMteyDDYuX5VE75ky4q/yhBIfOy3fU+5H98=",
-      "BaseBallApp.pdb": "sha256-W/oYRCutjJEMRjiSd/Xmcbk3ppC2Xe4MZtW20+PNjrI="
+      "BaseBallApp.Shared.pdb": "sha256-uCgDcMsZ/oP7gu7VLIEiAlL1dnwcnt+QQemeeNNDzy4=",
+      "BaseBallApp.pdb": "sha256-XyFs6alRVcIx1UStB1pkoZKEbiH9zE+BfIOfcZzzZPc="
     }
   },
   "cacheBootResources": true,
   "debugLevel": -1,
   "appsettings": [
-    "../appsettings.json"
+    "../appsettings - 복사.json",
+    "../appsettings.Development.json",
+    "../appsettings.json",
+    "../appsettings.Production.json"
   ],
   "globalizationMode": "sharded",
   "extensions": {

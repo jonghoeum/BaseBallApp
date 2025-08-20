@@ -1,4 +1,3 @@
-C:\local\BaseBallApp\BaseBallApp\obj\Release\net8.0\browser-wasm\PubTmp\Out\appsettings.Development.json
 C:\local\BaseBallApp\BaseBallApp\obj\Release\net8.0\browser-wasm\PubTmp\Out\wwwroot\js\custom.js
 C:\local\BaseBallApp\BaseBallApp\obj\Release\net8.0\browser-wasm\PubTmp\Out\wwwroot\js\Scroll.js
 C:\local\BaseBallApp\BaseBallApp\obj\Release\net8.0\browser-wasm\PubTmp\Out\web.config

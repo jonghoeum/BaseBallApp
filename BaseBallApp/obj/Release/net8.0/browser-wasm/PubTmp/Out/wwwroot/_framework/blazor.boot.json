@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "BaseBallApp",
   "resources": {
-    "hash": "sha256-/GIXe3ou6gNsMbZZDQfYKyKL08XWN5bf7U2TpGEM4WE=",
+    "hash": "sha256-WJdVYbllCPNapYLhUd7sHWmy7pgm/FhIK75dvujUVYo=",
     "jsModuleNative": {
       "dotnet.native.8.0.14.ixhuimdcur.js": "sha256-hHQubKIpdQDiMMCio9cQgnfPwIM+8WztrDDiIuqDWC0="
     },
@@ -17,8 +17,8 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "BaseBallApp.Shared.wasm": "sha256-UGJipX+zremZV+TtMwVVTJtXUCeb6nPkZq2q76Rd97c=",
-      "BaseBallApp.wasm": "sha256-CqVoqIUnTXlwNHU6pFYwxOweSY2THqcEVmOOAYsggbQ=",
+      "BaseBallApp.Shared.wasm": "sha256-Te29SD66VTi4Jj5up5UOIKuwMOEVVuYLv6tnJznPWts=",
+      "BaseBallApp.wasm": "sha256-XsPD0RxQ9MDtTfkxh+uhWsp5R/GVxLpE/kugPNqPg5A=",
       "Blazored.TextEditor.wasm": "sha256-IWiJK8ed6QrIN3O1WNqFGuoOCcUGDbG8zlgh0uqAutQ=",
       "Blazorise.Bootstrap5.wasm": "sha256-i6chHuoa6UoOCDytxFiKUtd6STZni6G1Giw4hCmFHsw=",
       "Blazorise.Icons.FontAwesome.wasm": "sha256-Iye9hf/YqlVcLI4VCMkC2KwcF/CCmFl39mbkSgeubkc=",

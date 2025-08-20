@@ -16,7 +16,7 @@ namespace BaseBallApp.API.Controllers
 			_db = db;
 		}
 
-		[HttpGet]
+		[HttpGet("Player")]
 		public async Task<ActionResult<IEnumerable<PlayersClass>>> GetPlayersAsync()
 		{
 			using var transaction = await _db.Database.BeginTransactionAsync();

@@ -1,4 +1,0 @@
-C:\local\BaseBallApp\publish\blazor\appsettings.Development.json
-C:\local\BaseBallApp\publish\blazor\wwwroot\js\custom.js
-C:\local\BaseBallApp\publish\blazor\wwwroot\js\Scroll.js
-C:\local\BaseBallApp\publish\blazor\web.config
