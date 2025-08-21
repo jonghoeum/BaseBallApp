@@ -17,10 +17,6 @@
       "PackagePath": "staticwebassets\\_favicon.png"
     },
     {
-      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\appsettings - 복사.json",
-      "PackagePath": "staticwebassets\\appsettings - 복사.json"
-    },
-    {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\appsettings.Development.json",
       "PackagePath": "staticwebassets\\appsettings.Development.json"
     },
@@ -31,6 +27,14 @@
     {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\appsettings.json",
       "PackagePath": "staticwebassets\\appsettings.json"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\appsettings_로컬.json",
+      "PackagePath": "staticwebassets\\appsettings_로컬.json"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\appsettings_서버.json",
+      "PackagePath": "staticwebassets\\appsettings_서버.json"
     },
     {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\css\\TopMenu.css",
@@ -201,12 +205,20 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.js"
+    },
+    {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\js\\header.js",
       "PackagePath": "staticwebassets\\js\\header.js"
     },
     {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\js\\jquery-1.12.4.js",
       "PackagePath": "staticwebassets\\js\\jquery-1.12.4.js"
+    },
+    {
+      "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\js\\quill.min.js",
+      "PackagePath": "staticwebassets\\js\\quill.min.js"
     },
     {
       "Id": "C:\\local\\BaseBallApp\\BaseBallApp\\wwwroot\\js\\side.js",

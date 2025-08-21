@@ -187,6 +187,10 @@
 		</div>
 
 	<div class="prd_list">
+		@if(LoginState.IsLoggedIn && LoginState.Role == "Admin")
+		{
+			<div style="height:auto; overflow:hidden;"><button type="button" class="btn btn-secondary btn-sm" style="float:right; margin-right:5px;" @onclick="e => InitModal()">등록</button></div>
+		}
 			<ul class="trophy-card-list">
 				@if (trophies.Count() > 0)
 				{
